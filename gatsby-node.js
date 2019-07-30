@@ -6,8 +6,8 @@
 
 const path = require("path")
 
-exports.createPages = ({ boundActionCreators, graphql }) => {
-  const { createPage } = boundActionCreators
+exports.createPages = ({ actions, graphql }) => {
+  const { createPage } = actions
 
   const postTemplate = path.resolve("src/components/post.js")
 
@@ -21,6 +21,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
             frontmatter {
               path
               title
+              date
             }
           }
         }
