@@ -6,12 +6,24 @@
  */
 
 import React from "react"
+import { ThemeProvider } from "styled-components"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import Footer from "./footer"
-import "./layout.css"
+import "../styles/layout.css"
+
+const theme = {
+  purple: "#4C2A85",
+  green: "#4ECDC4",
+  black: "#000013",
+  white: "FFFFFA",
+  grey: "#292F36",
+  orange: "FA8334",
+  blue: "5386E4",
+  bs: "0 12px 24px 0 rgba(0, 0, 0, 0.10)",
+}
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -25,20 +37,14 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0px 1.0875rem 1.45rem`,
-          paddingTop: 0,
-        }}
-      >
+    <ThemeProvider theme={theme}>
+      <>
+        <Header siteTitle={data.site.siteMetadata.title} />
+
         <main>{children}</main>
         <Footer />
-      </div>
-    </>
+      </>
+    </ThemeProvider>
   )
 }
 

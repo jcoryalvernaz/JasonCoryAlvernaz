@@ -14,11 +14,9 @@ const BlogPage = ({ data }) => {
       <ul>
         {posts.map(post => {
           return (
-            <li>
-              <Link key={post.node.id} to={post.node.frontmatter.path}>
-                {post.node.frontmatter.title}
-              </Link>
-            </li>
+            <Link key={post.node.id} to={post.node.frontmatter.path}>
+              {post.node.frontmatter.title}
+            </Link>
           )
         })}
       </ul>
