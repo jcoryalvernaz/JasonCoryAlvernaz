@@ -4,6 +4,7 @@ import styled from "styled-components"
 
 import Nav from "./nav"
 import logo from "../images/JasonCoryAlvernaz.jpg"
+import menu from "../images/hamburgerMenu.svg"
 
 const StyledHeader = styled.header`
   background: ${props => props.theme.purple};
@@ -12,6 +13,11 @@ const StyledHeader = styled.header`
   box-shadow: ${props => props.theme.bs};
   display: grid;
   grid-template-columns: 1fr 1fr;
+  input[aria-expanded="true"] ~ ul {
+    @media (max-width: 630px) {
+      height: auto;
+    }
+  }
 `
 
 const Avatar = styled.img`
@@ -30,14 +36,43 @@ const Avatar = styled.img`
     width: 9rem;
     border-radius: 6rem;
   }
+  @media (max-width: 630px) {
+    margin-bottom: -5rem;
+  }
 `
 
-const Header = () => (
-  <StyledHeader>
-    <Avatar src={logo} alt="Jason Cory Alvernaz" />
-    <Nav />
-  </StyledHeader>
-)
+const MenuButton = styled.input`
+  outline: none;
+  display: none;
+  max-width: 3rem;
+  @media (max-width: 630px) {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    justify-self: end;
+    display: block;
+    margin: 1rem;
+  }
+`
+
+const Header = () => {
+  const toggleNav = e => {
+    const expanded = e.target.getAttribute("aria-expanded") === "true" || false
+    e.target.setAttribute("aria-expanded", !expanded)
+  }
+  return (
+    <StyledHeader>
+      <Avatar src={logo} alt="Jason Cory Alvernaz" />
+      <MenuButton
+        type="image"
+        src={menu}
+        aria-expanded="false"
+        aria-label="menu"
+        onClick={toggleNav}
+      />
+      <Nav />
+    </StyledHeader>
+  )
+}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,

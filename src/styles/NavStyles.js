@@ -38,6 +38,14 @@ const NavStyles = styled.ul`
       }
     }
   }
+  @media (max-width: 630px) {
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    grid-template-columns: 1fr;
+    justify-self: center;
+    grid-column: 1 / -1;
+  }
 `
 
 export default NavStyles
