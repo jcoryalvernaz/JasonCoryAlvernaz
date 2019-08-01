@@ -6,7 +6,7 @@
  */
 
 import React from "react"
-import { ThemeProvider } from "styled-components"
+import styled, { ThemeProvider } from "styled-components"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -25,6 +25,13 @@ const lightTheme = {
   bs: "0 12px 24px 0 rgba(0, 0, 0, 0.10)",
 }
 
+const Wrapper = styled.div`
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 100%;
+`
+
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -37,14 +44,16 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <ThemeProvider theme={lightTheme}>
-      <>
-        <Header siteTitle={data.site.siteMetadata.title} />
+    <Wrapper>
+      <ThemeProvider theme={lightTheme}>
+        <>
+          <Header siteTitle={data.site.siteMetadata.title} />
 
-        <main>{children}</main>
-        <Footer />
-      </>
-    </ThemeProvider>
+          <main>{children}</main>
+          <Footer />
+        </>
+      </ThemeProvider>
+    </Wrapper>
   )
 }
 
