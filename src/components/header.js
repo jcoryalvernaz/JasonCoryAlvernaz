@@ -3,7 +3,7 @@ import React from "react"
 import styled from "styled-components"
 
 import Nav from "./nav"
-import logo from "../images/JasonCoryCircle.png"
+import logo from "../images/JasonCoryAlvernaz.jpg"
 
 const StyledHeader = styled.header`
   background: ${props => props.theme.purple};
@@ -21,9 +21,8 @@ const Avatar = styled.img`
   position: relative;
   width: 24rem;
   box-shadow: ${props => props.theme.bs};
-  border-bottom: 1px solid ${props => props.theme.black};
   border-radius: 13rem;
-  transition: all 1s ease-in-out;
+  transition: all 0.8s ease-in-out;
   @media (max-width: 800px) {
     margin-bottom: 1rem;
     margin-top: 1rem;
