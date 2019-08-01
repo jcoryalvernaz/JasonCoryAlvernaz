@@ -42,6 +42,7 @@ const Avatar = styled.img`
 `
 
 const MenuButton = styled.input`
+  border-radius: 0;
   outline: none;
   display: none;
   max-width: 3rem;
