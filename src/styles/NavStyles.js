@@ -17,7 +17,7 @@ const NavStyles = styled.ul`
     padding: 1rem 3rem;
     position: relative;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 500;
     background: none;
     border: 0;
     color: ${props => props.theme.white};

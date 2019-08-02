@@ -23,13 +23,21 @@ const lightTheme = {
   orange: "#FA8334",
   blue: "#5386E4",
   bs: "0 12px 24px 0 rgba(0, 0, 0, 0.10)",
+  maxWidth: "1000px",
 }
 
-const Wrapper = styled.div`
+const SiteWrapper = styled.div`
   min-height: 100%;
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 100%;
+`
+
+const StyledMain = styled.main`
+  max-width: ${props => props.theme.maxWidth};
+  display: grid;
+  justify-self: center;
+  margin-top: 100px;
 `
 
 const Layout = ({ children }) => {
@@ -44,16 +52,16 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <Wrapper>
+    <SiteWrapper>
       <ThemeProvider theme={lightTheme}>
         <>
           <Header siteTitle={data.site.siteMetadata.title} />
 
-          <main>{children}</main>
+          <StyledMain>{children}</StyledMain>
           <Footer />
         </>
       </ThemeProvider>
-    </Wrapper>
+    </SiteWrapper>
   )
 }
 
