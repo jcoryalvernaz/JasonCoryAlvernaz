@@ -8,10 +8,13 @@ const NavStyles = styled.ul`
   justify-self: end;
   justify-items: center;
   font-size: 2rem;
+  li {
+    list-style: none;
+    align-self: flex-end;
+    padding-bottom: 1rem;
+  }
   a {
     padding: 1rem 3rem;
-    align-self: flex-end;
-    align-items: center;
     position: relative;
     text-transform: uppercase;
     font-weight: 700;

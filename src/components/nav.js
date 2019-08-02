@@ -5,10 +5,18 @@ import NavStyles from "../styles/NavStyles"
 
 const Nav = () => (
   <NavStyles>
-    <Link to="/">Home</Link>
-    <Link to="/contact">Contact</Link>
-    <Link to="/blog">Blog</Link>
-    <Link to="/projects">Projects</Link>
+    <li>
+      <Link to="/">Home</Link>
+    </li>
+    <li>
+      <Link to="/contact">Contact</Link>
+    </li>
+    <li>
+      <Link to="/blog">Blog</Link>
+    </li>
+    <li>
+      <Link to="/projects">Projects</Link>
+    </li>
   </NavStyles>
 )
 
