@@ -7,11 +7,13 @@ import { Link } from "gatsby"
 
 const PageHeading = styled.h1`
   font-size: 6rem;
-  margin: 0;
+  margin-left: 1rem;
 `
 const Message = styled.p`
   font-size: 3rem;
   margin: 0;
+  margin-left: 1rem;
+  line-height: 2;
   a {
     color: ${props => props.theme.black};
     border-bottom: 0.5rem solid ${props => props.theme.green};
@@ -40,7 +42,7 @@ const FlashSpan = styled.span`
 
 class IndexPage extends Component {
   state = {
-    titles: ["Developer", "Teacher", "Entrepreneur", "Designer"],
+    titles: ["Developer!", "Teacher!", "Entrepreneur!", "Designer!"],
     currentTitle: "",
   }
 
@@ -74,7 +76,7 @@ class IndexPage extends Component {
           </FlashSpan>{" "}
         </Message>
         <Message>
-          and I love building fast, responsive, modern websites. Take a look at{" "}
+          I love building fast, responsive, modern websites. Take a look at{" "}
           <Link to="/projects">my work</Link>,{" "}
           <Link to="/blog">read my blog</Link>, or{" "}
           <Link to="/contact">get in touch</Link>!

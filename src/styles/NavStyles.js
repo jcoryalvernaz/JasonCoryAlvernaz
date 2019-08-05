@@ -11,7 +11,7 @@ const NavStyles = styled.ul`
   li {
     list-style: none;
     align-self: flex-end;
-    padding-bottom: 1rem;
+    padding-bottom: 2rem;
   }
   a {
     padding: 1rem 3rem;
@@ -31,7 +31,7 @@ const NavStyles = styled.ul`
       transform: translateX(-50%);
       transition: width 0.4s;
       left: 50%;
-      margin-top: 3.5rem;
+      margin-top: 2.5rem;
     }
     &:hover,
     &:focus {

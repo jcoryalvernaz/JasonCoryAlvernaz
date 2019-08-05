@@ -35,9 +35,14 @@ const SiteWrapper = styled.div`
 
 const StyledMain = styled.main`
   max-width: ${props => props.theme.maxWidth};
+  min-height: 80vh;
   display: grid;
   justify-self: center;
-  margin-top: 100px;
+  margin-top: 10rem;
+  transition: all 0.8s ease-in-out;
+  @media (max-width: 800px) {
+    margin-top: 5rem;
+  }
 `
 
 const Layout = ({ children }) => {
