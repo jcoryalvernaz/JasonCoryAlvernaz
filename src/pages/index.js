@@ -7,9 +7,11 @@ import { Link } from "gatsby"
 
 const PageHeading = styled.h1`
   font-size: 6rem;
+  margin: 0;
 `
 const Message = styled.p`
-  font-size: 4rem;
+  font-size: 3rem;
+  margin: 0;
   a {
     color: ${props => props.theme.black};
     border-bottom: 0.5rem solid ${props => props.theme.green};
@@ -24,7 +26,7 @@ const StyledSpan = styled.span`
     content: "";
     height: 2.5rem;
     background: ${props => props.theme.green};
-    margin-top: -5rem;
+    margin-top: -4rem;
     z-index: -1;
     transform: skew(4deg);
   }
@@ -38,24 +40,21 @@ const FlashSpan = styled.span`
 
 class IndexPage extends Component {
   state = {
-    items: ["Developer", "Teacher", "Entrepreneur", "Designer"],
-    currentItem: "",
+    titles: ["Developer", "Teacher", "Entrepreneur", "Designer"],
+    currentTitle: "",
   }
 
   componentDidMount() {
-    const { items } = this.state
-    let currentItem = items[0]
-    this.setState({ currentItem })
+    const { titles } = this.state
+    let currentTitle = titles[0]
+    this.setState({ currentTitle })
     this.interval = setInterval(() => {
-      let nextItem = ""
-      if (items.indexOf(currentItem) < items.length - 1) {
-        nextItem = items[items.indexOf(currentItem) + 1]
-        currentItem = nextItem
+      if (titles.indexOf(currentTitle) < titles.length - 1) {
+        currentTitle = titles[titles.indexOf(currentTitle) + 1]
       } else {
-        nextItem = items[0]
-        currentItem = nextItem
+        currentTitle = titles[0]
       }
-      this.setState({ currentItem: nextItem })
+      this.setState({ currentTitle })
     }, 1000)
   }
 
@@ -71,9 +70,10 @@ class IndexPage extends Component {
         <Message>
           I am a{" "}
           <FlashSpan>
-            <StyledSpan>{this.state.currentItem}</StyledSpan>
+            <StyledSpan>{this.state.currentTitle}</StyledSpan>
           </FlashSpan>{" "}
-          <br />
+        </Message>
+        <Message>
           and I love building fast, responsive, modern websites. Take a look at{" "}
           <Link to="/projects">my work</Link>,{" "}
           <Link to="/blog">read my blog</Link>, or{" "}
