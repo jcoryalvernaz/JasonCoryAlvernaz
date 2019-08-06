@@ -75,13 +75,21 @@ const StyledArticle = styled.article`
 const PostNavigation = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
+  padding: 3rem;
+  span {
+    font-size: 2.5rem;
+  }
   .prev {
     grid-column: 1 / span 1;
     justify-self: start;
   }
   .next {
+    text-align: right;
     grid-column: span 1 / -1;
     justify-self: flex-end;
+  }
+  @media (max-width: 550px) {
+    grid-template-columns: 1fr;
   }
 `
 
