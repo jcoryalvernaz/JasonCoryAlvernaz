@@ -1,14 +1,15 @@
 import React, { Component } from "react"
 import styled from "styled-components"
+import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Link } from "gatsby"
 
 const PageHeading = styled.h1`
   font-size: 6rem;
   margin-left: 1rem;
 `
+
 const Message = styled.p`
   font-size: 3rem;
   margin: 0;
