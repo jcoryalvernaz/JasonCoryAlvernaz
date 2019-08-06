@@ -13,7 +13,7 @@ exports.createPages = ({ actions, graphql }) => {
 
   return graphql(`
     {
-      allMarkdownRemark {
+      allMarkdownRemark(sort: { order: ASC, fields: [frontmatter___date] }) {
         edges {
           node {
             html
@@ -21,6 +21,7 @@ exports.createPages = ({ actions, graphql }) => {
             frontmatter {
               path
               title
+              published
               date
             }
           }
@@ -31,11 +32,15 @@ exports.createPages = ({ actions, graphql }) => {
     if (res.errors) {
       return Promise.reject(res.errors)
     }
-
-    res.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    const posts = res.data.allMarkdownRemark.edges
+    posts.forEach(({ node }, index) => {
       createPage({
         path: node.frontmatter.path,
         component: postTemplate,
+        context: {
+          prev: index === 0 ? null : posts[index - 1].node,
+          next: index === posts.length - 1 ? null : posts[index + 1].node,
+        },
       })
     })
   })
