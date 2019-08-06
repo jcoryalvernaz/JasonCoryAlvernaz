@@ -23,7 +23,7 @@ const lightTheme = {
   orange: "#FA8334",
   blue: "#5386E4",
   bs: "0 12px 24px 0 rgba(0, 0, 0, 0.10)",
-  maxWidth: "1000px",
+  maxWidth: "1200px",
 }
 
 const SiteWrapper = styled.div`
