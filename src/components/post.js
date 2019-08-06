@@ -118,6 +118,8 @@ export const postQuery = graphql`
       frontmatter {
         path
         title
+        published
+        date
       }
     }
   }
