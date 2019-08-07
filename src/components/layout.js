@@ -37,6 +37,7 @@ const StyledMain = styled.main`
   max-width: ${props => props.theme.maxWidth};
   min-height: 80vh;
   display: grid;
+  grid-auto-rows: minmax(min-content, max-content);
   justify-self: center;
   margin-top: 10rem;
   transition: all 0.8s ease-in-out;

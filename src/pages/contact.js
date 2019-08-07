@@ -3,6 +3,7 @@ import { Link, navigate } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import FormStyles from "../styles/FormStyles"
 
 const encode = data => {
   return Object.keys(data)
@@ -34,7 +35,7 @@ const ContactPage = () => {
   return (
     <Layout>
       <SEO title="Contact" />
-      <form
+      <FormStyles
         className="contact"
         name="contact"
         method="post"
@@ -82,7 +83,7 @@ const ContactPage = () => {
           required
         />
         <button type="submit">Send Email</button>
-      </form>
+      </FormStyles>
       <Link to="/">Go back to the homepage</Link>
     </Layout>
   )
