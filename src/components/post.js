@@ -33,7 +33,6 @@ export default function Post({ data, pageContext }) {
   return (
     <Layout>
       <SEO title={post.frontmatter.title} />
-
       <PostStyles dangerouslySetInnerHTML={{ __html: post.html }} />
       <PostNavigation>
         {prev && (
