@@ -6,8 +6,13 @@ import styled from "styled-components"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+const PageHeading = styled.h1`
+  font-size: 6rem;
+  margin-left: 1rem;
+`
+
 const BlogList = styled.ul`
-  padding: 0;
+  padding: 1rem;
   list-style: none;
   li {
     display: grid;
@@ -18,11 +23,11 @@ const BlogList = styled.ul`
     padding-top: 2rem;
     padding-bottom: 2rem;
   }
-  div {
+  .featued-image {
     grid-column: 1 / span 1;
     grid-row: 1 / span 2;
   }
-  a {
+  .title {
     color: ${props => props.theme.purple};
     font-size: 2.5rem;
   }
@@ -31,10 +36,10 @@ const BlogList = styled.ul`
       grid-template-columns: 1fr;
       grid-template-rows: 3fr 1fr;
     }
-    div {
+    .featued-image {
       grid-row: 1 / span 1;
     }
-    a {
+    .title {
       grid-row: span 1 / -1;
     }
   }
@@ -45,18 +50,20 @@ const BlogPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="Blog" />
-      <h1>Hi from the blog page</h1>
+      <PageHeading>Hi from the blog page</PageHeading>
       <p>Welcome to page 3</p>
       <BlogList>
         {posts.map(post => {
           return (
             <li key={post.node.id}>
-              <Img
-                fluid={
-                  post.node.frontmatter.featuredImage.childImageSharp.fluid
-                }
-              />
-              <Link to={post.node.frontmatter.path}>
+              <Link className="featured-image" to={post.node.frontmatter.path}>
+                <Img
+                  fluid={
+                    post.node.frontmatter.featuredImage.childImageSharp.fluid
+                  }
+                />
+              </Link>
+              <Link className="title" to={post.node.frontmatter.path}>
                 {post.node.frontmatter.title}
               </Link>
             </li>
