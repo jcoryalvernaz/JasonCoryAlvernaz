@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -14,9 +15,16 @@ const BlogPage = ({ data }) => {
       <ul>
         {posts.map(post => {
           return (
-            <Link key={post.node.id} to={post.node.frontmatter.path}>
-              {post.node.frontmatter.title}
-            </Link>
+            <li>
+              <Img
+                fluid={
+                  post.node.frontmatter.featuredImage.childImageSharp.fluid
+                }
+              />
+              <Link key={post.node.id} to={post.node.frontmatter.path}>
+                {post.node.frontmatter.title}
+              </Link>
+            </li>
           )
         })}
       </ul>
@@ -40,6 +48,13 @@ export const pageQuery = graphql`
             path
             published
             date
+            featuredImage {
+              childImageSharp {
+                fluid(maxWidth: 800) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }
