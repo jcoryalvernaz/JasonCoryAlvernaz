@@ -22,8 +22,8 @@ She said that he loved baseball, and James Earl Jones; said that he's got god ta
 If you build it, they will come (and baby listens to what the Lord say). But I've been getting pretty worn, building for nearly a decade
 
 <figure>
-    <img src="https://source.unsplash.com/1000x300" alt="Big Ass Image">
-    <figcaption>Super Nice Photo</figcaption>
+    <img src="styledComponents.png" alt="Big Ass Image">
+    <figcaption>Styled Component</figcaption>
 </figure>
 
 In a perfect world we shouldn’t have been allowed to lose sight of what it means to love wholly. I’ve got a Polaroid hanging on my wall that a friend took of me and my angel. I remember the day like it’s something I can touch, but it’s stuck in the square between the borders of the film, and I can run my fingers over our faces, but I can’t get back to the places we were
