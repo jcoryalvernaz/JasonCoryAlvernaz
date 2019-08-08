@@ -18,14 +18,10 @@ const BlogList = styled.ul`
     display: grid;
     grid-gap: 1rem;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr;
     border-top: 0.5rem solid ${props => props.theme.green};
     padding-top: 2rem;
     padding-bottom: 2rem;
-  }
-  .featued-image {
-    grid-column: 1 / span 1;
-    grid-row: 1 / span 2;
   }
   .title {
     color: ${props => props.theme.purple};
@@ -35,12 +31,6 @@ const BlogList = styled.ul`
     li {
       grid-template-columns: 1fr;
       grid-template-rows: 3fr 1fr;
-    }
-    .featued-image {
-      grid-row: 1 / span 1;
-    }
-    .title {
-      grid-row: span 1 / -1;
     }
   }
 `
