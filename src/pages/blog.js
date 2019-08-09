@@ -5,11 +5,7 @@ import styled from "styled-components"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-
-const PageHeading = styled.h1`
-  font-size: 6rem;
-  margin-left: 1rem;
-`
+import HeadingStyles from "../styles/HeadingStyles"
 
 const BlogList = styled.ul`
   padding: 1rem;
@@ -40,7 +36,7 @@ const BlogPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="Blog" />
-      <PageHeading>Hi from the blog page</PageHeading>
+      <HeadingStyles>Hi from the blog page</HeadingStyles>
       <p>Welcome to page 3</p>
       <BlogList>
         {posts.map(post => {

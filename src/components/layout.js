@@ -35,6 +35,7 @@ const SiteWrapper = styled.div`
 
 const StyledMain = styled.main`
   max-width: ${props => props.theme.maxWidth};
+  width: 100%;
   min-height: 80vh;
   display: grid;
   grid-auto-rows: minmax(min-content, max-content);

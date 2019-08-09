@@ -4,16 +4,13 @@ import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-
-const PageHeading = styled.h1`
-  font-size: 6rem;
-  margin-left: 1rem;
-`
+import HeadingStyles from "../styles/HeadingStyles"
 
 const Message = styled.p`
   font-size: 3rem;
   margin: 0;
   margin-left: 1rem;
+  margin-right: 1rem;
   line-height: 2;
   a {
     color: ${props => props.theme.black};
@@ -69,7 +66,7 @@ class IndexPage extends Component {
     return (
       <Layout>
         <SEO title="Home" />
-        <PageHeading>Jason Cory Alvernaz</PageHeading>
+        <HeadingStyles>Jason Cory Alvernaz</HeadingStyles>
         <Message>
           I am a{" "}
           <FlashSpan>

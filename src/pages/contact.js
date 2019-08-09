@@ -4,6 +4,7 @@ import { Link, navigate } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import FormStyles from "../styles/FormStyles"
+import HeadingStyles from "../styles/HeadingStyles"
 
 const encode = data => {
   return Object.keys(data)
@@ -35,6 +36,7 @@ const ContactPage = () => {
   return (
     <Layout>
       <SEO title="Contact" />
+      <HeadingStyles>Contact Me!</HeadingStyles>
       <FormStyles
         className="contact"
         name="contact"

@@ -37,6 +37,9 @@ const PostStyles = styled.article`
   }
   h1 {
     font-size: 6rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    justify-self: center;
   }
   code {
     font-size: 1.5rem;
