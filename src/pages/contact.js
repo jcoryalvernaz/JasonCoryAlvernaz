@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import FormStyles from "../styles/FormStyles"
 import HeadingStyles from "../styles/HeadingStyles"
+import ParagraphStyles from "../styles/ParagraphStyles"
 
 const encode = data => {
   return Object.keys(data)
@@ -37,6 +38,11 @@ const ContactPage = () => {
     <Layout>
       <SEO title="Contact" />
       <HeadingStyles>Contact Me!</HeadingStyles>
+      <ParagraphStyles>
+        Whether you need a new website for your buinsess or you are looking to
+        learn web development yourself, you've come to the right place. Fill out
+        the form below and let me know what I can do for you!
+      </ParagraphStyles>
       <FormStyles
         className="contact"
         name="contact"

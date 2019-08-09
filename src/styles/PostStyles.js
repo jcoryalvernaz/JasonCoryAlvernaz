@@ -29,7 +29,7 @@ const PostStyles = styled.article`
   }
   a {
     color: ${props => props.theme.black};
-    border-bottom: 0.5rem solid ${props => props.theme.green};
+    border-bottom: 0.2rem solid ${props => props.theme.green};
   }
   p {
     font-size: 2rem;

@@ -5,17 +5,16 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import HeadingStyles from "../styles/HeadingStyles"
+import ParagraphStyles from "../styles/ParagraphStyles"
 
-const Message = styled.p`
+const StyledMessage = styled.p`
   font-size: 3rem;
   margin: 0;
-  margin-left: 1rem;
-  margin-right: 1rem;
-  line-height: 2;
-  a {
-    color: ${props => props.theme.black};
-    border-bottom: 0.5rem solid ${props => props.theme.green};
-  }
+  padding: 2rem;
+  max-width: 70rem;
+  width: 100%;
+  justify-self: center;
+  line-height: 1.8;
 `
 
 const StyledSpan = styled.span`
@@ -67,18 +66,20 @@ class IndexPage extends Component {
       <Layout>
         <SEO title="Home" />
         <HeadingStyles>Jason Cory Alvernaz</HeadingStyles>
-        <Message>
+        <StyledMessage>
           I am a{" "}
           <FlashSpan>
             <StyledSpan>{this.state.currentTitle}</StyledSpan>
           </FlashSpan>{" "}
-        </Message>
-        <Message>
-          I love building fast, responsive, modern websites. Take a look at{" "}
-          <Link to="/projects">my work</Link>,{" "}
+        </StyledMessage>
+        <ParagraphStyles>
+          I love building fast, responsive, modern websites.
+        </ParagraphStyles>
+        <ParagraphStyles>
+          Take a look at <Link to="/projects">my work</Link>,{" "}
           <Link to="/blog">read my blog</Link>, or{" "}
           <Link to="/contact">get in touch</Link>!
-        </Message>
+        </ParagraphStyles>
       </Layout>
     )
   }

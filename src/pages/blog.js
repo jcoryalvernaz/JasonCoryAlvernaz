@@ -6,8 +6,13 @@ import styled from "styled-components"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import HeadingStyles from "../styles/HeadingStyles"
+import ParagraphStyles from "../styles/ParagraphStyles"
 
 const BlogList = styled.ul`
+  max-width: 80rem;
+  width: 100%;
+  justify-self: center;
+  margin-top: 3rem;
   padding: 1rem;
   list-style: none;
   li {
@@ -15,7 +20,7 @@ const BlogList = styled.ul`
     grid-gap: 1rem;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
-    border-top: 0.5rem solid ${props => props.theme.green};
+    border-top: 0.5rem solid ${props => props.theme.blue};
     padding-top: 2rem;
     padding-bottom: 2rem;
   }
@@ -36,8 +41,19 @@ const BlogPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="Blog" />
-      <HeadingStyles>Hi from the blog page</HeadingStyles>
-      <p>Welcome to page 3</p>
+      <HeadingStyles>Blog</HeadingStyles>
+      <ParagraphStyles>
+        Here you can find a wealth of information relating to web development
+        topics. I love to teach, so if there is something you would like to see
+        reach out to me from the <Link to="/contact">contact page.</Link>
+      </ParagraphStyles>
+      <ParagraphStyles>
+        For even more learing opportunities, check out my{" "}
+        <a href="https://www.youtube.com/channel/UC9Psp9-p9jgHfDBReAAcZ3w">
+          YouTube channel
+        </a>{" "}
+        to see all the video tutorials I have available!
+      </ParagraphStyles>
       <BlogList>
         {posts.map(post => {
           return (

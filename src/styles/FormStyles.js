@@ -1,6 +1,12 @@
 import styled from "styled-components"
 
 const FormStyles = styled.form`
+  max-width: 80rem;
+  width: 100%;
+  padding: 2rem 1rem;
+  margin-top: 3rem;
+  border-top: 0.5rem solid ${props => props.theme.blue};
+  justify-self: center;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 2rem;
