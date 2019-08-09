@@ -50,6 +50,9 @@ const PostStyles = styled.article`
       width: 100%;
       box-shadow: ${props => props.theme.bs};
     }
+    @media (max-width: 500px) {
+      font-size: 4rem;
+    }
   }
   code {
     font-size: 1.5rem;

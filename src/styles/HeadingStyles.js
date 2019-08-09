@@ -13,5 +13,8 @@ const HeadingStyles = styled.h1`
     width: 100%;
     box-shadow: ${props => props.theme.bs};
   }
+  @media (max-width: 500px) {
+    font-size: 4rem;
+  }
 `
 export default HeadingStyles
