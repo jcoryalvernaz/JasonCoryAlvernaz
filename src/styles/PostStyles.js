@@ -40,6 +40,16 @@ const PostStyles = styled.article`
     margin-left: 1rem;
     margin-right: 1rem;
     justify-self: center;
+    grid-column: 1 / -1;
+    display: grid;
+    :after {
+      content: "";
+      height: 0.5rem;
+      margin-top: 1rem;
+      background: ${props => props.theme.blue};
+      width: 100%;
+      box-shadow: ${props => props.theme.bs};
+    }
   }
   code {
     font-size: 1.5rem;
