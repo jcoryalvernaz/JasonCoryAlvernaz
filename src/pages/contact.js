@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, navigate } from "gatsby"
+import { navigate } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -92,7 +92,6 @@ const ContactPage = () => {
         />
         <button type="submit">Send Email</button>
       </FormStyles>
-      <Link to="/">Go back to the homepage</Link>
     </Layout>
   )
 }
