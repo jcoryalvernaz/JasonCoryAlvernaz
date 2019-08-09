@@ -25,7 +25,7 @@ const StyledSpan = styled.span`
     content: "";
     height: 2.5rem;
     background: ${props => props.theme.green};
-    margin-top: -4rem;
+    margin-top: -3.8rem;
     z-index: -1;
     transform: skew(4deg);
   }

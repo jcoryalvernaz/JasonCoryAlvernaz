@@ -22,7 +22,7 @@ const lightTheme = {
   grey: "#292F36",
   orange: "#FA8334",
   blue: "#5386E4",
-  bs: "0 12px 24px 0 rgba(0, 0, 0, 0.10)",
+  bs: "0 6px 12px 0 rgba(0, 0, 0, 0.10)",
   maxWidth: "1200px",
 }
 

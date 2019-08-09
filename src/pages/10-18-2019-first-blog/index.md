@@ -1,12 +1,12 @@
 ---
 path: "/first-post"
-title: "First Blog Post"
+title: "Introduction to Styled Components"
 published: true
 date: "2019-10-18"
 featuredImage: "settingsJSON.png"
 ---
 
-# First Blog Post
+# Introduction to Styled Components
 
 Grandfather's creaky as his front porch, loads his shotgun beneath the awning, spittoon restless for rain, carpenter's chair against the whistling air. Rocking, back and forth, rocking snap shot picture - worth it, just like the movies
 

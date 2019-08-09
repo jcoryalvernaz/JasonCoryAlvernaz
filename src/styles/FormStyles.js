@@ -23,8 +23,8 @@ const FormStyles = styled.form`
   input,
   textarea {
     border-radius: 4px;
-    background: ${props => props.theme.white};
-    border: 1px solid ${props => props.theme.purple};
+    background: transparent;
+    border: 0.1rem solid ${props => props.theme.purple};
     color: ${props => props.theme.black};
     padding-left: 1rem;
     outline: none;
@@ -47,14 +47,14 @@ const FormStyles = styled.form`
     height: 4rem;
     background: ${props => props.theme.purple};
     color: ${props => props.theme.white};
-    border: 1px solid ${props => props.theme.black};
+    border: 0.1rem solid ${props => props.theme.blue};
     border-radius: 2rem;
     margin-top: 1rem;
     max-width: 15rem;
     font-size: 2rem;
     cursor: pointer;
     outline: none;
-    box-shadow: -3px 4px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: ${props => props.theme.bs};
   }
   button:hover {
     filter: brightness(85%);
