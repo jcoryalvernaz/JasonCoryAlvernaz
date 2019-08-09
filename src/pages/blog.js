@@ -46,7 +46,7 @@ const BlogPage = ({ data }) => {
         Here you can find a wealth of information relating to web development
         topics. I love to teach, so if there is something you would like to see
         reach out to me from the <Link to="/contact">contact page.</Link> For
-        even more learing opportunities, check out my{" "}
+        even more learning opportunities, check out my{" "}
         <a href="https://www.youtube.com/channel/UC9Psp9-p9jgHfDBReAAcZ3w">
           YouTube channel
         </a>{" "}

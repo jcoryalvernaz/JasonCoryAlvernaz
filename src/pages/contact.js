@@ -39,7 +39,7 @@ const ContactPage = () => {
       <SEO title="Contact" />
       <HeadingStyles>Contact</HeadingStyles>
       <ParagraphStyles>
-        Whether you need a new website for your buinsess or you are looking to
+        Whether you need a new website for your business or you are looking to
         learn web development yourself, you've come to the right place. Fill out
         the form below and let me know what I can do for you!
       </ParagraphStyles>
