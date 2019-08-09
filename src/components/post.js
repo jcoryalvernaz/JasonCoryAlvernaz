@@ -13,14 +13,28 @@ const PostNavigation = styled.div`
   span {
     font-size: 2.5rem;
   }
+  h4 {
+    margin-bottom: 1rem;
+  }
   .prev {
     grid-column: 1 / span 1;
     justify-self: start;
+  }
+  .prev-arrow {
+    fill: ${props => props.theme.purple};
+    height: 2rem;
+    width: 2rem;
+    transform: rotate(180deg);
   }
   .next {
     text-align: right;
     grid-column: span 1 / -1;
     justify-self: flex-end;
+  }
+  .next-arrow {
+    fill: ${props => props.theme.purple};
+    height: 2rem;
+    width: 2rem;
   }
   @media (max-width: 550px) {
     grid-template-columns: 1fr;
@@ -38,13 +52,46 @@ export default function Post({ data, pageContext }) {
         {prev && (
           <Link className="prev" to={prev.frontmatter.path}>
             <h4>Previous</h4>
-            <span>⬅ {prev.frontmatter.title}</span>
+            <span>
+              {" "}
+              <svg
+                className="prev-arrow"
+                xmlns="http://www.w3.org/2000/svg"
+                version="1.1"
+                x="0px"
+                y="0px"
+                viewBox="0 0 100 100"
+              >
+                <g>
+                  <g>
+                    <path d="M95.9,46.2L65.4,15.7c-2.1-2.1-5.5-2.1-7.5,0c-2.1,2.1-2.1,5.5,0,7.5l21.5,21.5H7.8c-2.9,0-5.3,2.4-5.3,5.3    c0,2.9,2.4,5.3,5.3,5.3h71.5L57.9,76.8c-2.1,2.1-2.1,5.5,0,7.5c1,1,2.4,1.6,3.8,1.6s2.7-0.5,3.8-1.6l30.6-30.6    c1-1,1.6-2.4,1.6-3.8C97.5,48.6,96.9,47.2,95.9,46.2z"></path>
+                  </g>
+                </g>
+              </svg>{" "}
+              {prev.frontmatter.title}
+            </span>
           </Link>
         )}
         {next && (
           <Link className="next" to={next.frontmatter.path}>
             <h4>Next</h4>
-            <span>{next.frontmatter.title} ➡</span>
+            <span>
+              {next.frontmatter.title}{" "}
+              <svg
+                className="next-arrow"
+                xmlns="http://www.w3.org/2000/svg"
+                version="1.1"
+                x="0px"
+                y="0px"
+                viewBox="0 0 100 100"
+              >
+                <g>
+                  <g>
+                    <path d="M95.9,46.2L65.4,15.7c-2.1-2.1-5.5-2.1-7.5,0c-2.1,2.1-2.1,5.5,0,7.5l21.5,21.5H7.8c-2.9,0-5.3,2.4-5.3,5.3    c0,2.9,2.4,5.3,5.3,5.3h71.5L57.9,76.8c-2.1,2.1-2.1,5.5,0,7.5c1,1,2.4,1.6,3.8,1.6s2.7-0.5,3.8-1.6l30.6-30.6    c1-1,1.6-2.4,1.6-3.8C97.5,48.6,96.9,47.2,95.9,46.2z"></path>
+                  </g>
+                </g>
+              </svg>
+            </span>
           </Link>
         )}
       </PostNavigation>
