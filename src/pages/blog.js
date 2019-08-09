@@ -20,7 +20,7 @@ const BlogList = styled.ul`
     grid-gap: 1rem;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
-    border-top: 0.5rem solid ${props => props.theme.blue};
+    border-top: 0.3rem solid ${props => props.theme.blue};
     padding-top: 2rem;
     padding-bottom: 2rem;
   }
