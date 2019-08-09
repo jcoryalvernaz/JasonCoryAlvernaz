@@ -1,12 +1,12 @@
 ---
 path: "/third-post"
-title: "Third Blog Post"
+title: "Introduction to ReactJS"
 published: true
 date: "2019-11-1"
 featuredImage: "settingsJSON.png"
 ---
 
-# Hello this is another blog post to test Prev and Next!
+# Introduction to ReactJS
 
 Grandfather's creaky as his front porch, loads his shotgun beneath the awning, spittoon restless for rain, carpenter's chair against the whistling air. Rocking, back and forth, rocking snap shot picture - worth it, just like the movies
 
