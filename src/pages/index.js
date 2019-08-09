@@ -73,12 +73,12 @@ class IndexPage extends Component {
           </FlashSpan>{" "}
         </StyledMessage>
         <ParagraphStyles>
-          I love building fast, responsive, modern websites.
-        </ParagraphStyles>
-        <ParagraphStyles>
-          Take a look at <Link to="/projects">my work</Link>,{" "}
+          I love building fast, responsive, modern websites and helping others
+          grow in their careers. Whether you need a website for your growing
+          business or looking to learn web development, you've come to the right
+          place. Take a look at <Link to="/projects">my work</Link>,{" "}
           <Link to="/blog">read my blog</Link>, or{" "}
-          <Link to="/contact">get in touch</Link>!
+          <Link to="/contact">contact me</Link> for more information!
         </ParagraphStyles>
       </Layout>
     )

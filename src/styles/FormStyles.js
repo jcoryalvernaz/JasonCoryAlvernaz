@@ -12,7 +12,7 @@ const FormStyles = styled.form`
   :before {
     content: "";
     height: 0.3rem;
-    background: ${props => props.theme.blue};
+    background: ${props => props.theme.orange};
     width: 100%;
     grid-column: 1 / -1;
   }
@@ -24,12 +24,15 @@ const FormStyles = styled.form`
   textarea {
     border-radius: 4px;
     background: transparent;
-    border: 0.1rem solid ${props => props.theme.purple};
+    border: 0.1rem solid ${props => props.theme.blue};
     color: ${props => props.theme.black};
     padding-left: 1rem;
     outline: none;
     font-size: 2rem;
     box-shadow: none;
+    ::placeholder {
+      color: ${props => props.theme.grey};
+    }
   }
   input {
     height: 4rem;
@@ -47,7 +50,7 @@ const FormStyles = styled.form`
     height: 4rem;
     background: ${props => props.theme.purple};
     color: ${props => props.theme.white};
-    border: 0.1rem solid ${props => props.theme.blue};
+    border: 0.1rem solid ${props => props.theme.black};
     border-radius: 2rem;
     margin-top: 1rem;
     max-width: 15rem;
