@@ -1,15 +1,18 @@
 import React from "react"
-import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import HeadingStyles from "../styles/HeadingStyles"
+import ParagraphStyles from "../styles/ParagraphStyles"
 
 const ThanksPage = () => (
   <Layout>
-    <SEO title="Projects" />
-    <h1>Thanks for getting in contact!</h1>
-    <p>I will reply to your inquiry soon.</p>
-    <Link to="/">Go back to the homepage</Link>
+    <SEO title="Thanks" />
+    <HeadingStyles>Thanks!</HeadingStyles>
+    <ParagraphStyles>
+      I will reply to your inquiry soon. In the meantime, make sure to check me
+      out on social media by visiting the links below.
+    </ParagraphStyles>
   </Layout>
 )
 
