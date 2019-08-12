@@ -1,7 +1,9 @@
 import styled from "styled-components"
 
 const PostStyles = styled.article`
-  margin: 1rem;
+  margin: 0;
+  padding-left: 2rem;
+  padding-right: 2rem;
   display: grid;
   grid-gap: 1rem 5rem;
   grid-template-columns: 3fr 12fr 5fr;
