@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Social from "../components/social"
 import HeadingStyles from "../styles/HeadingStyles"
 import ParagraphStyles from "../styles/ParagraphStyles"
 
@@ -80,6 +81,7 @@ class IndexPage extends Component {
           <Link to="/blog">read my blog</Link>, or{" "}
           <Link to="/contact">contact me</Link> for more information!
         </ParagraphStyles>
+        <Social></Social>
       </Layout>
     )
   }
