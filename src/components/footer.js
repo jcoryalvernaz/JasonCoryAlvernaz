@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
+import ToggleStyles from "../styles/ToggleStyles"
 import hexagons from "../images/hexagons.svg"
 import heart from "../images/heart.svg"
 
@@ -30,6 +31,11 @@ const Footer = () => (
     <p>
       Made With <img className="heart" src={heart} alt="love heart" /> in Reno
     </p>
+    <br />
+    <ToggleStyles>
+      <input className="switch" type="checkbox" />
+      <span className="slider"></span>
+    </ToggleStyles>
   </StyledFooter>
 )
 
