@@ -3,6 +3,7 @@ import { navigate } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Social from "../components/social"
 import FormStyles from "../styles/FormStyles"
 import HeadingStyles from "../styles/HeadingStyles"
 import ParagraphStyles from "../styles/ParagraphStyles"
@@ -92,6 +93,7 @@ const ContactPage = () => {
         />
         <button type="submit">Send Email</button>
       </FormStyles>
+      <Social></Social>
     </Layout>
   )
 }
