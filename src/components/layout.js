@@ -103,7 +103,9 @@ const Layout = ({ children }) => {
 }
 
 Layout.propTypes = {
+  theme: PropTypes.object,
   children: PropTypes.node.isRequired,
+  toggleTheme: PropTypes.func,
 }
 
 export default Layout
