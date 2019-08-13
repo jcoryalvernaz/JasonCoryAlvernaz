@@ -45,7 +45,7 @@ const Layout = ({ children }) => {
 
   useEffect(() => {
     const stored = localStorage.getItem("isLightMode")
-    setIsLightMode(stored === "true" ? true : false)
+    setIsLightMode(stored === "false" ? false : true)
   })
 
   const toggleTheme = () => {
