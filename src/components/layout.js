@@ -41,7 +41,7 @@ const StyledMain = styled.main`
 `
 
 const Layout = ({ children }) => {
-  const [isLightMode, setIsLightMode] = useState(undefined)
+  const [isLightMode, setIsLightMode] = useState(true)
 
   useEffect(() => {
     const stored = localStorage.getItem("isLightMode")
