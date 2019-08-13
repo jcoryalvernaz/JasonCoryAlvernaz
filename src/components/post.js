@@ -21,7 +21,7 @@ const PostNavigation = styled.div`
     justify-self: start;
   }
   .prev-arrow {
-    fill: ${props => props.theme.purple};
+    fill: currentColor;
     height: 2rem;
     width: 2rem;
     transform: rotate(180deg);
@@ -32,7 +32,7 @@ const PostNavigation = styled.div`
     justify-self: flex-end;
   }
   .next-arrow {
-    fill: ${props => props.theme.purple};
+    fill: currentColor;
     height: 2rem;
     width: 2rem;
   }
