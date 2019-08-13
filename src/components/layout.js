@@ -67,7 +67,7 @@ const Layout = ({ children }) => {
         <SiteWrapper>
           <Header siteTitle={data.site.siteMetadata.title} />
           <StyledMain>{children}</StyledMain>
-          <Footer toggleTheme={toggleTheme} />
+          <Footer toggleTheme={toggleTheme} isChecked={!isLightMode} />
         </SiteWrapper>
       </>
     </ThemeProvider>
@@ -78,6 +78,7 @@ Layout.propTypes = {
   theme: PropTypes.object,
   children: PropTypes.node.isRequired,
   toggleTheme: PropTypes.func,
+  isChecked: PropTypes.bool,
 }
 
 export default Layout

@@ -23,7 +23,7 @@ const StyledFooter = styled.footer`
   }
 `
 
-const Footer = ({ toggleTheme }) => (
+const Footer = ({ toggleTheme, isChecked }) => (
   <StyledFooter>
     © {new Date().getFullYear()}, Jason Cory Alvernaz
     <p>
@@ -31,7 +31,12 @@ const Footer = ({ toggleTheme }) => (
     </p>
     <br />
     <ToggleStyles>
-      <input className="switch" type="checkbox" onChange={toggleTheme} />
+      <input
+        className="switch"
+        type="checkbox"
+        onChange={toggleTheme}
+        checked={isChecked}
+      />
       <span className="slider"></span>
     </ToggleStyles>
   </StyledFooter>
