@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import styled, { ThemeProvider } from "styled-components"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
@@ -41,11 +41,12 @@ const StyledMain = styled.main`
 `
 
 const Layout = ({ children }) => {
-  const stored =
-    typeof window !== "undefined" && window.localStorage.getItem("isLightMode")
-  const [isLightMode, setIsLightMode] = useState(
-    stored === "true" ? true : false
-  )
+  const [isLightMode, setIsLightMode] = useState(undefined)
+
+  useEffect(() => {
+    const stored = localStorage.getItem("isLightMode")
+    setIsLightMode(stored === "true" ? true : false)
+  })
 
   const toggleTheme = () => {
     setIsLightMode(!isLightMode)
