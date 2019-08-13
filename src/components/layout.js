@@ -41,14 +41,16 @@ const StyledMain = styled.main`
 `
 
 const Layout = ({ children }) => {
-  const stored = localStorage.getItem("isLightMode")
+  const stored =
+    typeof window !== "undefined" && window.localStorage.getItem("isLightMode")
   const [isLightMode, setIsLightMode] = useState(
     stored === "true" ? true : false
   )
 
   const toggleTheme = () => {
     setIsLightMode(!isLightMode)
-    localStorage.setItem("isLightMode", !isLightMode)
+    typeof window !== "undefined" &&
+      window.localStorage.setItem("isLightMode", !isLightMode)
   }
 
   const data = useStaticQuery(graphql`
