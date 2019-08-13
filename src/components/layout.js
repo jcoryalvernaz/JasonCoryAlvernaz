@@ -41,14 +41,14 @@ const StyledMain = styled.main`
 `
 
 const Layout = ({ children }) => {
-  const [theme, setTheme] = useState(lightTheme)
+  const stored = localStorage.getItem("isLightMode")
+  const [isLightMode, setIsLightMode] = useState(
+    stored === "true" ? true : false
+  )
 
   const toggleTheme = () => {
-    if (theme === lightTheme) {
-      setTheme(darkTheme)
-    } else {
-      setTheme(lightTheme)
-    }
+    setIsLightMode(!isLightMode)
+    localStorage.setItem("isLightMode", !isLightMode)
   }
 
   const data = useStaticQuery(graphql`
@@ -62,7 +62,7 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={isLightMode ? lightTheme : darkTheme}>
       <>
         <SiteWrapper>
           <Header siteTitle={data.site.siteMetadata.title} />
