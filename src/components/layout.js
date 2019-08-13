@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
+import React, { useState } from "react"
 import styled, { ThemeProvider } from "styled-components"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
@@ -13,6 +13,9 @@ import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import Footer from "./footer"
 import "../styles/layout.css"
+
+import lightBackground from "../images/lightBackground.svg"
+import darkBackground from "../images/darkBackground.svg"
 
 const lightTheme = {
   purple: "#4C2A85",
@@ -23,7 +26,23 @@ const lightTheme = {
   orange: "#FA8334",
   blue: "#5386E4",
   bs: "0 6px 12px 0 rgba(0, 0, 0, 0.10)",
+  textColor: "#000013",
   maxWidth: "1200px",
+  backgroundImage: lightBackground,
+}
+
+const darkTheme = {
+  purple: "#22133D",
+  green: "#4ECDC4",
+  black: "#000013",
+  white: "#FFFFFA",
+  grey: "#292F36",
+  orange: "#FA8334",
+  blue: "#5386E4",
+  bs: "0 6px 12px 0 rgba(0, 0, 0, 0.10)",
+  maxWidth: "1200px",
+  textColor: "#FFFFFA",
+  backgroundImage: darkBackground,
 }
 
 const SiteWrapper = styled.div`
@@ -31,6 +50,8 @@ const SiteWrapper = styled.div`
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 100%;
+  background-image: url(${props => props.theme.backgroundImage});
+  color: ${props => props.theme.textColor};
 `
 
 const StyledMain = styled.main`
@@ -48,6 +69,16 @@ const StyledMain = styled.main`
 `
 
 const Layout = ({ children }) => {
+  const [theme, setTheme] = useState(lightTheme)
+
+  const toggleTheme = () => {
+    if (theme === lightTheme) {
+      setTheme(darkTheme)
+    } else {
+      setTheme(lightTheme)
+    }
+  }
+
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -59,16 +90,15 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <SiteWrapper>
-      <ThemeProvider theme={lightTheme}>
-        <>
+    <ThemeProvider theme={theme}>
+      <>
+        <SiteWrapper>
           <Header siteTitle={data.site.siteMetadata.title} />
-
           <StyledMain>{children}</StyledMain>
-          <Footer />
-        </>
-      </ThemeProvider>
-    </SiteWrapper>
+          <Footer toggleTheme={toggleTheme} />
+        </SiteWrapper>
+      </>
+    </ThemeProvider>
   )
 }
 

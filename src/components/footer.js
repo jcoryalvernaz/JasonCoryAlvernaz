@@ -2,13 +2,11 @@ import React from "react"
 import styled from "styled-components"
 
 import ToggleStyles from "../styles/ToggleStyles"
-import hexagons from "../images/hexagons.svg"
 import heart from "../images/heart.svg"
 
 const StyledFooter = styled.footer`
   padding: 2rem;
   background: ${props => props.theme.purple};
-  background-image: url(${hexagons});
   color: ${props => props.theme.white};
   display: grid;
   grid-template-columns: 1fr;
@@ -25,7 +23,7 @@ const StyledFooter = styled.footer`
   }
 `
 
-const Footer = () => (
+const Footer = ({ toggleTheme }) => (
   <StyledFooter>
     © {new Date().getFullYear()}, Jason Cory Alvernaz
     <p>
@@ -33,7 +31,7 @@ const Footer = () => (
     </p>
     <br />
     <ToggleStyles>
-      <input className="switch" type="checkbox" />
+      <input className="switch" type="checkbox" onChange={toggleTheme} />
       <span className="slider"></span>
     </ToggleStyles>
   </StyledFooter>

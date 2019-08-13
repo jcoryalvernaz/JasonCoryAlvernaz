@@ -5,11 +5,9 @@ import styled from "styled-components"
 import Nav from "./nav"
 import logo from "../images/JasonCoryAlvernaz.jpg"
 import menu from "../images/hamburgerMenu.svg"
-import hexagons from "../images/hexagons.svg"
 
 const StyledHeader = styled.header`
   background: ${props => props.theme.purple};
-  background-image: url(${hexagons});
   margin-bottom: 1.45rem;
   border-bottom: 2px solid ${props => props.theme.black};
   box-shadow: ${props => props.theme.bs};
