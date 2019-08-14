@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
+import React, { useState, useEffect } from "react"
 import styled, { ThemeProvider } from "styled-components"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
@@ -40,48 +40,41 @@ const StyledMain = styled.main`
   }
 `
 
-class Layout extends React.Component {
-  state = {
-    isDarkMode: false,
+const Layout = ({ children }) => {
+  const [isLightMode, setIsLightMode] = useState(true)
+
+  useEffect(() => {
+    const stored = localStorage.getItem("isLightMode")
+    setIsLightMode(stored === "false" ? false : true)
+    localStorage.setItem("isLightMode", isLightMode)
+  })
+
+  const toggleTheme = () => {
+    setIsLightMode(!isLightMode)
+    localStorage.setItem("isLightMode", !isLightMode)
   }
 
-  componentDidMount() {
-    const stored = localStorage.getItem("isDarkMode")
-    const isDarkMode = stored === "true" ? true : false
-    this.setState({ isDarkMode })
-  }
-
-  toggleTheme = () => {
-    this.setState({ isDarkMode: !this.state.isDarkMode })
-    localStorage.setItem("isDarkMode", !this.state.isDarkMode)
-  }
-
-  render() {
-    const data = useStaticQuery(graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-          }
+  const data = useStaticQuery(graphql`
+    query SiteTitleQuery {
+      site {
+        siteMetadata {
+          title
         }
       }
-    `)
+    }
+  `)
 
-    return (
-      <ThemeProvider theme={this.state.isDarkMode ? darkTheme : lightTheme}>
-        <>
-          <SiteWrapper>
-            <Header siteTitle={data.site.siteMetadata.title} />
-            <StyledMain>{this.props.children}</StyledMain>
-            <Footer
-              toggleTheme={this.toggleTheme}
-              isChecked={this.state.isDarkMode}
-            />
-          </SiteWrapper>
-        </>
-      </ThemeProvider>
-    )
-  }
+  return (
+    <ThemeProvider theme={isLightMode ? lightTheme : darkTheme}>
+      <>
+        <SiteWrapper>
+          <Header siteTitle={data.site.siteMetadata.title} />
+          <StyledMain>{children}</StyledMain>
+          <Footer toggleTheme={toggleTheme} isChecked={!isLightMode} />
+        </SiteWrapper>
+      </>
+    </ThemeProvider>
+  )
 }
 
 Layout.propTypes = {
