@@ -12,6 +12,7 @@ const darkTheme = {
   maxWidth: "1200px",
   textColor: "#FFFFFA",
   backgroundImage: darkBackground,
+  isDark: true,
 }
 
 export default darkTheme

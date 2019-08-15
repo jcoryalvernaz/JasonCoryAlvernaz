@@ -28,6 +28,7 @@ const Avatar = styled.img`
   width: 24rem;
   box-shadow: ${props => props.theme.bs};
   border-radius: 13rem;
+  filter: ${props => (props.theme.isDark ? "sepia(20%) contrast(100%)" : "")};
   transition: all 0.8s ease-in-out;
   @media (max-width: 800px) {
     margin-bottom: 1rem;
