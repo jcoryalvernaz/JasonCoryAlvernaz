@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { useInView } from "react-intersection-observer"
 import styled from "styled-components"
 
 const SocialWrapper = styled.div`
@@ -14,36 +15,36 @@ const SocialWrapper = styled.div`
     margin-bottom: 0;
   }
   .arrow {
-    fill: ${props => props.theme.purple};
+    fill: ${props =>
+      props.theme.isDark ? props.theme.blue : props.theme.purple};
     height: 4rem;
     width: 4rem;
     transform: rotate(90deg);
   }
+  .active {
+    grid-column: 1 / -1;
+    animation-name: bounce;
+    animation-duration: 1.8s;
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation-iteration-count: 3;
+    @keyframes bounce {
+      0%,
+      20%,
+      50%,
+      80%,
+      100% {
+        transform: translateY(0px);
+      }
+      40% {
+        transform: translateY(-15px);
+      }
+      60% {
+        transform: translateY(-5px);
+      }
+    }
+  }
   @media (max-width: 630px) {
     grid-template-columns: 1fr;
-  }
-`
-
-const AnimationStyles = styled.div`
-  grid-column: 1 / -1;
-  animation-name: bounce;
-  animation-duration: 1.8s;
-  animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  animation-iteration-count: 3;
-  @keyframes bounce {
-    0%,
-    20%,
-    50%,
-    80%,
-    100% {
-      transform: translateY(0px);
-    }
-    40% {
-      transform: translateY(-15px);
-    }
-    60% {
-      transform: translateY(-5px);
-    }
   }
 `
 
@@ -70,10 +71,15 @@ const Social = () => {
       text: "Tweet",
     },
   ])
+
+  const [ref, inView] = useInView({
+    threshold: 0,
+  })
+
   return (
     <SocialWrapper>
       <h2>Let's Connect</h2>
-      <AnimationStyles>
+      <div ref={ref} className={inView ? "active" : ""}>
         <svg
           className="arrow"
           xmlns="http://www.w3.org/2000/svg"
@@ -88,7 +94,7 @@ const Social = () => {
             </g>
           </g>
         </svg>
-      </AnimationStyles>
+      </div>
       {links.map((link, i) => {
         return (
           <a key={i} target="_blank" rel="noopener noreferrer" href={link.url}>
