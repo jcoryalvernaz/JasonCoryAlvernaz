@@ -31,7 +31,7 @@ const FormStyles = styled.form`
     font-size: 2rem;
     box-shadow: none;
     ::placeholder {
-      color: ${props => props.theme.grey};
+      color: ${props => props.theme.formTextColor};
     }
   }
   input {
@@ -47,17 +47,16 @@ const FormStyles = styled.form`
     grid-column: 1 / -1;
   }
   button {
-    height: 4rem;
-    background: ${props => props.theme.purple};
-    color: ${props => props.theme.white};
-    border: 0.1rem solid ${props => props.theme.black};
-    border-radius: 2rem;
+    color: ${props => props.theme.textColor};
+    background: transparent;
+    border: 0.2rem solid ${props => props.theme.green};
+    border-radius: 1rem;
+    padding: 1.5rem;
     margin-top: 1rem;
-    max-width: 15rem;
+    max-width: 20rem;
     font-size: 2rem;
     cursor: pointer;
     outline: none;
-    box-shadow: ${props => props.theme.bs};
   }
   button:hover {
     filter: brightness(85%);

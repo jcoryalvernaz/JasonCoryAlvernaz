@@ -5,7 +5,7 @@ const darkTheme = {
   green: "#4ECDC4",
   black: "#000013",
   white: "#FFFFFA",
-  grey: "#292F36",
+  formTextColor: "#FFFFFA",
   orange: "#FA8334",
   blue: "#5386E4",
   bs: "0 6px 12px 0 rgba(0, 0, 0, 0.10)",
