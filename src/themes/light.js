@@ -4,6 +4,7 @@ const lightTheme = {
   purple: "#4C2A85",
   green: "#4ECDC4",
   black: "#000013",
+  borderColor: "#000013",
   white: "#FFFFFA",
   formTextColor: "#292F36",
   orange: "#FA8334",

@@ -9,7 +9,7 @@ import menu from "../images/hamburgerMenu.svg"
 const StyledHeader = styled.header`
   background: ${props => props.theme.purple};
   margin-bottom: 1.45rem;
-  border-bottom: 2px solid ${props => props.theme.black};
+  border-bottom: 1px solid ${props => props.theme.borderColor};
   box-shadow: ${props => props.theme.bs};
   display: grid;
   grid-template-columns: 1fr 1fr;

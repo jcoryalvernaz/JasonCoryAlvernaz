@@ -10,7 +10,7 @@ const StyledFooter = styled.footer`
   color: ${props => props.theme.white};
   display: grid;
   grid-template-columns: 1fr;
-  border-top: 2px solid ${props => props.theme.black};
+  border-top: 1px solid ${props => props.theme.borderColor};
   justify-items: center;
   a {
     color: ${props => props.theme.white};

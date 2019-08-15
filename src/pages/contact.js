@@ -86,7 +86,7 @@ const ContactPage = () => {
           className="message"
           name="message"
           type="text"
-          placeholder="What can I build for you?"
+          placeholder="What can I create for you?"
           aria-label="Enter Message"
           onChange={handleChange}
           required
