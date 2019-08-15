@@ -32,6 +32,7 @@ const Footer = ({ toggleTheme, isChecked }) => (
     <br />
     <ToggleStyles>
       <input
+        aria-label="Change Site Theme"
         className="switch"
         type="checkbox"
         onChange={toggleTheme}
