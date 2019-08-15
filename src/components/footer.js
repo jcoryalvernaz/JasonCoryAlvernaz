@@ -1,8 +1,10 @@
-import React from "react"
-import styled from "styled-components"
+import React, { useContext } from "react"
+import styled, { ThemeContext } from "styled-components"
 
 import ToggleStyles from "../styles/ToggleStyles"
 import heart from "../images/heart.svg"
+import moon from "../images/moon.svg"
+import sun from "../images/sun.svg"
 
 const StyledFooter = styled.footer`
   padding: 2rem;
@@ -23,24 +25,33 @@ const StyledFooter = styled.footer`
   }
 `
 
-const Footer = ({ toggleTheme, isChecked }) => (
-  <StyledFooter>
-    © {new Date().getFullYear()}, Jason Cory Alvernaz
-    <p>
-      Made With <img className="heart" src={heart} alt="love heart" /> in Reno
-    </p>
-    <br />
-    <ToggleStyles>
-      <input
-        aria-label="Change Site Theme"
-        className="switch"
-        type="checkbox"
-        onChange={toggleTheme}
-        checked={isChecked}
-      />
-      <span className="slider"></span>
-    </ToggleStyles>
-  </StyledFooter>
-)
+const Footer = ({ toggleTheme, isChecked }) => {
+  const themeContext = useContext(ThemeContext)
+
+  return (
+    <StyledFooter>
+      © {new Date().getFullYear()}, Jason Cory Alvernaz
+      <p>
+        Made With <img className="heart" src={heart} alt="love heart" /> in Reno
+      </p>
+      <br />
+      <ToggleStyles>
+        <input
+          aria-label="Change Between Light and Dark Site Theme"
+          className="switch"
+          type="checkbox"
+          onChange={toggleTheme}
+          checked={isChecked}
+        />
+        <span className="slider">
+          <img
+            src={themeContext.isDark ? moon : sun}
+            alt={themeContext.isDark ? "Moon" : "Sun"}
+          />
+        </span>
+      </ToggleStyles>
+    </StyledFooter>
+  )
+}
 
 export default Footer

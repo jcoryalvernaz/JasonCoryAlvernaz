@@ -7,6 +7,13 @@ const ToggleStyles = styled.label`
   height: 3rem;
   align-self: flex-end;
   margin-bottom: 1.5rem;
+  img {
+    margin-top: 0.5rem;
+    margin-left: ${props => (props.theme.isDark ? "0.5rem" : "0")};
+    margin-right: ${props => (props.theme.isDark ? "0" : "0.5rem")};
+    justify-self: ${props => (props.theme.isDark ? "" : "flex-end")};
+    height: 2rem;
+  }
   .switch {
     opacity: 0;
     width: 0;
@@ -14,6 +21,7 @@ const ToggleStyles = styled.label`
   }
   .slider {
     position: absolute;
+    display: grid;
     cursor: pointer;
     top: 0;
     right: 0;

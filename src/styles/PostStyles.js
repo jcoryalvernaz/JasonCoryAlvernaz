@@ -22,6 +22,7 @@ const PostStyles = styled.article`
   }
   blockquote {
     grid-column: 1 / -1;
+    border-bottom: 0.3rem solid ${props => props.theme.orange};
   }
   blockquote > p {
     font-size: 5rem;
@@ -59,7 +60,8 @@ const PostStyles = styled.article`
     font-size: 1.5rem;
     display: inline-block;
     background: ${props => props.theme.green + "4D"};
-    color: ${props => props.theme.purple};
+    color: ${props =>
+      props.theme.isDark ? props.theme.orange : props.theme.purple};
     border-radius: 2px;
     padding: 0 1rem;
   }

@@ -11,30 +11,30 @@ const PostNavigation = styled.div`
   grid-template-columns: 1fr 1fr;
   padding: 3rem;
   span {
+    color: ${props =>
+      props.theme.isDark ? props.theme.blue : props.theme.purple};
     font-size: 2.5rem;
   }
   h4 {
     margin-bottom: 1rem;
+  }
+  svg {
+    fill: ${props =>
+      props.theme.isDark ? props.theme.blue : props.theme.purple};
+    height: 2rem;
+    width: 2rem;
   }
   .prev {
     grid-column: 1 / span 1;
     justify-self: start;
   }
   .prev-arrow {
-    fill: ${props => props.theme.purple};
-    height: 2rem;
-    width: 2rem;
     transform: rotate(180deg);
   }
   .next {
     text-align: right;
     grid-column: span 1 / -1;
     justify-self: flex-end;
-  }
-  .next-arrow {
-    fill: ${props => props.theme.purple};
-    height: 2rem;
-    width: 2rem;
   }
   @media (max-width: 550px) {
     grid-template-columns: 1fr;
