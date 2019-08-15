@@ -25,7 +25,8 @@ const BlogList = styled.ul`
     padding-bottom: 2rem;
   }
   .title {
-    color: ${props => props.theme.purple};
+    color: ${props =>
+      props.theme.isDark ? props.theme.blue : props.theme.purple};
     font-size: 2.5rem;
   }
   @media (max-width: 500px) {
