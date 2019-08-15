@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 
 const SocialWrapper = styled.div`
@@ -25,7 +25,7 @@ const SocialWrapper = styled.div`
 `
 
 const Social = () => {
-  const links = [
+  const [links] = useState([
     {
       url: "https://www.linkedin.com/in/JasonAlvernaz",
       logo: "",
@@ -46,7 +46,7 @@ const Social = () => {
       logo: "",
       text: "Tweet",
     },
-  ]
+  ])
   return (
     <SocialWrapper>
       <h2>Let's Connect</h2>
