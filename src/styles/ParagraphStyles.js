@@ -10,7 +10,6 @@ const ParagraphStyles = styled.p`
   padding-right: 2rem;
   line-height: 1.8;
   a {
-    color: ${props => props.theme.black};
     border-bottom: 0.2rem solid ${props => props.theme.green};
   }
 `

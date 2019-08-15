@@ -30,7 +30,6 @@ const PostStyles = styled.article`
     margin: 0;
   }
   a {
-    color: ${props => props.theme.black};
     border-bottom: 0.2rem solid ${props => props.theme.green};
   }
   p {

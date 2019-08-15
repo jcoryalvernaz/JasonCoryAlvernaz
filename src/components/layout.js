@@ -12,7 +12,7 @@ import { StaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import Footer from "./footer"
-import "../styles/layout.css"
+import GlobalStyles from "../styles/GlobalStyles"
 
 import lightTheme from "../themes/light"
 import darkTheme from "../themes/dark"
@@ -60,6 +60,7 @@ class Layout extends React.Component {
     return (
       <ThemeProvider theme={this.state.isDarkMode ? darkTheme : lightTheme}>
         <>
+          <GlobalStyles />
           <StaticQuery
             query={graphql`
               query {

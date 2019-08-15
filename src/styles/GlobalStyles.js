@@ -1,3 +1,6 @@
+import { createGlobalStyle } from "styled-components"
+
+const GlobalStyles = createGlobalStyle`
 @import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
 
 html {
@@ -21,5 +24,9 @@ body {
   height: 100%;
 }
 a {
+  color: ${props => props.theme.textColor};
   text-decoration: none;
 }
+`
+
+export default GlobalStyles
