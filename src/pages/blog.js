@@ -41,7 +41,7 @@ const BlogPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="Blog" />
-      <HeadingStyles>Blog</HeadingStyles>
+      <HeadingStyles>Blog & Tutorials</HeadingStyles>
       <ParagraphStyles>
         Here you can find a wealth of information relating to web development
         topics. I love to teach, so if there is something you would like to see

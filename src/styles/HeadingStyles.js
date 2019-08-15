@@ -5,6 +5,7 @@ const HeadingStyles = styled.h1`
   padding: 2rem;
   justify-self: center;
   display: grid;
+  text-align: center;
   :after {
     content: "";
     height: 0.5rem;

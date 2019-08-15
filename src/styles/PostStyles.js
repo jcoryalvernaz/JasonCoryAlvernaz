@@ -42,6 +42,7 @@ const PostStyles = styled.article`
     margin-left: 1rem;
     margin-right: 1rem;
     justify-self: center;
+    text-align: center;
     grid-column: 1 / -1;
     display: grid;
     :after {
