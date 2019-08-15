@@ -35,6 +35,9 @@ const StyledSpan = styled.span`
     justify-self: center;
     transform: skew(4deg);
   }
+  @media (max-width: 388px) {
+    margin-left: 0;
+  }
 `
 
 const FlashSpan = styled.span`
