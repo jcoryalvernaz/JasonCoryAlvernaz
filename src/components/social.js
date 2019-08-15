@@ -3,8 +3,11 @@ import styled from "styled-components"
 
 const SocialWrapper = styled.div`
   padding-top: 20vmin;
+  padding-bottom: 20vmin;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 2rem;
+  grid-template-columns: repeat(4, minmax(5rem, 15rem));
+  justify-self: center;
   justify-items: center;
   h2 {
     grid-column: 1 / -1;
@@ -15,6 +18,9 @@ const SocialWrapper = styled.div`
     height: 3rem;
     width: 3rem;
     transform: rotate(90deg);
+  }
+  @media (max-width: 630px) {
+    grid-template-columns: 1fr;
   }
 `
 
