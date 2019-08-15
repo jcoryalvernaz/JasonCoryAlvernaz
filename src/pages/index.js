@@ -22,12 +22,15 @@ const StyledSpan = styled.span`
   display: grid;
   transform: rotate(-1deg);
   width: fit-content;
+  color: ${props => props.theme.black};
   &:after {
     content: "";
-    height: 2.5rem;
+    height: 3.5rem;
     background: ${props => props.theme.green};
-    margin-top: -3.8rem;
+    margin-top: -4.2rem;
     z-index: -1;
+    width: 105%;
+    justify-self: center;
     transform: skew(4deg);
   }
 `
