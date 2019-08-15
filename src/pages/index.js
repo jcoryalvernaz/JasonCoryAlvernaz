@@ -26,7 +26,7 @@ const StyledSpan = styled.span`
   &:after {
     content: "";
     height: 3.5rem;
-    background: ${props => props.theme.green};
+    background: ${props => props.theme.orange};
     margin-top: -4.2rem;
     z-index: -1;
     width: 105%;

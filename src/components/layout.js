@@ -1,7 +1,7 @@
-import React from "react"
+import React, { useState, useLayoutEffect } from "react"
 import styled, { ThemeProvider } from "styled-components"
 import PropTypes from "prop-types"
-import { StaticQuery, graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 
 import Header from "./header"
 import Footer from "./footer"
@@ -33,52 +33,41 @@ const StyledMain = styled.main`
   }
 `
 
-class Layout extends React.Component {
-  state = {
-    isDarkMode: false,
-  }
+const Layout = ({ children }) => {
+  const [isDarkMode, setIsDarkMode] = useState(false)
 
-  componentDidMount() {
+  useLayoutEffect(() => {
     const stored = localStorage.getItem("isDarkMode")
-    const isDarkMode = stored === "true" ? true : false
-    this.setState({ isDarkMode })
+    setIsDarkMode(stored === "true" ? true : false)
+  })
+
+  const toggleTheme = () => {
+    localStorage.setItem("isDarkMode", !isDarkMode)
+    setIsDarkMode(!isDarkMode)
   }
 
-  toggleTheme = () => {
-    localStorage.setItem("isDarkMode", !this.state.isDarkMode)
-    this.setState({ isDarkMode: !this.state.isDarkMode })
-  }
+  const data = useStaticQuery(graphql`
+    query SiteTitleQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
 
-  render() {
-    return (
-      <ThemeProvider theme={this.state.isDarkMode ? darkTheme : lightTheme}>
-        <>
-          <GlobalStyles />
-          <StaticQuery
-            query={graphql`
-              query {
-                site {
-                  siteMetadata {
-                    title
-                  }
-                }
-              }
-            `}
-            render={data => (
-              <SiteWrapper>
-                <Header siteTitle={data.site.siteMetadata.title} />
-                <StyledMain>{this.props.children}</StyledMain>
-                <Footer
-                  toggleTheme={this.toggleTheme}
-                  isChecked={this.state.isDarkMode}
-                />
-              </SiteWrapper>
-            )}
-          />
-        </>
-      </ThemeProvider>
-    )
-  }
+  return (
+    <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
+      <>
+        <GlobalStyles />
+        <SiteWrapper>
+          <Header siteTitle={data.site.siteMetadata.title} />
+          <StyledMain>{children}</StyledMain>
+          <Footer toggleTheme={toggleTheme} isChecked={isDarkMode} />
+        </SiteWrapper>
+      </>
+    </ThemeProvider>
+  )
 }
 
 Layout.propTypes = {
