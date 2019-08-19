@@ -1,6 +1,7 @@
 ---
 path: "/third-post"
 title: "Introduction to ReactJS"
+description: "This is a post about the basics of React."
 published: true
 date: "2019-11-1"
 featuredImage: "settingsJSON.png"

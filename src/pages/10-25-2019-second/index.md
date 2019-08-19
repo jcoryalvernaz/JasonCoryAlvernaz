@@ -1,6 +1,7 @@
 ---
 path: "/second-post"
 title: "Async + Await"
+description: "This is a post about ES6 Aync Await."
 published: true
 date: "2019-10-25"
 featuredImage: "settingsJSON.png"

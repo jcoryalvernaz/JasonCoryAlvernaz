@@ -1,6 +1,7 @@
 ---
 path: "/first-post"
 title: "Introduction to Styled Components"
+description: "This is a post about the basics of styled components"
 published: true
 date: "2019-10-18"
 featuredImage: "settingsJSON.png"

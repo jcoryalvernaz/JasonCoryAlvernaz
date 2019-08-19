@@ -44,9 +44,14 @@ const PostNavigation = styled.div`
 export default function Post({ data, pageContext }) {
   const { markdownRemark: post } = data
   const { next, prev } = pageContext
+  console.log(post.frontmatter.featuredImage)
   return (
     <Layout>
-      <SEO title={post.frontmatter.title} />
+      <SEO
+        title={post.frontmatter.title}
+        description={post.frontmatter.description}
+        image={post.frontmatter.featuredImage.childImageSharp.fluid}
+      />
       <PostStyles dangerouslySetInnerHTML={{ __html: post.html }} />
       <PostNavigation>
         {prev && (
@@ -106,8 +111,16 @@ export const postQuery = graphql`
       frontmatter {
         path
         title
+        description
         published
         date
+        featuredImage {
+          childImageSharp {
+            fluid(maxWidth: 800) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }
