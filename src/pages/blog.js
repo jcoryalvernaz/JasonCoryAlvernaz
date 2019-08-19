@@ -27,6 +27,7 @@ const BlogList = styled.ul`
   .title {
     color: ${props =>
       props.theme.isDark ? props.theme.blue : props.theme.purple};
+    font-weight: bold;
     font-size: 2.5rem;
   }
   @media (max-width: 500px) {
