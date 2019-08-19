@@ -1,5 +1,5 @@
 import PropTypes from "prop-types"
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 
 import Nav from "./nav"
@@ -57,17 +57,19 @@ const MenuButton = styled.input`
 `
 
 const Header = () => {
-  const toggleNav = e => {
-    const expanded = e.target.getAttribute("aria-expanded") === "true" || false
-    e.target.setAttribute("aria-expanded", !expanded)
+  const [expanded, setExpanded] = useState(false)
+
+  const toggleNav = () => {
+    setExpanded(!expanded)
   }
+
   return (
     <StyledHeader>
       <Avatar src={logo} alt="Jason Cory Alvernaz" />
       <MenuButton
         type="image"
         src={menu}
-        aria-expanded="false"
+        aria-expanded={expanded}
         aria-label="menu"
         onClick={toggleNav}
       />
