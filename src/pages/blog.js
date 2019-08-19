@@ -62,6 +62,7 @@ const BlogPage = ({ data }) => {
                   fluid={
                     post.node.frontmatter.featuredImage.childImageSharp.fluid
                   }
+                  alt={post.node.frontmatter.featuredAlt}
                 />
               </Link>
               <Link className="title" to={post.node.frontmatter.path}>
@@ -97,6 +98,7 @@ export const pageQuery = graphql`
                 }
               }
             }
+            featuredAlt
           }
         }
       }

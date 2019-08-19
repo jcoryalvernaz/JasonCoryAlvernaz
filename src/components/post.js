@@ -51,6 +51,7 @@ export default function Post({ data, pageContext }) {
         title={post.frontmatter.title}
         description={post.frontmatter.description}
         image={post.frontmatter.featuredImage.childImageSharp.fluid}
+        imageAlt={post.frontmatter.featuredAlt}
         isBlogPost={true}
       />
       <PostStyles dangerouslySetInnerHTML={{ __html: post.html }} />
@@ -122,6 +123,7 @@ export const postQuery = graphql`
             }
           }
         }
+        featuredAlt
       }
     }
   }
