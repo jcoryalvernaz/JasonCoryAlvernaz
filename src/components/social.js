@@ -73,6 +73,7 @@ const Social = () => {
   ])
 
   const [ref, inView] = useInView({
+    triggerOnce: true,
     threshold: 0,
   })
 
