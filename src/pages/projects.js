@@ -1,60 +1,16 @@
-import React, { useState } from "react"
-import styled from "styled-components"
+import React from "react"
+import { graphql } from "gatsby"
+import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Social from "../components/social"
 import HeadingStyles from "../styles/HeadingStyles"
 import ParagraphStyles from "../styles/ParagraphStyles"
+import ListStyles from "../styles/ListStyles"
 
-const ProjectsList = styled.ul`
-  max-width: 80rem;
-  width: 100%;
-  justify-self: center;
-  margin-top: 3rem;
-  padding: 1rem;
-  list-style: none;
-  li {
-    display: grid;
-    grid-gap: 1rem;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    border-top: 0.3rem solid ${props => props.theme.orange};
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
-  img {
-    grid-column: 1 / span 1;
-    grid-row: 1 / -1;
-  }
-  p {
-    font-size: 2rem;
-  }
-  .title a {
-    color: ${props =>
-      props.theme.isDark ? props.theme.blue : props.theme.purple};
-    font-size: 2.5rem;
-  }
-  @media (max-width: 500px) {
-    li {
-      grid-template-columns: 1fr;
-      grid-template-rows: 3fr 1fr;
-    }
-  }
-`
-
-const ProjectsPage = () => {
-  const [projects] = useState([
-    {
-      name: "Jason Cory Alvernaz Portfolio Site",
-      description:
-        "My personal site designed to showcase my work and allow new clients to contact me.",
-      link: "https://jasoncoryalvernaz.com",
-      technologies: ["Gatsby", "React", "GraphQL"],
-      image: "",
-      imageAlt: "",
-    },
-  ])
+const ProjectsPage = ({ data }) => {
+  const projects = [...data.allProjectItemsJson.edges]
   return (
     <Layout>
       <SEO title="Projects" />
@@ -64,23 +20,55 @@ const ProjectsPage = () => {
         purposes and others for personal growth. Here is a short list of some of
         the projects that I have developed.
       </ParagraphStyles>
-      <ProjectsList>
-        {projects.map((project, i) => {
+      <ListStyles>
+        {projects.map(project => {
           return (
-            <li key={i}>
-              <img src={project.image} alt={project.imageAlt} />
-              <h3 className="title">
-                <a href={project.link}>{project.name}</a>
-              </h3>
-              <p>{project.description}</p>
-              <p>Built with: {project.technologies.join(`, `)}</p>
+            <li key={project.node.id}>
+              <a href={project.node.link} className="featured-image">
+                <Img
+                  fluid={project.node.image.childImageSharp.fluid}
+                  alt={project.node.imageAlt}
+                />
+              </a>
+              <a className="title" href={project.node.link}>
+                {project.node.name}
+              </a>
+              <p>{project.node.description}</p>
+              <p>
+                <strong>Built wilth: </strong>
+                {project.node.technologies.join(`, `)}
+              </p>
             </li>
           )
         })}
-      </ProjectsList>
+      </ListStyles>
       <Social></Social>
     </Layout>
   )
 }
+
+export const projectsQuery = graphql`
+  query ProjectItemsQuery {
+    allProjectItemsJson {
+      edges {
+        node {
+          id
+          name
+          description
+          link
+          technologies
+          image {
+            childImageSharp {
+              fluid(maxWidth: 800) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          imageAlt
+        }
+      }
+    }
+  }
+`
 
 export default ProjectsPage

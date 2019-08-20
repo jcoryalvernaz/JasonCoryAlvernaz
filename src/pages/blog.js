@@ -1,42 +1,12 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
-import styled from "styled-components"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import HeadingStyles from "../styles/HeadingStyles"
 import ParagraphStyles from "../styles/ParagraphStyles"
-
-const BlogList = styled.ul`
-  max-width: 80rem;
-  width: 100%;
-  justify-self: center;
-  margin-top: 3rem;
-  padding: 1rem;
-  list-style: none;
-  li {
-    display: grid;
-    grid-gap: 1rem;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    border-top: 0.3rem solid ${props => props.theme.orange};
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
-  .title {
-    color: ${props =>
-      props.theme.isDark ? props.theme.blue : props.theme.purple};
-    font-weight: bold;
-    font-size: 2.5rem;
-  }
-  @media (max-width: 500px) {
-    li {
-      grid-template-columns: 1fr;
-      grid-template-rows: 3fr 1fr;
-    }
-  }
-`
+import ListStyles from "../styles/ListStyles"
 
 const BlogPage = ({ data }) => {
   const posts = [...data.allMarkdownRemark.edges]
@@ -54,7 +24,7 @@ const BlogPage = ({ data }) => {
         </a>{" "}
         to see all the video tutorials I have available!
       </ParagraphStyles>
-      <BlogList>
+      <ListStyles>
         {posts.map(post => {
           return (
             <li key={post.node.id}>
@@ -69,10 +39,15 @@ const BlogPage = ({ data }) => {
               <Link className="title" to={post.node.frontmatter.path}>
                 {post.node.frontmatter.title}
               </Link>
+              <p>{post.node.frontmatter.description}</p>
+              <p>
+                <strong>Tags: </strong>
+                {post.node.frontmatter.tags.join(`, `)}
+              </p>
             </li>
           )
         })}
-      </BlogList>
+      </ListStyles>
     </Layout>
   )
 }
@@ -89,6 +64,8 @@ export const pageQuery = graphql`
           frontmatter {
             title
             path
+            description
+            tags
             published
             date
             featuredImage {
