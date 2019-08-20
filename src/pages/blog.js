@@ -41,7 +41,7 @@ const BlogPage = ({ data }) => {
               </Link>
               <p>{post.node.frontmatter.description}</p>
               <p>
-                <strong>Tags: </strong>
+                <strong>Categories: </strong>
                 {post.node.frontmatter.tags.join(`, `)}
               </p>
             </li>

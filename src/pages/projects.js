@@ -47,7 +47,7 @@ const ProjectsPage = ({ data }) => {
   )
 }
 
-export const projectsQuery = graphql`
+export const pageQuery = graphql`
   query ProjectItemsQuery {
     allProjectItemsJson {
       edges {
