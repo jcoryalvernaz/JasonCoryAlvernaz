@@ -4,7 +4,7 @@
     "description": "My personal site designed to showcase my work and allow new clients to contact me.",
     "link": "https://jasoncoryalvernaz.com",
     "technologies": ["Gatsby", "React", "GraphQL", "CSS Grid"],
-    "image": "../images/settingsJSON.png",
+    "image": "../images/project1.png",
     "imageAlt": "settings"
   },
   {
@@ -12,7 +12,15 @@
     "description": "The Coding From Null course platform is a website dedicated to teaching web development topics to help elevate your career.",
     "link": "https://codingfromnull.io",
     "technologies": ["React", "CSS Grid"],
-    "image": "../images/settingsJSON.png",
+    "image": "../images/project2.png",
+    "imageAlt": "settings"
+  },
+  {
+    "name": "Coding From Null YouTube Channel",
+    "description": "The Coding From Null YouTube channel is where web developers can come to get free tutorials on the most cutting edge technologies in our industry.",
+    "link": "https://www.youtube.com/channel/UC9Psp9-p9jgHfDBReAAcZ3w",
+    "technologies": ["Premiere Pro", "Photoshop", "OBS Studio", "VS Code"],
+    "image": "../images/project3.png",
     "imageAlt": "settings"
   }
 ]

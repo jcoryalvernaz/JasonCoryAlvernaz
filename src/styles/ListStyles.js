@@ -11,7 +11,7 @@ const ListStyles = styled.ul`
     display: grid;
     grid-gap: 1rem;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: repeat(3, minmax(min-content, max-content));
     border-top: 0.3rem solid ${props => props.theme.orange};
     padding-top: 2rem;
     padding-bottom: 2rem;
@@ -23,6 +23,12 @@ const ListStyles = styled.ul`
   .featured-image {
     grid-column: 1 / span 1;
     grid-row: 1 / -1;
+    display: grid;
+    box-shadow: ${props => props.theme.bs};
+  }
+  .featured-image img {
+    border-radius: 4px;
+    border: 0.1rem solid ${props => props.theme.green};
   }
   .title {
     color: ${props =>
