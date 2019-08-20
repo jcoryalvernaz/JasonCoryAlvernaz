@@ -44,7 +44,6 @@ const PostNavigation = styled.div`
 export default function Post({ data, pageContext }) {
   const { markdownRemark: post } = data
   const { next, prev } = pageContext
-  console.log(post.frontmatter.featuredImage)
   return (
     <Layout>
       <SEO

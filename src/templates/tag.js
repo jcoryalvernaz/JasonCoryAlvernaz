@@ -1,28 +1,31 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
+import slugify from "slugify"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import HeadingStyles from "../styles/HeadingStyles"
-import ParagraphStyles from "../styles/ParagraphStyles"
-import ListStyles from "../styles/ListStyles"
 
-const BlogPage = ({ data }) => {
+import HeadingStyles from "../styles/HeadingStyles"
+import ListStyles from "../styles/ListStyles"
+import ParagraphStyles from "../styles/ParagraphStyles"
+
+export default function TagPage({ pageContext, data }) {
+  const { tag } = pageContext
   const posts = [...data.allMarkdownRemark.edges]
   return (
     <Layout>
-      <SEO title="Blog" />
-      <HeadingStyles>Blog & Tutorials</HeadingStyles>
+      <SEO title={`${tag} Blog Posts`} />
+      <HeadingStyles>{tag} Posts</HeadingStyles>
       <ParagraphStyles>
-        Here you can find a wealth of information relating to web development
-        topics. I love to teach, so if there is something you would like to see
-        reach out to me from the <Link to="/contact">contact page.</Link> For
-        even more learning opportunities, check out my{" "}
+        Here you will find all the posts that I have written on the topic of{" "}
+        {tag}. If you would like to see a post on a topic that you don't see,
+        <Link to="/contact"> reach out</Link> and I will see what I can do. You
+        can also find videos on other web development topics on my{" "}
         <a href="https://www.youtube.com/channel/UC9Psp9-p9jgHfDBReAAcZ3w">
           YouTube channel
-        </a>{" "}
-        to see all the video tutorials I have available!
+        </a>
+        .
       </ParagraphStyles>
       <ListStyles>
         {posts.map(post => {
@@ -43,7 +46,11 @@ const BlogPage = ({ data }) => {
               <p>
                 <strong>Categories: </strong>
                 {post.node.frontmatter.tags.map((tag, i) => (
-                  <Link key={i} className="tag" to={`/tags/${tag}`}>
+                  <Link
+                    key={i}
+                    className="tag"
+                    to={`/tags/${slugify(tag, { lower: true })}`}
+                  >
                     {tag}
                   </Link>
                 ))}
@@ -57,21 +64,23 @@ const BlogPage = ({ data }) => {
 }
 
 export const pageQuery = graphql`
-  query IndexQuery {
+  query($tag: String!) {
     allMarkdownRemark(
-      filter: { frontmatter: { published: { eq: true } } }
       sort: { fields: frontmatter___date, order: DESC }
+      filter: { frontmatter: { tags: { in: [$tag] } } }
     ) {
+      totalCount
       edges {
         node {
           id
           frontmatter {
-            title
-            path
-            description
-            tags
-            published
             date
+            description
+            featuredAlt
+            path
+            published
+            tags
+            title
             featuredImage {
               childImageSharp {
                 fluid(maxWidth: 800) {
@@ -79,12 +88,9 @@ export const pageQuery = graphql`
                 }
               }
             }
-            featuredAlt
           }
         }
       }
     }
   }
 `
-
-export default BlogPage

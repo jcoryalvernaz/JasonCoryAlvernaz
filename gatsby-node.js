@@ -5,11 +5,10 @@
  */
 
 const path = require("path")
+const slugify = require("slugify")
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
-
-  const postTemplate = path.resolve("src/components/post.js")
 
   return graphql(`
     {
@@ -23,6 +22,7 @@ exports.createPages = ({ actions, graphql }) => {
               title
               published
               date
+              tags
             }
           }
         }
@@ -33,15 +33,42 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(res.errors)
     }
     const posts = res.data.allMarkdownRemark.edges
-    posts.forEach(({ node }, index) => {
-      createPage({
-        path: node.frontmatter.path,
-        component: postTemplate,
-        context: {
-          prev: index === 0 ? null : posts[index - 1].node,
-          next: index === posts.length - 1 ? null : posts[index + 1].node,
-        },
-      })
+
+    createPostPages({ posts, createPage })
+    createTagsPages({ posts, createPage })
+  })
+}
+
+createPostPages = ({ posts, createPage }) => {
+  const postTemplate = path.resolve("src/templates/post.js")
+  posts.forEach(({ node }, index) => {
+    createPage({
+      path: node.frontmatter.path,
+      component: postTemplate,
+      context: {
+        prev: index === 0 ? null : posts[index - 1].node,
+        next: index === posts.length - 1 ? null : posts[index + 1].node,
+      },
+    })
+  })
+}
+
+createTagsPages = ({ posts, createPage }) => {
+  const tagTemplate = path.resolve("src/templates/tag.js")
+
+  const allTags = new Set()
+  posts.forEach(({ node: { frontmatter: { tags } } }) => {
+    if (!Array.isArray(tags)) return
+    tags.forEach(tag => allTags.add(tag))
+  })
+
+  allTags.forEach(tag => {
+    createPage({
+      path: `/tags/${slugify(tag, { lower: true })}`,
+      component: tagTemplate,
+      context: {
+        tag,
+      },
     })
   })
 }

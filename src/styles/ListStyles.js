@@ -17,6 +17,7 @@ const ListStyles = styled.ul`
     padding-bottom: 2rem;
   }
   p {
+    line-height: 1.8;
     font-size: 2rem;
   }
   .featured-image {
@@ -28,6 +29,16 @@ const ListStyles = styled.ul`
       props.theme.isDark ? props.theme.blue : props.theme.purple};
     font-weight: bold;
     font-size: 2.5rem;
+  }
+  .tag {
+    font-size: 1.5rem;
+    display: inline-block;
+    margin-right: 1rem;
+    background: ${props => props.theme.green + "4D"};
+    color: ${props =>
+      props.theme.isDark ? props.theme.orange : props.theme.purple};
+    border-radius: 2px;
+    padding: 0 1rem;
   }
   @media (max-width: 630px) {
     li {
