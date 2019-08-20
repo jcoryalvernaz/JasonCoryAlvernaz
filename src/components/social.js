@@ -1,6 +1,7 @@
-import React, { useState } from "react"
+import React from "react"
 import { useInView } from "react-intersection-observer"
 import styled from "styled-components"
+import { graphql, useStaticQuery } from "gatsby"
 
 const SocialWrapper = styled.div`
   padding-top: 10vmin;
@@ -49,28 +50,22 @@ const SocialWrapper = styled.div`
 `
 
 const Social = () => {
-  const [links] = useState([
-    {
-      url: "https://www.linkedin.com/in/JasonAlvernaz",
-      logo: "",
-      text: "Connect",
-    },
-    {
-      url: "https://www.instagram.com/jason.cory.code/",
-      logo: "",
-      text: "Follow",
-    },
-    {
-      url: "https://www.youtube.com/channel/UC9Psp9-p9jgHfDBReAAcZ3w",
-      logo: "",
-      text: "Watch",
-    },
-    {
-      url: "https://www.twitter.com/JasonAlvernaz",
-      logo: "",
-      text: "Tweet",
-    },
-  ])
+  const data = useStaticQuery(graphql`
+    query SocialLinksQuery {
+      allSocialLinksJson {
+        edges {
+          node {
+            id
+            image
+            imageAlt
+            url
+          }
+        }
+      }
+    }
+  `)
+
+  const links = [...data.allSocialLinksJson.edges]
 
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -96,10 +91,15 @@ const Social = () => {
           </g>
         </svg>
       </div>
-      {links.map((link, i) => {
+      {links.map(link => {
         return (
-          <a key={i} target="_blank" rel="noopener noreferrer" href={link.url}>
-            <img src={link.logo} alt={link.text} />
+          <a
+            key={link.node.id}
+            target="_blank"
+            rel="noopener noreferrer"
+            href={link.node.url}
+          >
+            <img src={link.node.image} alt={link.node.imageAlt} />
           </a>
         )
       })}
