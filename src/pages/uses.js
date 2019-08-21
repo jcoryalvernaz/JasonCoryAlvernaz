@@ -12,9 +12,10 @@ const ListHeading = styled.h2`
   max-width: 80rem;
   width: 100%;
   justify-self: center;
-  margin-top: 3rem 1rem;
+  margin-top: 3rem;
   display: grid;
   padding: 1rem;
+  font-size: 2.5rem;
   :after {
     content: "";
     height: 0.3rem;
@@ -30,7 +31,7 @@ const UsesList = styled.ul`
   justify-self: center;
   line-height: 1.8;
   font-size: 2rem;
-  margin: 1rem;
+  padding-right: 2rem;
   list-style-image: radial-gradient(
     ${props => props.theme.blue} 60%,
     ${props => props.theme.green}
