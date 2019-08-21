@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
+import slugify from "slugify"
 import Img from "gatsby-image"
 
 import Layout from "../components/layout"
@@ -43,7 +44,11 @@ const BlogPage = ({ data }) => {
               <p>
                 <strong>Categories: </strong>
                 {post.node.frontmatter.tags.map((tag, i) => (
-                  <Link key={i} className="tag" to={`/tags/${tag}`}>
+                  <Link
+                    key={i}
+                    className="tag"
+                    to={`/tags/${slugify(tag, { lower: true })}`}
+                  >
                     {tag}
                   </Link>
                 ))}
