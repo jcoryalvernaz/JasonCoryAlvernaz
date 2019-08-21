@@ -14,6 +14,7 @@ const SocialWrapper = styled.div`
   h2 {
     grid-column: 1 / -1;
     margin-bottom: 0;
+    font-size: 2.5rem;
   }
   .arrow {
     fill: ${props =>
