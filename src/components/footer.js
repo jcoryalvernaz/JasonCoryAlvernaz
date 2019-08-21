@@ -50,6 +50,10 @@ const Footer = ({ toggleTheme, isChecked }) => {
           />
         </span>
       </ToggleStyles>
+      <p>
+        Built with <a href="https://gatsbyjs.org">Gatsby</a> | Hosted on{" "}
+        <a href="https://netlify.com">Netlify</a>
+      </p>
     </StyledFooter>
   )
 }

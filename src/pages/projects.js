@@ -1,5 +1,6 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
+import slugify from "slugify"
 import Img from "gatsby-image"
 
 import Layout from "../components/layout"
@@ -36,7 +37,15 @@ const ProjectsPage = ({ data }) => {
               <p>{project.node.description}</p>
               <p>
                 <strong>Built wilth: </strong>
-                {project.node.technologies.join(`, `)}
+                {project.node.technologies.map((tag, i) => (
+                  <Link
+                    key={i}
+                    className="tag"
+                    to={`/tags/${slugify(tag, { lower: true })}`}
+                  >
+                    {tag}
+                  </Link>
+                ))}
               </p>
             </li>
           )

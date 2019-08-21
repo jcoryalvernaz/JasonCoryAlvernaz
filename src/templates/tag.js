@@ -16,7 +16,7 @@ export default function TagPage({ pageContext, data }) {
   return (
     <Layout>
       <SEO title={`${tag} Blog Posts`} />
-      <HeadingStyles>{tag} Posts</HeadingStyles>
+      <HeadingStyles>{tag} Blog Posts</HeadingStyles>
       <ParagraphStyles>
         Here you will find all the posts that I have written on the topic of{" "}
         {tag}. If you would like to see a post on a topic that you don't see,
