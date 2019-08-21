@@ -24,7 +24,8 @@ const FormStyles = styled.form`
   textarea {
     border-radius: 4px;
     background: transparent;
-    border: 0.2rem solid ${props => props.theme.blue};
+    border: 0.1rem solid
+      ${props => (props.theme.isDark ? props.theme.blue : props.theme.purple)};
     color: ${props => props.theme.black};
     padding-left: 1rem;
     outline: none;

@@ -42,7 +42,7 @@ const ListStyles = styled.ul`
     margin-right: 1rem;
     background: ${props => props.theme.green + "4D"};
     color: ${props =>
-      props.theme.isDark ? props.theme.white : props.theme.purple};
+      props.theme.isDark ? props.theme.blue : props.theme.purple};
     border-radius: 2px;
     padding: 0 1rem;
   }
