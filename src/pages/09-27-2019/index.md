@@ -3,7 +3,7 @@ path: "/second-post"
 title: "Async + Await"
 description: "This is a post about ES6 Aync Await."
 tags: ["React", "JavaScript", "Styled Components"]
-published: false
+published: true
 date: "2019-09-27"
 featuredImage: "settingsJSON.png"
 featuredAlt: "settings.JSON"
