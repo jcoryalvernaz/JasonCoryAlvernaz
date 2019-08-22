@@ -80,7 +80,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#4c2a85`,
         display: `minimal-ui`,
-        icon: `src/images/JasonCoryAlvernaz.jpg`, // This path is relative to the root of the site.
+        icon: `src/images/JasonCoryCircle.png`, // This path is relative to the root of the site.
       },
     },
     {
