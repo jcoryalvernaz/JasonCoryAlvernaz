@@ -23,10 +23,12 @@ const StyledFooter = styled.footer`
     margin-right: 0.2rem;
     height: 1.5rem;
   }
-  span {
-    color: ${props => props.theme.green};
+  .pipe {
+    color: ${props =>
+      props.theme.isDark ? props.theme.green : props.theme.blue};
     margin-left: 0.5rem;
     margin-right: 0.5rem;
+    font-weight: bold;
   }
 `
 
@@ -57,7 +59,7 @@ const Footer = ({ toggleTheme, isChecked }) => {
       </ToggleStyles>
       <p>
         Built with <a href="https://gatsbyjs.org">Gatsby</a>
-        <span> | </span>
+        <span className="pipe"> | </span>
         Hosted on <a href="https://netlify.com">Netlify</a>
       </p>
     </StyledFooter>
