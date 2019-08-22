@@ -13,6 +13,7 @@ const StyledHeader = styled.header`
   box-shadow: ${props => props.theme.bs};
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 4fr;
   input[aria-expanded="true"] ~ ul {
     @media (max-width: 630px) {
       height: auto;
@@ -20,10 +21,27 @@ const StyledHeader = styled.header`
   }
 `
 
+const PhoneBanner = styled.div`
+  grid-column: 1 / -1;
+  grid-row: 1 / span 1;
+  text-align: center;
+  display: grid;
+  background: ${props => props.theme.black};
+  border-bottom: 1px solid ${props => props.theme.green};
+  a {
+    font-weight: bold;
+    align-self: center;
+    color: ${props => props.theme.white};
+    @media (max-width: 630px) {
+      font-size: 1rem;
+    }
+  }
+`
+
 const Avatar = styled.img`
   margin-top: 2rem;
   margin-left: 2rem;
-  margin-bottom: -15rem;
+  margin-bottom: -12rem;
   position: relative;
   width: 24rem;
   box-shadow: ${props => props.theme.bs};
@@ -38,7 +56,7 @@ const Avatar = styled.img`
     border-radius: 6rem;
   }
   @media (max-width: 630px) {
-    margin-bottom: -5rem;
+    margin-bottom: -3rem;
   }
 `
 
@@ -47,9 +65,10 @@ const MenuButton = styled.input`
   outline: none;
   display: none;
   max-width: 3rem;
+  align-self: center;
   @media (max-width: 630px) {
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
+    grid-column: span 1 / -1;
+    grid-row: span 1 / -1;
     justify-self: end;
     display: block;
     margin: 1rem;
@@ -65,6 +84,9 @@ const Header = () => {
 
   return (
     <StyledHeader>
+      <PhoneBanner>
+        <a href="tel:1-775-997-5429">775.997.5429</a>
+      </PhoneBanner>
       <Avatar src={logo} alt="Jason Cory Alvernaz" />
       <MenuButton
         type="image"
