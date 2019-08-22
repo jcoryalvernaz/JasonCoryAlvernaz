@@ -29,6 +29,9 @@ const PostStyles = styled.article`
     font-style: italic;
     text-align: center;
     margin: 0;
+    @media (max-width: 500px) {
+      font-size: 3rem;
+    }
   }
   a {
     border-bottom: 0.2rem solid ${props => props.theme.green};
@@ -57,6 +60,14 @@ const PostStyles = styled.article`
       font-size: 4rem;
     }
   }
+  pre {
+    background: ${props => props.theme.green + "4D"};
+    padding: 1rem;
+    border-radius: 2px;
+  }
+  pre code {
+    background: none;
+  }
   code {
     font-size: 1.5rem;
     display: inline-block;
@@ -71,6 +82,7 @@ const PostStyles = styled.article`
     padding: 1rem;
     grid-row: span 5;
     align-self: flex-start;
+    margin: 3rem 0;
   }
   .tip-left {
     grid-column: 1 / span 1;
