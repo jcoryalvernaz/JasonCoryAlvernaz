@@ -23,6 +23,11 @@ const StyledFooter = styled.footer`
     margin-right: 0.2rem;
     height: 1.5rem;
   }
+  span {
+    color: ${props => props.theme.green};
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
 `
 
 const Footer = ({ toggleTheme, isChecked }) => {
@@ -51,8 +56,9 @@ const Footer = ({ toggleTheme, isChecked }) => {
         </span>
       </ToggleStyles>
       <p>
-        Built with <a href="https://gatsbyjs.org">Gatsby</a> | Hosted on{" "}
-        <a href="https://netlify.com">Netlify</a>
+        Built with <a href="https://gatsbyjs.org">Gatsby</a>
+        <span> | </span>
+        Hosted on <a href="https://netlify.com">Netlify</a>
       </p>
     </StyledFooter>
   )
