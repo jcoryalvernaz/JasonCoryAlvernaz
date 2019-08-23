@@ -12,7 +12,7 @@ const ListStyles = styled.ul`
     grid-gap: 1rem;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(3, minmax(min-content, max-content));
-    border-top: 0.3rem solid ${props => props.theme.orange};
+    border-top: 0.2rem solid ${props => props.theme.orange};
     padding-top: 2rem;
     padding-bottom: 2rem;
   }

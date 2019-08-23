@@ -46,6 +46,57 @@ const FlashSpan = styled.span`
   text-align: center;
 `
 
+const StyledSection = styled.section`
+  margin-top: 8rem;
+  margin-bottom: 20rem;
+  position: relative;
+  display: grid;
+  transition: 1s all ease-in-out;
+  div {
+    display: block;
+    position: relative;
+    display: grid;
+  }
+  div h2 {
+    text-align: center;
+    justify-self: center;
+    position: relative;
+    font-size: 2.5rem;
+    color: ${props => props.theme.black};
+    :before {
+      content: "";
+      position: absolute;
+      justify-self: center;
+      width: 110%;
+      background: ${props => props.theme.purple};
+    }
+  }
+  div p {
+    color: ${props => props.theme.black};
+    position: relative;
+    display: grid;
+    :before {
+      content: "";
+      height: 0.2rem;
+      margin-bottom: 2rem;
+      background: ${props => props.theme.orange};
+      width: 100%;
+      grid-column: 1 / -1;
+    }
+  }
+  :before {
+    background: ${props => props.theme.green};
+    content: "";
+    width: 120%;
+    left: -2rem;
+    height: 105%;
+    position: absolute;
+    transform: rotate(-2deg) translateX(-3%);
+    box-shadow: 0 12px 12px 0 rgba(0, 0, 0, 0.1),
+      0 -8px 12px 0 rgba(0, 0, 0, 0.1);
+  }
+`
+
 const IndexPage = () => {
   const [titles] = useState([
     "Developer!",
@@ -85,6 +136,27 @@ const IndexPage = () => {
         <Link to="/blog">read my blog</Link>, or{" "}
         <Link to="/contact">contact me</Link> for more information!
       </ParagraphStyles>
+      <StyledSection>
+        <div>
+          <h2>About Me</h2>
+          <ParagraphStyles>
+            I am a web developer based out of Reno, NV, with a passion for
+            building stunning sites for my clients. As a graduate from the
+            University of Nevada, Reno with Bachelor's Degrees in both Business
+            Management and Information Systems, I understand the technical and
+            business needs for the websites I create and the businesses for
+            which I work. My goal is to craft a site that is not only visually
+            appealing but solves issues with your business processes and drives
+            customers to your company. In order to build something that will
+            compliment your brand, I must know the ins-and-outs of your business
+            the way that you know your business. This concept is why I take the
+            time to ask the questions and get the feedback that is necessary for
+            me to create something that expresses your brand and its value
+            proposition to your customers. So, reach out and let's build
+            something beautiful together!
+          </ParagraphStyles>
+        </div>
+      </StyledSection>
       <Social></Social>
     </Layout>
   )

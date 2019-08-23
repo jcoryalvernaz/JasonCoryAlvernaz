@@ -11,7 +11,7 @@ const FormStyles = styled.form`
   grid-gap: 2rem;
   :before {
     content: "";
-    height: 0.3rem;
+    height: 0.2rem;
     background: ${props => props.theme.orange};
     width: 100%;
     grid-column: 1 / -1;

@@ -1,6 +1,8 @@
 import styled from "styled-components"
 
 const PostStyles = styled.article`
+  max-width: ${props => props.theme.maxWidth};
+  justify-self: center;
   margin: 0;
   padding-left: 2rem;
   padding-right: 2rem;
@@ -22,7 +24,7 @@ const PostStyles = styled.article`
   }
   blockquote {
     grid-column: 1 / -1;
-    border-bottom: 0.3rem solid ${props => props.theme.orange};
+    border-bottom: 0.2rem solid ${props => props.theme.orange};
   }
   blockquote > p {
     font-size: 5rem;

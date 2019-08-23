@@ -6,6 +6,7 @@ import { graphql, useStaticQuery } from "gatsby"
 const SocialWrapper = styled.div`
   padding-top: 10vmin;
   padding-bottom: 20vmin;
+  position: relative;
   display: grid;
   grid-gap: 2rem;
   grid-template-columns: repeat(4, minmax(5rem, 15rem));
