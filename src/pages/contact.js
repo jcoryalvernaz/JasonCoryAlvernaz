@@ -59,7 +59,6 @@ const ContactPage = () => {
           <input type="hidden" name="form-name" value="contact" />
           <input type="hidden" name="bot-field" onChange={handleChange} />
           <input
-            className="name"
             name="name"
             type="text"
             placeholder="Name"
@@ -68,7 +67,6 @@ const ContactPage = () => {
             required
           />
           <input
-            className="email"
             name="email"
             type="email"
             placeholder="Email"
@@ -77,7 +75,6 @@ const ContactPage = () => {
             required
           />
           <input
-            className="subject"
             name="subject"
             type="text"
             placeholder="Subject"
@@ -86,7 +83,6 @@ const ContactPage = () => {
             required
           />
           <textarea
-            className="message"
             name="message"
             type="text"
             placeholder="What can I create for you?"
