@@ -13,7 +13,7 @@ const StyledHeader = styled.header`
   box-shadow: ${props => props.theme.bs};
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 4fr;
+  grid-template-rows: 1.5fr 3.5fr;
   input[aria-expanded="true"] ~ ul {
     @media (max-width: 630px) {
       height: auto;
@@ -33,7 +33,7 @@ const PhoneBanner = styled.div`
     align-self: center;
     color: ${props => props.theme.white};
     @media (max-width: 630px) {
-      font-size: 1rem;
+      font-size: 1.5rem;
     }
   }
 `
@@ -85,7 +85,7 @@ const Header = () => {
   return (
     <StyledHeader>
       <PhoneBanner>
-        <a href="tel:1-775-997-5429">775.997.5429</a>
+        <a href="tel:1-775-997-5429">Call Me: 775.997.5429</a>
       </PhoneBanner>
       <Avatar src={logo} alt="Jason Cory Alvernaz" />
       <MenuButton
