@@ -3,7 +3,7 @@ import styled from "styled-components"
 const FormStyles = styled.form`
   max-width: 80rem;
   width: 100%;
-  padding: 2rem 1rem;
+  padding: 5rem 1rem;
   margin-top: 3rem;
   justify-self: center;
   display: grid;
@@ -13,6 +13,7 @@ const FormStyles = styled.form`
     content: "";
     height: 0.2rem;
     background: ${props => props.theme.orange};
+    position: relative;
     width: 100%;
     grid-column: 1 / -1;
   }
@@ -22,17 +23,21 @@ const FormStyles = styled.form`
   }
   input,
   textarea {
+    position: relative;
     border-radius: 4px;
-    background: transparent;
-    border: 0.1rem solid
-      ${props => (props.theme.isDark ? props.theme.blue : props.theme.purple)};
-    color: ${props => props.theme.black};
+    background: ${props => props.theme.purple};
+    border: 0.1rem solid ${props => props.theme.green};
+    color: ${props => props.theme.white};
     padding-left: 1rem;
     outline: none;
     font-size: 2rem;
     box-shadow: none;
     ::placeholder {
-      color: ${props => props.theme.formTextColor};
+      color: ${props => props.theme.white};
+    }
+    :hover,
+    :focus {
+      border-color: ${props => props.theme.orange};
     }
   }
   input {
@@ -48,7 +53,8 @@ const FormStyles = styled.form`
     grid-column: 1 / -1;
   }
   button {
-    color: ${props => props.theme.textColor};
+    position: relative;
+    color: ${props => props.theme.white};
     background: transparent;
     border: 0.2rem solid ${props => props.theme.green};
     border-radius: 3rem;

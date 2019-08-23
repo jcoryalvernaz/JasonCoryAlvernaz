@@ -30,6 +30,33 @@ const StyledMain = styled.main`
   @media (max-width: 800px) {
     margin-top: 5rem;
   }
+  .about {
+    :before {
+      background: ${props => props.theme.green};
+      content: "";
+      width: 120%;
+      left: -2rem;
+      height: 105%;
+      position: absolute;
+      transform: rotate(-2deg) translateX(-3%);
+      box-shadow: 0 12px 12px 0 rgba(0, 0, 0, 0.1),
+        0 -10px 12px 0 rgba(0, 0, 0, 0.1);
+    }
+  }
+  .value,
+  .contact {
+    :before {
+      background: ${props => props.theme.blue};
+      content: "";
+      width: 120%;
+      left: -2rem;
+      height: 105%;
+      position: absolute;
+      transform: rotate(2deg) translateX(-3%);
+      box-shadow: 0 12px 12px 0 rgba(0, 0, 0, 0.1),
+        0 -10px 12px 0 rgba(0, 0, 0, 0.1);
+    }
+  }
 `
 
 const Layout = ({ children }) => {

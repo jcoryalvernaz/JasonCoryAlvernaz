@@ -4,8 +4,8 @@ import styled from "styled-components"
 import { graphql, useStaticQuery } from "gatsby"
 
 const SocialWrapper = styled.div`
-  padding-top: 10vmin;
-  padding-bottom: 20vmin;
+  margin-top: 2rem;
+  margin-bottom: 5rem;
   position: relative;
   display: grid;
   grid-gap: 2rem;

@@ -7,6 +7,7 @@ import Social from "../components/social"
 import FormStyles from "../styles/FormStyles"
 import HeadingStyles from "../styles/HeadingStyles"
 import ParagraphStyles from "../styles/ParagraphStyles"
+import SectionStyles from "../styles/SectionStyles"
 
 const encode = data => {
   return Object.keys(data)
@@ -46,55 +47,56 @@ const ContactPage = () => {
         teaching others to do the same. Fill out the form below and let me know
         what I can do for you!
       </ParagraphStyles>
-      <FormStyles
-        className="contact"
-        name="contact"
-        method="post"
-        action="/thanks/"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
-        onSubmit={handleSubmit}
-      >
-        <input type="hidden" name="form-name" value="contact" />
-        <input type="hidden" name="bot-field" onChange={handleChange} />
-        <input
-          className="name"
-          name="name"
-          type="text"
-          placeholder="Name"
-          aria-label="Enter Name"
-          onChange={handleChange}
-          required
-        />
-        <input
-          className="email"
-          name="email"
-          type="email"
-          placeholder="Email"
-          aria-label="Enter Email Address"
-          onChange={handleChange}
-          required
-        />
-        <input
-          className="subject"
-          name="subject"
-          type="text"
-          placeholder="Subject"
-          aria-label="Enter Subject"
-          onChange={handleChange}
-          required
-        />
-        <textarea
-          className="message"
-          name="message"
-          type="text"
-          placeholder="What can I create for you?"
-          aria-label="Enter Message"
-          onChange={handleChange}
-          required
-        />
-        <button type="submit">Send Email</button>
-      </FormStyles>
+      <SectionStyles className="contact">
+        <FormStyles
+          name="contact"
+          method="post"
+          action="/thanks/"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          onSubmit={handleSubmit}
+        >
+          <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="bot-field" onChange={handleChange} />
+          <input
+            className="name"
+            name="name"
+            type="text"
+            placeholder="Name"
+            aria-label="Enter Name"
+            onChange={handleChange}
+            required
+          />
+          <input
+            className="email"
+            name="email"
+            type="email"
+            placeholder="Email"
+            aria-label="Enter Email Address"
+            onChange={handleChange}
+            required
+          />
+          <input
+            className="subject"
+            name="subject"
+            type="text"
+            placeholder="Subject"
+            aria-label="Enter Subject"
+            onChange={handleChange}
+            required
+          />
+          <textarea
+            className="message"
+            name="message"
+            type="text"
+            placeholder="What can I create for you?"
+            aria-label="Enter Message"
+            onChange={handleChange}
+            required
+          />
+          <button type="submit">Send Email</button>
+        </FormStyles>
+      </SectionStyles>
       <Social></Social>
     </Layout>
   )
