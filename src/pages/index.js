@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import useInterval from "react-useinterval"
 
 import Layout from "../components/layout"
@@ -68,6 +68,24 @@ const IndexPage = () => {
     incrementTitle(titles.indexOf(currentTitle))
   }, 1000)
 
+  const data = useStaticQuery(graphql`
+    query ValueItemsQuery {
+      allValueItemsJson {
+        edges {
+          node {
+            id
+            name
+            image
+            imageAlt
+            description
+          }
+        }
+      }
+    }
+  `)
+
+  const values = [...data.allValueItemsJson.edges]
+
   return (
     <Layout>
       <SEO title="Home" />
@@ -111,22 +129,17 @@ const IndexPage = () => {
       <SectionStyles className="value">
         <div className="inner">
           <h2>Value</h2>
-          <ParagraphStyles>
-            I am a web developer based out of Reno, NV, with a passion for
-            building stunning sites for my clients. As a graduate from the
-            University of Nevada, Reno with Bachelor's Degrees in both Business
-            Management and Information Systems, I understand the technical and
-            business needs for the websites I create and the businesses for
-            which I work. My goal is to craft a site that is not only visually
-            appealing but solves issues with your business processes and drives
-            customers to your company. In order to build something that will
-            compliment your brand, I must know the ins-and-outs of your business
-            the way that you know your business. This concept is why I take the
-            time to ask the questions and get the feedback that is necessary for
-            me to create something that expresses your brand and its value
-            proposition to your customers. So, reach out and let's build
-            something beautiful together!
-          </ParagraphStyles>
+          <ul className="values">
+            {values.map(value => {
+              return (
+                <li key={value.node.id}>
+                  <img src={value.node.image} alt={value.node.imageAlt} />
+                  <h3>{value.node.name}</h3>
+                  <p>{value.node.description}</p>
+                </li>
+              )
+            })}
+          </ul>
         </div>
       </SectionStyles>
     </Layout>

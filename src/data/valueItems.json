@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Responsive Design",
+    "image": "",
+    "imageAlt": "Responsive Design Icon",
+    "description": "I make responsive websites"
+  },
+  {
+    "name": "Customer Driven",
+    "image": "",
+    "imageAlt": "Customer Icon",
+    "description": "I make websites that are customer focused"
+  },
+  {
+    "name": "SEO Optimized",
+    "image": "",
+    "imageAlt": "SEO Icon",
+    "description": "I make websites that are SEO optimized"
+  }
+]
