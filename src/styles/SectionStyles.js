@@ -36,6 +36,7 @@ const SectionStyles = styled.section`
     text-align: center;
     grid-gap: 1rem;
     padding: 0;
+    color: ${props => props.theme.black};
     grid-template-columns: 1fr 1fr 1fr;
     @media (max-width: 630px) {
       grid-template-columns: 1fr;

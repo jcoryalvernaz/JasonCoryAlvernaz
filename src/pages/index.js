@@ -35,6 +35,7 @@ const StyledSpan = styled.span`
     width: 105%;
     justify-self: center;
     transform: skew(4deg);
+    box-shadow: ${props => props.theme.bs};
   }
   @media (max-width: 388px) {
     margin-left: 0;
