@@ -27,7 +27,6 @@ const StyledMain = styled.main`
   grid-auto-rows: minmax(min-content, max-content);
   justify-self: center;
   margin-top: 10rem;
-  transition: all 0.8s ease-in-out;
   @media (max-width: 800px) {
     margin-top: 5rem;
   }

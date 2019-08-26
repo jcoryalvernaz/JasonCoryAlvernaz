@@ -64,9 +64,11 @@ const FormStyles = styled.form`
     font-size: 2rem;
     cursor: pointer;
     outline: none;
-  }
-  button:hover {
-    filter: brightness(85%);
+    :hover {
+      transform: translateY(-3%);
+      box-shadow: 0 12px 12px 0 rgba(0, 0, 0, 0.1);
+      filter: brightness(95%);
+    }
   }
   @media (max-width: 500px) {
     margin: 10px;
