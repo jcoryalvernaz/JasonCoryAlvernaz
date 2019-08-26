@@ -64,7 +64,8 @@ const FormStyles = styled.form`
     font-size: 2rem;
     cursor: pointer;
     outline: none;
-    :hover {
+    :hover,
+    :focus {
       transform: translateY(-3%);
       box-shadow: 0 12px 12px 0 rgba(0, 0, 0, 0.1);
       filter: brightness(95%);
