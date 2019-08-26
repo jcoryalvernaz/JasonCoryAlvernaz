@@ -6,6 +6,7 @@ const HeadingStyles = styled.h1`
   justify-self: center;
   display: grid;
   text-align: center;
+  text-shadow: -2px 2px 3px rgba(0, 0, 0, 0.2);
   :after {
     content: "";
     height: 0.5rem;
