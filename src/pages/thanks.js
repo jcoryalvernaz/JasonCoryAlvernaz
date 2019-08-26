@@ -11,8 +11,8 @@ const ThanksPage = () => (
     <SEO title="Thanks" />
     <HeadingStyles>Thanks!</HeadingStyles>
     <ParagraphStyles>
-      I will reply to your inquiry soon. In the meantime, make sure to check me
-      out on social media by visiting the links below.
+      I will reply to your inquiry as quickly as possible. In the meantime, make
+      sure to check me out on social media by visiting the links below.
     </ParagraphStyles>
     <Social></Social>
   </Layout>
