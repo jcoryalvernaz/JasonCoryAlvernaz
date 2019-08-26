@@ -50,7 +50,7 @@ const PostStyles = styled.article`
     text-align: center;
     grid-column: 1 / -1;
     display: grid;
-    text-shadow: -2px 2px 3px rgba(0, 0, 0, 0.1);
+    text-shadow: -2px 2px 3px rgba(0, 0, 0, 0.07);
     :after {
       content: "";
       height: 0.5rem;
