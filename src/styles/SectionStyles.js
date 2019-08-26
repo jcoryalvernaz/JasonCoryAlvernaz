@@ -34,7 +34,7 @@ const SectionStyles = styled.section`
     display: grid;
     justify-self: center;
     text-align: center;
-    grid-gap: 1rem;
+    grid-gap: 10rem;
     padding: 0;
     color: ${props => props.theme.black};
     grid-template-columns: 1fr 1fr 1fr;
