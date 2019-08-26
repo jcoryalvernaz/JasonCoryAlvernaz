@@ -33,14 +33,12 @@ const SectionStyles = styled.section`
     list-style: none;
     display: grid;
     justify-self: center;
-    justify-items: center;
+    text-align: center;
     grid-gap: 1rem;
+    padding: 0;
     grid-template-columns: 1fr 1fr 1fr;
     @media (max-width: 630px) {
       grid-template-columns: 1fr;
-    }
-    li {
-      text-align: center;
     }
   }
 `
