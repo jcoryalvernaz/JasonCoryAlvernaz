@@ -25,7 +25,7 @@ const FormStyles = styled.form`
   textarea {
     position: relative;
     border-radius: 4px;
-    background: ${props => props.theme.purple};
+    background: rgba(0, 0, 0, 0.15);
     border: 0.1rem solid ${props => props.theme.green};
     color: ${props => props.theme.white};
     padding-left: 1rem;
@@ -56,7 +56,7 @@ const FormStyles = styled.form`
     position: relative;
     color: ${props => props.theme.white};
     background: transparent;
-    border: 0.2rem solid ${props => props.theme.green};
+    border: 0.3rem solid ${props => props.theme.green};
     border-radius: 3rem;
     padding: 1.5rem;
     margin-top: 1rem;

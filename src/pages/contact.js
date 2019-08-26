@@ -75,6 +75,7 @@ const ContactPage = () => {
             required
           />
           <input
+            className="subject"
             name="subject"
             type="text"
             placeholder="Subject"
@@ -83,6 +84,7 @@ const ContactPage = () => {
             required
           />
           <textarea
+            className="message"
             name="message"
             type="text"
             placeholder="What can I create for you?"
