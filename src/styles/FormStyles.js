@@ -34,6 +34,7 @@ const FormStyles = styled.form`
     box-shadow: none;
     ::placeholder {
       color: ${props => props.theme.white};
+      opacity: 1;
     }
     :hover,
     :focus {
