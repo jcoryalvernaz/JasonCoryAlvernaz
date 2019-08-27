@@ -38,7 +38,8 @@ const PostStyles = styled.article`
   a {
     border-bottom: 0.2rem solid ${props => props.theme.green};
   }
-  p {
+  p,
+  .post-date {
     font-size: 2rem;
     line-height: 1.8;
   }
@@ -46,6 +47,7 @@ const PostStyles = styled.article`
     font-size: 6rem;
     margin-left: 1rem;
     margin-right: 1rem;
+    margin-bottom: 0;
     justify-self: center;
     text-align: center;
     grid-column: 1 / -1;
@@ -62,6 +64,14 @@ const PostStyles = styled.article`
     @media (max-width: 500px) {
       font-size: 4rem;
     }
+  }
+  .post-date {
+    font-weight: bold;
+  }
+  .day {
+    font-size: 3rem;
+    text-shadow: -2px 2px 3px rgba(0, 0, 0, 0.07);
+    color: ${props => props.theme.green};
   }
   pre {
     background: ${props => props.theme.green + "4D"};
@@ -83,7 +93,6 @@ const PostStyles = styled.article`
   .tip {
     background: ${props => props.theme.green + "4D"};
     padding: 1rem;
-    grid-row: span 5;
     align-self: flex-start;
     margin: 3rem 0;
   }
