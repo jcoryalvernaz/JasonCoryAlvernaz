@@ -58,7 +58,9 @@ const Social = () => {
         edges {
           node {
             id
-            image
+            image {
+              publicURL
+            }
             imageAlt
             url
           }
@@ -101,7 +103,7 @@ const Social = () => {
             rel="noopener noreferrer"
             href={link.node.url}
           >
-            <img src={link.node.image} alt={link.node.imageAlt} />
+            <img src={link.node.image.publicURL} alt={link.node.imageAlt} />
           </a>
         )
       })}

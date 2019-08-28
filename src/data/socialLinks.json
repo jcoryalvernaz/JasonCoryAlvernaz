@@ -1,22 +1,22 @@
 [
   {
     "url": "https://www.linkedin.com/in/JasonAlvernaz",
-    "image": "",
+    "image": "../images/Classic_Twitter.svg",
     "imageAlt": "Connect on LinkedIn"
   },
   {
     "url": "https://www.instagram.com/jason.cory.code/",
-    "image": "",
+    "image": "../images/Classic_Twitter.svg",
     "imageAlt": "Follow on Instagram"
   },
   {
     "url": "https://www.youtube.com/channel/UC9Psp9-p9jgHfDBReAAcZ3w",
-    "image": "",
+    "image": "../images/Classic_Twitter.svg",
     "imageAlt": "Watch on YouTube"
   },
   {
     "url": "https://www.twitter.com/JasonAlvernaz",
-    "image": "",
+    "image": "../images/Classic_Twitter.svg",
     "imageAlt": "Tweet on Twitter"
   }
 ]
