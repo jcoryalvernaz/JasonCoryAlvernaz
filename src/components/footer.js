@@ -7,6 +7,7 @@ import moon from "../images/moon.svg"
 import sun from "../images/sun.svg"
 
 const StyledFooter = styled.footer`
+  margin-top: 10rem;
   padding: 2rem;
   background: ${props => props.theme.purple};
   color: ${props => props.theme.white};
