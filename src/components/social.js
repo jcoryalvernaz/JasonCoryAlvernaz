@@ -23,7 +23,10 @@ const SocialWrapper = styled.div`
     transition: 0.2s all ease-in;
     :hover {
       transform: translateY(-10%);
-      filter: drop-shadow(0px 6px 2px rgba(0, 0, 0, 0.2));
+      filter: ${props =>
+        props.theme.isDark
+          ? `drop-shadow(0px 6px 2px rgba(76, 42, 133, 1))`
+          : `drop-shadow(0px 6px 2px rgba(0, 0, 0, 0.2))`};
     }
   }
   .arrow {
