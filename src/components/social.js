@@ -10,7 +10,7 @@ const SocialWrapper = styled.div`
   display: grid;
   grid-column-gap: 1rem;
   grid-row-gap: 4rem;
-  grid-template-columns: repeat(4, minmax(5rem, 15rem));
+  grid-template-columns: repeat(5, minmax(5rem, 15rem));
   justify-self: center;
   justify-items: center;
   h2 {
@@ -73,7 +73,6 @@ const Social = () => {
             image {
               publicURL
             }
-            imageAlt
             url
           }
         }
