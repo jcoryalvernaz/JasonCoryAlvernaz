@@ -45,6 +45,9 @@ const ListStyles = styled.ul`
       props.theme.isDark ? props.theme.blue : props.theme.purple};
     border-radius: 2px;
     padding: 0 1rem;
+    :hover {
+      text-decoration: underline;
+    }
   }
   @media (max-width: 630px) {
     li {
