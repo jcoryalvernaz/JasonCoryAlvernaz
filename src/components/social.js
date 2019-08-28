@@ -8,7 +8,8 @@ const SocialWrapper = styled.div`
   margin-bottom: 5rem;
   position: relative;
   display: grid;
-  grid-gap: 2rem;
+  grid-column-gap: 1rem;
+  grid-row-gap: 4rem;
   grid-template-columns: repeat(4, minmax(5rem, 15rem));
   justify-self: center;
   justify-items: center;
@@ -16,6 +17,14 @@ const SocialWrapper = styled.div`
     grid-column: 1 / -1;
     margin-bottom: 0;
     font-size: 2.5rem;
+  }
+  .icon {
+    width: 5rem;
+    transition: 0.2s all ease-in;
+    :hover {
+      transform: translateY(-10%);
+      filter: drop-shadow(0px 6px 2px rgba(0, 0, 0, 0.2));
+    }
   }
   .arrow {
     fill: ${props =>
@@ -103,7 +112,13 @@ const Social = () => {
             rel="noopener noreferrer"
             href={link.node.url}
           >
-            <img src={link.node.image.publicURL} alt={link.node.imageAlt} />
+            <svg
+              className="icon"
+              viewBox="0 0 30 30"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <use href={link.node.image.publicURL + "#icon"} />
+            </svg>
           </a>
         )
       })}

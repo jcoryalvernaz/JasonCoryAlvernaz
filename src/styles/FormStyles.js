@@ -65,10 +65,11 @@ const FormStyles = styled.form`
     font-size: 2rem;
     cursor: pointer;
     outline: none;
+    transition: 0.2s all ease-in;
     :hover,
     :focus {
-      transform: translateY(-3%);
-      box-shadow: 0 12px 12px 0 rgba(0, 0, 0, 0.1);
+      transform: translateY(-4%);
+      box-shadow: 0px 10px 6px rgba(0, 0, 0, 0.1);
     }
   }
   @media (max-width: 500px) {
