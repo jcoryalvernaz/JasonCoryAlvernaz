@@ -60,6 +60,7 @@ const SocialWrapper = styled.div`
   }
   @media (max-width: 630px) {
     grid-template-columns: 1fr;
+    grid-gap: 2rem;
   }
 `
 
@@ -89,7 +90,7 @@ const Social = () => {
 
   return (
     <SocialWrapper>
-      <h2>Let's Connect</h2>
+      <h2>Find Me On</h2>
       <div ref={ref} className={inView ? "active" : ""}>
         <svg
           className="arrow"
@@ -114,13 +115,13 @@ const Social = () => {
             rel="noopener noreferrer"
             href={link.node.url}
           >
-            <svg
+            <object
+              type="image/svg+xml"
+              data={link.node.image.publicURL}
               className="icon"
-              viewBox="0 0 300 300"
-              xmlns="http://www.w3.org/2000/svg"
             >
-              <use href={link.node.image.publicURL + "#icon"} />
-            </svg>
+              {link.node.name}
+            </object>
           </a>
         )
       })}
