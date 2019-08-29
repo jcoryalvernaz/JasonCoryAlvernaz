@@ -19,7 +19,7 @@ const SocialWrapper = styled.div`
     font-size: 2.5rem;
   }
   .icon {
-    width: 5rem;
+    width: 8rem;
     transition: 0.2s all ease-in;
     :hover {
       transform: translateY(-10%);
@@ -116,7 +116,7 @@ const Social = () => {
           >
             <svg
               className="icon"
-              viewBox="0 0 30 30"
+              viewBox="0 0 300 300"
               xmlns="http://www.w3.org/2000/svg"
             >
               <use href={link.node.image.publicURL + "#icon"} />
