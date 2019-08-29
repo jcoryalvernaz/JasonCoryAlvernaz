@@ -60,24 +60,71 @@ my-app
 
 The image below shows the code within the `index.html` file. I have stripped out the comments that will be present in your file. Now, this a fairly boilerplate Html file. The area that we need to focus on here is `<div id="root"></div>` tag close to the end of the document. This root element is where our React components will be nested. So, let's take a look at the single component that is currently in our application.
 
-<figure>
-    <img src="cra-index-html.png" alt="The index.html file in my-app">
-    <figcaption>The index.html file in my-app</figcaption>
-</figure>
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+</html>
+```
 
 Within the src folder, you will find the `App.js` file. Crack it open and let's take a look at what's inside. Notice, from the figure below, that our App component is really just a JavaScript function. As such, these components are called "functional components." Shocking, I know. Look below the `return` call from our function, and you will notice some syntax that looks a bit like Html. This syntax is called [JSX](https://reactjs.org/docs/introducing-jsx.html), and will eventually be rendered out to the page as plain Html. The cool thing about JSX is that we can write JavaScript within the Html-like syntax to make our application behave a bit more dynamic. For instance, if we have an array that we want to print to the screen as a list, we would just iterate over the array and generate a `<li></li>` tag for each of the items. Now, if our array changes in size, the list will also change in size. Pretty cool, right? Now, take a look at the `src` attribute within the `<img/>` tag. You will notice that we are setting the value to `{logo}`. Anytime we want to use JavaScript within our JSX; we escape with the curly braces. Here, we are merely setting the `src` to the image that we are importing into the file up above. Now, how does our application know that our `App.js` component needs to go into the root element in our `index.html` file? Let's answer that question.
 
-<figure>
-    <img src="cra-app-js.png" alt="The App.js file in my-app">
-    <figcaption>The App.js file in my-app</figcaption>
-</figure>
+```jsx
+import React from "react"
+import logo from "./logo.svg"
+import "./App.css"
+
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  )
+}
+
+export default App
+```
 
 Go ahead and open the `index.js` file within the src folder. Notice here, from the image below, that we are importing `react-dom`. This package allows us to access the DOM from our React.js application. Notice also, that we are importing our `App.js` component and then rendering it out to our root element. It is important to note that our component, `<App />` looks very similar to an Html tag. However, the component is capitalized, which is essential because this is how React.js knows the difference between components and JSX that should be rendered as Html. So, always capitalize your component names. And with that, we now know how our component gets rendered out to the page.
 
-<figure>
-    <img src="cra-index-js.png" alt="The index.js file in my-app">
-    <figcaption>The index.js file in my-app</figcaption>
-</figure>
+```jsx
+import React from "react"
+import ReactDOM from "react-dom"
+import "./index.css"
+import App from "./App"
+import * as serviceWorker from "./serviceWorker"
+
+ReactDOM.render(<App />, document.getElementById("root"))
+```
 
 The last two files that I want to touch on are the `package.json` and `README.md` files. The `package.json` file contains a lot of necessary information for our application. For instance, this is where we manage any dependencies that we have, set up scripts, and set up our browser list. Whenever we install another package into our project, it will show up here under dependencies. The `README.md` is a useful resource for questions regarding the scripts and what each of them does. For instance, the `npm build` command builds the app for production and stores all of the minified javascript within a new folder called build. Go ahead and give it a shot.
 

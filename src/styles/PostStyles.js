@@ -74,6 +74,11 @@ const PostStyles = styled.article`
     text-shadow: -2px 2px 3px rgba(0, 0, 0, 0.07);
     color: ${props => props.theme.green};
   }
+  .gatsby-highlight {
+    overflow: auto;
+    word-wrap: normal;
+    white-space: pre;
+  }
   pre {
     background: ${props => props.theme.green + "4D"};
     padding: 1rem;
