@@ -2,6 +2,7 @@ import { createGlobalStyle } from "styled-components"
 
 const GlobalStyles = createGlobalStyle`
 @import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Neuton&display=swap");
 
 html {
   box-sizing: border-box;
@@ -26,6 +27,13 @@ body {
 a {
   color: ${props => props.theme.textColor};
   text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Neuton", sans-serif;
+  letter-spacing: .3rem;
 }
 `
 

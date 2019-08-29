@@ -17,6 +17,8 @@ const SocialWrapper = styled.div`
     grid-column: 1 / -1;
     margin-bottom: 0;
     font-size: 2.5rem;
+    border-bottom: 0.2rem solid ${props => props.theme.orange};
+    padding-bottom: 0.5rem;
   }
   .icon {
     width: 8rem;
@@ -90,7 +92,7 @@ const Social = () => {
 
   return (
     <SocialWrapper>
-      <h2>Find Me On</h2>
+      <h2>Where to Find Me</h2>
       <div ref={ref} className={inView ? "active" : ""}>
         <svg
           className="arrow"

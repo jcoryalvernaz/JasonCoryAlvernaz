@@ -24,7 +24,8 @@ const PostStyles = styled.article`
   }
   blockquote {
     grid-column: 1 / -1;
-    border-bottom: 0.2rem solid ${props => props.theme.orange};
+    border-left: 0.5rem solid ${props => props.theme.orange};
+    padding-left: 1rem;
   }
   blockquote > p {
     font-size: 5rem;

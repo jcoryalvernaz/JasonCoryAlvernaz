@@ -1,12 +1,12 @@
 import styled from "styled-components"
 
 const HeadingStyles = styled.h1`
-  font-size: 6rem;
+  font-size: 7rem;
   padding: 2rem;
   justify-self: center;
   display: grid;
   text-align: center;
-  text-shadow: -2px 2px 3px rgba(0, 0, 0, 0.2);
+  text-shadow: -1px 1px 2px rgba(0, 0, 0, 0.2);
   :after {
     content: "";
     height: 0.5rem;
@@ -16,7 +16,7 @@ const HeadingStyles = styled.h1`
     box-shadow: ${props => props.theme.bs};
   }
   @media (max-width: 500px) {
-    font-size: 4rem;
+    font-size: 5rem;
   }
 `
 export default HeadingStyles
