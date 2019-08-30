@@ -76,6 +76,7 @@ const PostStyles = styled.article`
   }
   .gatsby-highlight {
     overflow: auto;
+    -webkit-overflow-scrolling: touch;
     word-wrap: normal;
     white-space: pre;
   }
