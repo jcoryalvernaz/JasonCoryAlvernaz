@@ -70,8 +70,8 @@ const PostStyles = styled.article`
     font-weight: bold;
   }
   .day {
-    font-size: 3rem;
-    text-shadow: -2px 2px 3px rgba(0, 0, 0, 0.07);
+    font-size: 2.5rem;
+    text-shadow: -1px 1px 2px rgba(0, 0, 0, 0.07);
     color: ${props => props.theme.green};
   }
   .gatsby-highlight {
