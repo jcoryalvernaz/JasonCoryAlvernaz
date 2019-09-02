@@ -29,6 +29,9 @@ const SectionStyles = styled.section`
       grid-column: 1 / -1;
     }
   }
+  .icon {
+    width: 8rem;
+  }
   .values {
     list-style: none;
     display: grid;

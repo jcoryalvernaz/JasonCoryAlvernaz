@@ -76,7 +76,9 @@ const IndexPage = () => {
           node {
             id
             name
-            image
+            image {
+              publicURL
+            }
             imageAlt
             description
           }
@@ -134,7 +136,13 @@ const IndexPage = () => {
             {values.map(value => {
               return (
                 <li key={value.node.id}>
-                  <img src={value.node.image} alt={value.node.imageAlt} />
+            <object
+              className="icon"
+              type="image/svg+xml"
+              data={value.node.image.publicURL}
+            >
+              {value.node.name}
+            </object>
                   <h3>{value.node.name}</h3>
                   <p>{value.node.description}</p>
                 </li>
