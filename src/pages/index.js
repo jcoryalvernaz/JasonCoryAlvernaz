@@ -91,7 +91,6 @@ const IndexPage = () => {
             image {
               publicURL
             }
-            imageAlt
             description
           }
         }
