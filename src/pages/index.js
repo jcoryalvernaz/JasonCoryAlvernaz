@@ -48,6 +48,18 @@ const FlashSpan = styled.span`
   text-align: center;
 `
 
+const ConsultWrapper = styled.div`
+  display: grid;
+  justify-self: center;
+  justify-items: center;
+  h2 {
+    margin-bottom: 0;
+    font-size: 2.5rem;
+    border-bottom: 0.2rem solid ${props => props.theme.orange};
+    padding-bottom: 0.5rem;
+  }
+`
+
 const IndexPage = () => {
   const [titles] = useState([
     "Developer!",
@@ -121,6 +133,15 @@ const IndexPage = () => {
           </ParagraphStyles>
         </div>
       </SectionStyles>
+      <ConsultWrapper>
+        <h2>Free Consultations</h2>
+        <br />
+        <ParagraphStyles>
+          Reach out for a completely free discussion on how we can improve the
+          reach and impact of your brand by creating a stunning modern website
+          for your business.
+        </ParagraphStyles>
+      </ConsultWrapper>
       <SectionStyles className="value">
         <div className="inner">
           <ul className="values">
@@ -128,12 +149,13 @@ const IndexPage = () => {
               return (
                 <li key={value.node.id}>
                   <object
+                    className="icon"
                     type="image/svg+xml"
                     data={value.node.image.publicURL}
                   >
                     {value.node.name}
                   </object>
-                  <h3>{value.node.name}</h3>
+                  <h2>{value.node.name}</h2>
                   <p>{value.node.description}</p>
                 </li>
               )

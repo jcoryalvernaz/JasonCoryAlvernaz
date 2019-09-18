@@ -1,8 +1,8 @@
 import styled from "styled-components"
 
 const SectionStyles = styled.section`
-  margin-top: 8rem;
-  margin-bottom: 20rem;
+  margin-top: 10rem;
+  margin-bottom: 10rem;
   position: relative;
   display: grid;
   .inner {
@@ -44,6 +44,10 @@ const SectionStyles = styled.section`
       grid-template-columns: 1fr;
     }
   }
+  .icon {
+    :hover {
+    }
+  }
   li {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -52,7 +56,7 @@ const SectionStyles = styled.section`
     font-size: 2rem;
     line-height: 1.8;
   }
-  li > h3 {
+  li > h2 {
     font-size: 2.5rem;
   }
 `
