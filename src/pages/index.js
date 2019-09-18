@@ -121,7 +121,6 @@ const IndexPage = () => {
           </ParagraphStyles>
         </div>
       </SectionStyles>
-      <Social></Social>
       <SectionStyles className="value">
         <div className="inner">
           <ul className="values">
@@ -142,6 +141,7 @@ const IndexPage = () => {
           </ul>
         </div>
       </SectionStyles>
+      <Social></Social>
     </Layout>
   )
 }

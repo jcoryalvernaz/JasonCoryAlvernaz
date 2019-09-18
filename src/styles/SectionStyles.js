@@ -2,10 +2,12 @@ import styled from "styled-components"
 
 const SectionStyles = styled.section`
   margin-top: 8rem;
-  margin-bottom: 10rem;
+  margin-bottom: 20rem;
   position: relative;
   display: grid;
   .inner {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
     position: relative;
     display: grid;
   }
@@ -42,10 +44,9 @@ const SectionStyles = styled.section`
       grid-template-columns: 1fr;
     }
   }
-  ul {
-    margin-top: 5rem;
-    margin-left: 2rem;
-    margin-right: 2rem;
+  li {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
   li > p {
     font-size: 2rem;
