@@ -11,7 +11,7 @@ featuredAlt: "React.js Logo"
 
 # Introduction to Create-React-App
 
-<div class="post-date">Sept &nbsp;<span class="day">20</span></div>
+<div class="post-date">Sept- <span class="day">20</span> -2019</div>
 
 Setting up a React.js application can be a bit of a pain in the neck. However, with modern tools like `create-react-app` we can get these types of apps set up much quicker and easier. This week we will be delving into the ins-and-outs of this tool and show how we can get a modern web application up and running with a few simple commands.
 

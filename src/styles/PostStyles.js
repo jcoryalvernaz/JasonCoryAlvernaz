@@ -70,7 +70,7 @@ const PostStyles = styled.article`
     font-weight: bold;
   }
   .day {
-    font-size: 3rem;
+    font-size: 2.5rem;
     text-shadow: -2px 2px 3px rgba(0, 0, 0, 0.07);
     color: ${props => props.theme.green};
   }
