@@ -121,6 +121,7 @@ const IndexPage = () => {
       <SectionStyles className="about">
         <div className="inner">
           <h2>About Me</h2>
+          <br />
           <ParagraphStyles>
             I am a web developer based out of Reno, NV, with a passion for
             building beautiful sites for my clients. As a graduate from the

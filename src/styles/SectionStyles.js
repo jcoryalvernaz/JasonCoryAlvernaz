@@ -17,19 +17,12 @@ const SectionStyles = styled.section`
     position: relative;
     font-size: 2.5rem;
     color: ${props => props.theme.black};
+    margin-bottom: 0;
+    border-bottom: 0.2rem solid ${props => props.theme.orange};
+    padding-bottom: 0.5rem;
   }
   .inner > p {
     color: ${props => props.theme.black};
-    position: relative;
-    display: grid;
-    :before {
-      content: "";
-      height: 0.2rem;
-      margin-bottom: 2rem;
-      background: ${props => props.theme.orange};
-      width: 100%;
-      grid-column: 1 / -1;
-    }
   }
   .values {
     list-style: none;
