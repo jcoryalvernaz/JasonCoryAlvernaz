@@ -45,7 +45,9 @@ const SectionStyles = styled.section`
     }
   }
   .icon {
+    transition: 0.4s all ease-in;
     :hover {
+      transform: scale(1.2);
     }
   }
   li {
