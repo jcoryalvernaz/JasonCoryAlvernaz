@@ -38,9 +38,21 @@ const SectionStyles = styled.section`
     padding: 0;
     color: ${props => props.theme.black};
     grid-template-columns: 1fr 1fr 1fr;
-    @media (max-width: 630px) {
+    @media (max-width: 900px) {
       grid-template-columns: 1fr;
     }
+  }
+  ul {
+    margin-top: 5rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+  li > p {
+    font-size: 2rem;
+    line-height: 1.8;
+  }
+  li > h3 {
+    font-size: 2.5rem;
   }
 `
 

@@ -76,7 +76,9 @@ const IndexPage = () => {
           node {
             id
             name
-            image
+            image {
+              publicURL
+            }
             imageAlt
             description
           }
@@ -129,12 +131,16 @@ const IndexPage = () => {
       <Social></Social>
       <SectionStyles className="value">
         <div className="inner">
-          <h2>Value</h2>
           <ul className="values">
             {values.map(value => {
               return (
                 <li key={value.node.id}>
-                  <img src={value.node.image} alt={value.node.imageAlt} />
+                  <object
+                    type="image/svg+xml"
+                    data={value.node.image.publicURL}
+                  >
+                    {value.node.name}
+                  </object>
                   <h3>{value.node.name}</h3>
                   <p>{value.node.description}</p>
                 </li>

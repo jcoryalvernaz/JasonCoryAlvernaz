@@ -48,8 +48,8 @@ const StyledMain = styled.main`
     :before {
       background: ${props => props.theme.blue};
       content: "";
-      width: 106%;
-      left: 0;
+      width: 150%;
+      left: -5rem;
       height: 105%;
       position: absolute;
       transform: rotate(2deg) translateX(-3%);
