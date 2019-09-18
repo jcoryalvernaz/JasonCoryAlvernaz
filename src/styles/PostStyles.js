@@ -71,11 +71,12 @@ const PostStyles = styled.article`
   }
   .day {
     font-size: 2.5rem;
-    text-shadow: -2px 2px 3px rgba(0, 0, 0, 0.07);
+    text-shadow: -1px 1px 2px rgba(0, 0, 0, 0.07);
     color: ${props => props.theme.green};
   }
   .gatsby-highlight {
     overflow: auto;
+    -webkit-overflow-scrolling: touch;
     word-wrap: normal;
     white-space: pre;
   }
