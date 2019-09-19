@@ -26,7 +26,7 @@ const StyledMain = styled.main`
   overflow: hidden;
   grid-auto-rows: minmax(min-content, max-content);
   justify-self: center;
-  margin-top: 10rem;
+  margin-top: 5rem;
   @media (max-width: 800px) {
     margin-top: 5rem;
   }
