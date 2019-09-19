@@ -38,9 +38,10 @@ const SectionStyles = styled.section`
     }
   }
   .icon {
-    transition: 0.4s all ease-in;
+    transition: 0.4s transform ease-in-out;
     :hover {
-      transform: scale(1.2);
+      filter: invert(0.45) sepia(1) saturate(6) hue-rotate(140deg);
+      transform: scale(1.4);
     }
   }
   li {
