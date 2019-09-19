@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import HeadingStyles from "../styles/HeadingStyles"
 import ParagraphStyles from "../styles/ParagraphStyles"
+import SmallListStyles from "../styles/SmallListStyles"
 import { Link } from "gatsby"
 import Social from "../components/social"
 
@@ -25,22 +26,6 @@ const ListHeading = styled.h2`
   }
 `
 
-const UsesList = styled.ul`
-  max-width: 80rem;
-  width: 100%;
-  justify-self: center;
-  line-height: 1.8;
-  font-size: 2rem;
-  padding-right: 2rem;
-  list-style-image: radial-gradient(
-    ${props => props.theme.blue} 60%,
-    ${props => props.theme.green}
-  );
-  li a {
-    border-bottom: 0.2rem solid ${props => props.theme.green};
-  }
-`
-
 const UsesPage = () => (
   <Layout>
     <SEO title="Uses" />
@@ -52,7 +37,7 @@ const UsesPage = () => (
       <Link to="/contact">contact page</Link>.
     </ParagraphStyles>
     <ListHeading>Terminal & Editor</ListHeading>
-    <UsesList>
+    <SmallListStyles>
       <li>
         Currently I use <a href="https://code.visualstudio.com/">VS Code</a> as
         my editor and <a href="https://cmder.net/">cmder</a> as my terminal.
@@ -85,9 +70,9 @@ const UsesPage = () => (
         </a>{" "}
         extension helps me write code much faster.
       </li>
-    </UsesList>
+    </SmallListStyles>
     <ListHeading>Productivity Applications</ListHeading>
-    <UsesList>
+    <SmallListStyles>
       <li>
         I use <a href="https://todoist.com/">Todoist</a> for my daily to-do
         list.
@@ -104,9 +89,9 @@ const UsesPage = () => (
         I use <a href="https://evernote.com">Evernote</a> to quickly write down
         ideas that I have before I make them into tasks.
       </li>
-    </UsesList>
+    </SmallListStyles>
     <ListHeading>Other Apps</ListHeading>
-    <UsesList>
+    <SmallListStyles>
       <li>
         For my screen recording, I currently use{" "}
         <a href="https://obsproject.com">OBS Studio</a>.
@@ -128,9 +113,9 @@ const UsesPage = () => (
         I use <a href="https://www.dropbox.com">Dropbox</a> to share my files
         across all my devices.
       </li>
-    </UsesList>
+    </SmallListStyles>
     <ListHeading>Gear</ListHeading>
-    <UsesList>
+    <SmallListStyles>
       <li>
         For my audio recording, I use the{" "}
         <a href="https://www.amazon.com/Neewer-Professional-Broadcasting-Microphone-Adjustable/dp/B00XOXRTX6">
@@ -168,7 +153,7 @@ const UsesPage = () => (
         My current machine is a 13.5" Microsoft Surface Book 2.6GHz i7 with 16GB
         of RAM.
       </li>
-    </UsesList>
+    </SmallListStyles>
     <Social />
   </Layout>
 )
