@@ -87,6 +87,7 @@ const Social = () => {
         edges {
           node {
             id
+            name
             image {
               publicURL
             }
