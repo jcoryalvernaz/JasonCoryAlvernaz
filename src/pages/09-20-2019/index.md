@@ -27,7 +27,7 @@ Before we create our web app with `create-react-app` there are some things that 
 
 <div class="tip tip-left">
 
-Learn better with video? Take a look at this tutorial on [YouTube](https://www.youtube.com/watch?v=-gvpej9TT-g)
+Learn better with video? Take a look at this tutorial on [YouTube](https://www.youtube.com/watch?v=T-Zxw-K0PE8)
 
 </div>
 
