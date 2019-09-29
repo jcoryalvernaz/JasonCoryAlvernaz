@@ -26,7 +26,7 @@ const StyledMain = styled.main`
   overflow: hidden;
   grid-auto-rows: minmax(min-content, max-content);
   justify-self: center;
-  margin-top: 10rem;
+  margin-top: 5rem;
   @media (max-width: 800px) {
     margin-top: 5rem;
   }
@@ -48,8 +48,8 @@ const StyledMain = styled.main`
     :before {
       background: ${props => props.theme.blue};
       content: "";
-      width: 106%;
-      left: 0;
+      width: 150%;
+      left: -5rem;
       height: 105%;
       position: absolute;
       transform: rotate(2deg) translateX(-3%);

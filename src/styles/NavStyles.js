@@ -14,7 +14,7 @@ const NavStyles = styled.ul`
     padding-bottom: 2rem;
   }
   a {
-    padding: 1rem 3rem;
+    padding: 1rem;
     position: relative;
     text-transform: uppercase;
     font-weight: 500;
@@ -37,7 +37,7 @@ const NavStyles = styled.ul`
     &:focus {
       outline: none;
       &:after {
-        width: calc(100% - 60px);
+        width: calc(100% - 2rem);
       }
     }
   }
