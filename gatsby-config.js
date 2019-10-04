@@ -32,6 +32,7 @@ module.exports = {
     ],
   },
   plugins: [
+    `gatsby-plugin-feed`,
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-react-helmet`,
     {
