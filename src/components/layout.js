@@ -1,5 +1,6 @@
 import React, { useState, useLayoutEffect } from "react"
 import styled, { ThemeProvider } from "styled-components"
+import { Spring, config } from "react-spring/renderprops"
 import PropTypes from "prop-types"
 import { graphql, useStaticQuery } from "gatsby"
 
@@ -88,7 +89,15 @@ const Layout = ({ children }) => {
         <GlobalStyles />
         <SiteWrapper>
           <Header siteTitle={data.site.siteMetadata.title} />
-          <StyledMain>{children}</StyledMain>
+          <Spring
+            config={config.molasses}
+            from={{ opacity: 0 }}
+            to={{ opacity: 1 }}
+          >
+            {({ opacity }) => (
+              <StyledMain style={{ opacity }}>{children}</StyledMain>
+            )}
+          </Spring>
           <Footer toggleTheme={toggleTheme} isChecked={isDarkMode} />
         </SiteWrapper>
       </>

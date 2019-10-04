@@ -1,5 +1,6 @@
 import PropTypes from "prop-types"
 import React, { useState } from "react"
+import { Spring, config } from "react-spring/renderprops"
 import styled from "styled-components"
 
 import Nav from "./nav"
@@ -83,20 +84,25 @@ const Header = () => {
   }
 
   return (
-    <StyledHeader>
-      <PhoneBanner>
-        <a href="tel:1-775-997-5429">Call Me: 775.997.5429</a>
-      </PhoneBanner>
-      <Avatar src={logo} alt="Jason Cory Alvernaz" />
-      <MenuButton
-        type="image"
-        src={menu}
-        aria-expanded={expanded}
-        aria-label="menu"
-        onClick={toggleNav}
-      />
-      <Nav />
-    </StyledHeader>
+    <Spring config={config.slow} from={{ height: 0 }} to={{ height: "auto" }}>
+      {({ height }) => (
+        <StyledHeader style={{ height }}>
+          {" "}
+          <PhoneBanner>
+            <a href="tel:1-775-997-5429">Call Me: 775.997.5429</a>
+          </PhoneBanner>
+          <Avatar src={logo} alt="Jason Cory Alvernaz" />
+          <MenuButton
+            type="image"
+            src={menu}
+            aria-expanded={expanded}
+            aria-label="menu"
+            onClick={toggleNav}
+          />
+          <Nav />
+        </StyledHeader>
+      )}
+    </Spring>
   )
 }
 
