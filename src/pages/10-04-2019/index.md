@@ -1,45 +1,18 @@
 ---
-path: "/third-post"
-title: "Introduction to ReactJS"
-description: "This is a post about the basics of React."
-tags: ["React", "JavaScript", "Styled Components"]
-published: false
+path: "/countown-clock-with-reactjs-and-momentjs"
+title: "Building a Countdown Clock with ReactJS & MomentJS"
+description: "In this tutorial you will learn how to build a reusable countdown clock as a ReactJS component using the MomentJS library."
+tags: ["React", "JavaScript", "MomentJS", "CSS Grid"]
+published: true
 date: "2019-10-04"
-featuredImage: "settingsJSON.png"
-featuredAlt: "settings.JSON"
+featuredImage: "ComingSoon_2.png"
+featuredAlt: "YouTube Video Scene"
 ---
 
-# Introduction to ReactJS
+# Building a Countdown Clock with ReactJS & MomentJS
 
-Grandfather's creaky as his front porch, loads his shotgun beneath the awning, spittoon restless for rain, carpenter's chair against the whistling air. Rocking, back and forth, rocking snap shot picture - worth it, just like the movies
+<div class="post-date">Oct- <span class="day">4</span> -2019</div>
 
-<div class="tip tip-right">
+Today you will learn how to build your own countdown clock using ReactJS and MomentJS. MomentJS is a fantastic library for dealing with dates and times in JavaScript. You will build the clock as a ReactJS component, making it extremely reusable. When the component is passed some future date, it will make all the necessary calculations to render a countdown clock that will tick down until that moment in time. Finally, you will style the clock using some CSS Grid tricks to make it look like an actual clock. This clock is a great feature for the Coming Soon page that you are building, but it has many other use cases as well. For instance, a countdown to an event or a countdown until the end of a sale are also perfect use cases for this component. So, go ahead and put it to work in your application today.
 
-This is a song by [Levi the Poet](http://levithepoet.net)
-
-</div>
-
-She said that he loved baseball, and James Earl Jones; said that he's got god talking inside of his thoughts while he's rounding those bases on his way back home
-
-> "If you build it, they will come"
-
-If you build it, they will come (and baby listens to what the Lord say). But I've been getting pretty worn, building for nearly a decade
-
-<figure>
-    <img src="styledComponents.png" alt="Big Ass Image">
-    <figcaption>Styled Component</figcaption>
-</figure>
-
-In a perfect world we shouldn’t have been allowed to lose sight of what it means to love wholly. I’ve got a Polaroid hanging on my wall that a friend took of me and my angel. I remember the day like it’s something I can touch, but it’s stuck in the square between the borders of the film, and I can run my fingers over our faces, but I can’t get back to the places we were
-
-> You’ve got a pain deep in your bones, son.
-
-"You’ve got a pain deep in your bones, son. It compels you forward like you’re tied to a slave master’s cruel hand, and it's the same pain that drives that oppressor’s heart of stone, `display: grid` so you’ve grown to love the man. You keep pouring yourself out, again and again, into legible lines through a crooked pen." Yeah, it’s painful, but it’s familiar – so habit breeds comfort, and I don’t know what I’d do without him
-
-<div class="tip tip-left">
-
-You can listen to this song on [YouTube](https://www.youtube.com/watch?v=-gvpej9TT-g)
-
-</div>
-
-So in the early morning, when you’ve fallen asleep in our home, I drift back into the memories that I’ve claimed as my own, and wonder if tonight will be a night I’ll hang on my wall like I did before we stopped taking photos, out of the habit of being comfortable with not trying at all
+[![Watch the You Tube Video](ComingSoon_2.png)](https://www.youtube.com/watch?v=03WFsg-6FK0)
