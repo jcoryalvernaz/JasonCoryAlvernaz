@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Jason Cory Alvernaz | Reno Website Development and Design`,
     description: `Beautifully crafted and customized websites for your business! Located in Reno, NV. Specialized in Web Development, Design, SEO, and Digital Marketing.`,
-    author: `@JasonAlvernaz`,
+    author: `@jcoryalvernaz`,
     siteUrl: `https://jasoncoryalvernaz.com`,
     keywords: [
       `reno website design`,
