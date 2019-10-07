@@ -1,6 +1,6 @@
 import React, { useState, useLayoutEffect } from "react"
 import styled, { ThemeProvider } from "styled-components"
-import { Spring, config } from "react-spring/renderprops"
+import { useSpring, config, animated } from "react-spring"
 import PropTypes from "prop-types"
 import { graphql, useStaticQuery } from "gatsby"
 
@@ -20,7 +20,7 @@ const SiteWrapper = styled.div`
   color: ${props => props.theme.textColor};
 `
 
-const StyledMain = styled.main`
+const StyledMain = styled(animated.main)`
   width: 100%;
   min-height: 80vh;
   display: grid;
@@ -83,21 +83,19 @@ const Layout = ({ children }) => {
     }
   `)
 
+  const mainProps = useSpring({
+    config: config.slow,
+    from: { opacity: 0, transform: `translate3d(0, 80px, 0)` },
+    to: { opacity: 1, transform: `translate3d(0, 0, 0)` },
+  })
+
   return (
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
       <>
         <GlobalStyles />
         <SiteWrapper>
           <Header siteTitle={data.site.siteMetadata.title} />
-          <Spring
-            config={config.molasses}
-            from={{ opacity: 0 }}
-            to={{ opacity: 1 }}
-          >
-            {({ opacity }) => (
-              <StyledMain style={{ opacity }}>{children}</StyledMain>
-            )}
-          </Spring>
+          <StyledMain style={mainProps}>{children}</StyledMain>
           <Footer toggleTheme={toggleTheme} isChecked={isDarkMode} />
         </SiteWrapper>
       </>
