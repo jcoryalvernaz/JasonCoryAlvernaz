@@ -44,7 +44,7 @@ const SectionStyles = styled.section`
     transition: 0.4s transform ease-in-out;
     :hover {
       filter: invert(0.45) sepia(1) saturate(6) hue-rotate(140deg);
-      transform: scale(1.4);
+      transform: scale(1.2);
     }
   }
   li {
