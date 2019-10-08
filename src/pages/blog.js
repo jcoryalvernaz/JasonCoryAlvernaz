@@ -10,7 +10,7 @@ import ParagraphStyles from "../styles/ParagraphStyles"
 import ListStyles from "../styles/ListStyles"
 
 const BlogPage = ({ data }) => {
-  const posts = [...data.allMarkdownRemark.edges]
+  const posts = [...data.allMarkdownRemark.nodes]
   return (
     <Layout>
       <SEO title="Blog" />
@@ -28,22 +28,20 @@ const BlogPage = ({ data }) => {
       <ListStyles>
         {posts.map(post => {
           return (
-            <li key={post.node.id}>
-              <Link className="featured-image" to={post.node.frontmatter.path}>
+            <li key={post.id}>
+              <Link className="featured-image" to={post.frontmatter.path}>
                 <Img
-                  fluid={
-                    post.node.frontmatter.featuredImage.childImageSharp.fluid
-                  }
-                  alt={post.node.frontmatter.featuredAlt}
+                  fluid={post.frontmatter.featuredImage.childImageSharp.fluid}
+                  alt={post.frontmatter.featuredAlt}
                 />
               </Link>
-              <Link className="title" to={post.node.frontmatter.path}>
-                {post.node.frontmatter.title}
+              <Link className="title" to={post.frontmatter.path}>
+                {post.frontmatter.title}
               </Link>
-              <p>{post.node.frontmatter.description}</p>
+              <p>{post.frontmatter.description}</p>
               <p>
                 <strong>Categories: </strong>
-                {post.node.frontmatter.tags.map((tag, i) => (
+                {post.frontmatter.tags.map((tag, i) => (
                   <Link
                     key={i}
                     className="tag"
@@ -67,25 +65,23 @@ export const pageQuery = graphql`
       filter: { frontmatter: { published: { eq: true } } }
       sort: { fields: frontmatter___date, order: DESC }
     ) {
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-            path
-            description
-            tags
-            published
-            date
-            featuredImage {
-              childImageSharp {
-                fluid(maxWidth: 800) {
-                  ...GatsbyImageSharpFluid
-                }
+      nodes {
+        id
+        frontmatter {
+          title
+          path
+          description
+          tags
+          published
+          date
+          featuredImage {
+            childImageSharp {
+              fluid(maxWidth: 800) {
+                ...GatsbyImageSharpFluid
               }
             }
-            featuredAlt
           }
+          featuredAlt
         }
       }
     }

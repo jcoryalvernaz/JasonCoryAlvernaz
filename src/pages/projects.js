@@ -11,7 +11,7 @@ import ParagraphStyles from "../styles/ParagraphStyles"
 import ListStyles from "../styles/ListStyles"
 
 const ProjectsPage = ({ data }) => {
-  const projects = [...data.allProjectItemsJson.edges]
+  const projects = [...data.allProjectItemsJson.nodes]
   return (
     <Layout>
       <SEO title="Projects" />
@@ -24,20 +24,20 @@ const ProjectsPage = ({ data }) => {
       <ListStyles>
         {projects.map(project => {
           return (
-            <li key={project.node.id}>
-              <a href={project.node.link} className="featured-image">
+            <li key={project.id}>
+              <a href={project.link} className="featured-image">
                 <Img
-                  fluid={project.node.image.childImageSharp.fluid}
-                  alt={project.node.imageAlt}
+                  fluid={project.image.childImageSharp.fluid}
+                  alt={project.imageAlt}
                 />
               </a>
-              <a className="title" href={project.node.link}>
-                {project.node.name}
+              <a className="title" href={project.link}>
+                {project.name}
               </a>
-              <p>{project.node.description}</p>
+              <p>{project.description}</p>
               <p>
                 <strong>Built wilth: </strong>
-                {project.node.technologies.map((tag, i) => (
+                {project.technologies.map((tag, i) => (
                   <Link
                     key={i}
                     className="tag"
@@ -59,22 +59,20 @@ const ProjectsPage = ({ data }) => {
 export const pageQuery = graphql`
   query ProjectItemsQuery {
     allProjectItemsJson {
-      edges {
-        node {
-          id
-          name
-          description
-          link
-          technologies
-          image {
-            childImageSharp {
-              fluid(maxWidth: 800) {
-                ...GatsbyImageSharpFluid
-              }
+      nodes {
+        id
+        name
+        description
+        link
+        technologies
+        image {
+          childImageSharp {
+            fluid(maxWidth: 800) {
+              ...GatsbyImageSharpFluid
             }
           }
-          imageAlt
         }
+        imageAlt
       }
     }
   }

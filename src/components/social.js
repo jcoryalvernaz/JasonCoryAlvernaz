@@ -83,21 +83,19 @@ const Social = () => {
   const data = useStaticQuery(graphql`
     query SocialLinksQuery {
       allSocialLinksJson {
-        edges {
-          node {
-            id
-            name
-            image {
-              publicURL
-            }
-            url
+        nodes {
+          id
+          name
+          image {
+            publicURL
           }
+          url
         }
       }
     }
   `)
 
-  const links = [...data.allSocialLinksJson.edges]
+  const links = [...data.allSocialLinksJson.nodes]
 
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -126,17 +124,17 @@ const Social = () => {
       {links.map(link => {
         return (
           <a
-            key={link.node.id}
+            key={link.id}
             target="_blank"
             rel="noopener noreferrer"
-            href={link.node.url}
+            href={link.url}
           >
             <object
               type="image/svg+xml"
-              data={link.node.image.publicURL}
+              data={link.image.publicURL}
               className="icon"
             >
-              {link.node.name}
+              {link.name}
             </object>
           </a>
         )

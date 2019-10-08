@@ -84,21 +84,19 @@ const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query ValueItemsQuery {
       allValueItemsJson {
-        edges {
-          node {
-            id
-            name
-            image {
-              publicURL
-            }
-            description
+        nodes {
+          id
+          name
+          image {
+            publicURL
           }
+          description
         }
       }
     }
   `)
 
-  const values = [...data.allValueItemsJson.edges]
+  const values = [...data.allValueItemsJson.nodes]
 
   return (
     <Layout>
@@ -147,16 +145,16 @@ const IndexPage = () => {
           <ul className="values">
             {values.map(value => {
               return (
-                <li key={value.node.id}>
+                <li key={value.id}>
                   <object
                     className="icon"
                     type="image/svg+xml"
-                    data={value.node.image.publicURL}
+                    data={value.image.publicURL}
                   >
-                    {value.node.name}
+                    {value.name}
                   </object>
-                  <h2>{value.node.name}</h2>
-                  <p>{value.node.description}</p>
+                  <h2>{value.name}</h2>
+                  <p>{value.description}</p>
                 </li>
               )
             })}

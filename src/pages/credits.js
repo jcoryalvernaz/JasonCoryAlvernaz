@@ -10,19 +10,17 @@ const CreditsPage = () => {
   const data = useStaticQuery(graphql`
     query CreditsQuery {
       allCreditsItemsJson {
-        edges {
-          node {
-            id
-            icon
-            author
-            link
-          }
+        nodes {
+          id
+          icon
+          author
+          link
         }
       }
     }
   `)
 
-  const credits = [...data.allCreditsItemsJson.edges]
+  const credits = [...data.allCreditsItemsJson.nodes]
   return (
     <Layout>
       <SEO title="Credits" />
@@ -30,16 +28,12 @@ const CreditsPage = () => {
       <SmallListStyles>
         {credits.map(credit => {
           return (
-            <li key={credit.node.id}>
+            <li key={credit.id}>
               "
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href={credit.node.link}
-              >
-                {credit.node.icon}
+              <a target="_blank" rel="noopener noreferrer" href={credit.link}>
+                {credit.icon}
               </a>
-              " icon by {credit.node.author} from{" "}
+              " icon by {credit.author} from{" "}
               <a
                 target="_blank"
                 rel="noopener noreferrer"
