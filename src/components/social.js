@@ -3,6 +3,8 @@ import { useInView } from "react-intersection-observer"
 import styled from "styled-components"
 import { graphql, useStaticQuery } from "gatsby"
 
+import SocialIconStyles from "../styles/SocialIconStyles"
+
 const SocialWrapper = styled.div`
   margin-top: 5rem;
   margin-bottom: 5rem;
@@ -19,10 +21,6 @@ const SocialWrapper = styled.div`
     font-size: 2.5rem;
     border-bottom: 0.2rem solid ${props => props.theme.orange};
     padding-bottom: 0.5rem;
-  }
-  .icon {
-    width: 8rem;
-    transition: 0.2s all ease-in;
   }
   .arrow {
     fill: ${props =>
@@ -55,27 +53,6 @@ const SocialWrapper = styled.div`
   @media (max-width: 630px) {
     grid-template-columns: 1fr;
     grid-gap: 2rem;
-  }
-  a {
-    position: relative;
-    display: inline-block;
-    :after {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-    }
-    :hover {
-      .icon {
-        transform: translateY(-10%);
-        filter: ${props =>
-          props.theme.isDark
-            ? `drop-shadow(0px 6px 2px rgba(76, 42, 133, 1))`
-            : `drop-shadow(0px 6px 2px rgba(0, 0, 0, 0.2))`};
-      }
-    }
   }
 `
 
@@ -123,7 +100,7 @@ const Social = () => {
       </div>
       {links.map(link => {
         return (
-          <a
+          <SocialIconStyles
             key={link.id}
             target="_blank"
             rel="noopener noreferrer"
@@ -136,7 +113,7 @@ const Social = () => {
             >
               {link.name}
             </object>
-          </a>
+          </SocialIconStyles>
         )
       })}
     </SocialWrapper>
