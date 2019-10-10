@@ -11,7 +11,8 @@ const SocialIconStyles = styled.a`
     bottom: 0;
     left: 0;
   }
-  :hover {
+  :hover,
+  :focus {
     .icon {
       transform: translateY(-10%);
       filter: ${props =>
