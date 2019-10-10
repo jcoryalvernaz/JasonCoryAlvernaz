@@ -8,7 +8,7 @@ const PostStyles = styled.article`
   padding-right: 2rem;
   display: grid;
   grid-gap: 1rem 5rem;
-  grid-template-columns: 3fr 12fr 5fr;
+  grid-template-columns: 3fr 12fr 3fr;
   > * {
     grid-column: 2 / -2;
   }
@@ -126,7 +126,7 @@ const PostStyles = styled.article`
     grid-column: span 1 / -1;
     border-left: 1rem solid ${props => props.theme.green};
   }
-  @media (max-width: 630px) {
+  @media (max-width: 830px) {
     grid-template-columns: 1fr;
     > * {
       grid-column: 1 / -1;
