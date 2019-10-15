@@ -10,9 +10,9 @@ const { query } = require("./schemas/queries");
 const { mutation } = require("./schemas/mutations");
 
 const isProduction = process.env.NODE_ENV === "production";
-// const origin = {
-//   origin: isProduction ? "https://jasoncoryalvernaz.com" : "*"
-// };
+const origin = {
+  origin: isProduction ? "https://jasoncoryalvernaz.com" : "*"
+};
 
 const schema = new GraphQLSchema({
   query,
@@ -23,7 +23,7 @@ const app = express();
 
 app.use(compression());
 app.use(helmet());
-//app.use(cors(origin));
+app.use(cors(origin));
 
 const limiter = rateLimit({
   windowMs: 1 * 60 * 1000, // 1 minute
