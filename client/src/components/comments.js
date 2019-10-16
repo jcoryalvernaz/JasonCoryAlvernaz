@@ -4,10 +4,10 @@ class Comments extends Component {
   onSubmitComment = async e => {
     e.preventDefault()
 
-    fetch("http://localhost:3000/", {
+    fetch("https://jca-comments-api.herokuapp.com/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ query: "{ comments { id name }}" }),
+      body: JSON.stringify({ query: "{ comments { id name slug parent_comment_id }}" }),
     })
       .then(res => res.json())
       .then(res => console.log(res.data))

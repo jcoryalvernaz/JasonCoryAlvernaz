@@ -5,6 +5,7 @@ import styled from "styled-components"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Share from "../components/share"
+import Comments from "../components/comments"
 import PostStyles from "../styles/PostStyles"
 
 const PostNavigation = styled.div`
@@ -66,6 +67,7 @@ export default function Post({ data, pageContext }) {
       />
       <PostStyles dangerouslySetInnerHTML={{ __html: post.html }} />
       <Share title={post.frontmatter.title} path={post.frontmatter.path}/>
+      <Comments />
       <PostNavigation>
         {prev && (
           <Link className="prev" to={prev.frontmatter.path}>
