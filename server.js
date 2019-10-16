@@ -21,6 +21,7 @@ const schema = new GraphQLSchema({
 
 const app = express();
 
+app.options('*', cors());
 app.use(compression());
 app.use(helmet());
 app.use(cors(origin));
