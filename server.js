@@ -11,7 +11,7 @@ const { mutation } = require("./schemas/mutations");
 
 const isProduction = process.env.NODE_ENV === "production";
 const origin = {
-  origin: isProduction ? "https://jasoncoryalvernaz.com" : "*"
+  origin: isProduction ? "https://www.jasoncoryalvernaz.com" : "*"
 };
 
 const schema = new GraphQLSchema({
@@ -21,7 +21,6 @@ const schema = new GraphQLSchema({
 
 const app = express();
 
-app.options('*', cors());
 app.use(compression());
 app.use(helmet());
 app.use(cors(origin));
