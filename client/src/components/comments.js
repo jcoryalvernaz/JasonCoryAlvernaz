@@ -80,7 +80,7 @@ const Comments = ({ comments, slug, postTitle }) => {
         </FormStyles>
       </SectionStyles>
       <CommentsStyles>
-        <h2>
+        <h2 className="comments-count">
           {commentsTitle(comments.filter(comment => comment.moderated).length)}
         </h2>
         {comments.length > 0 &&

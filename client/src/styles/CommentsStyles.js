@@ -31,6 +31,9 @@ const CommentsStyles = styled.div`
     font-size: 1.5rem;
     margin-left: 2rem;
   }
+  .comments-count {
+    text-align: center;
+  }
 `
 
 export default CommentsStyles
