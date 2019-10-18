@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import moment from "moment"
 
 import SectionStyles from "../styles/SectionStyles"
@@ -6,7 +6,7 @@ import FormStyles from "../styles/FormStyles"
 import CommentsStyles from "../styles/CommentsStyles"
 
 const Comments = ({ comments, slug, postTitle }) => {
-  const [state, setState] = React.useState({})
+  const [state, setState] = useState({})
 
   const handleChange = e => {
     setState({ ...state, [e.target.name]: e.target.value })

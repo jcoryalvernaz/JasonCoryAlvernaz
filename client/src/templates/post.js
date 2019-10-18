@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { graphql, Link } from "gatsby"
 import styled from "styled-components"
 
@@ -56,11 +56,8 @@ const PostNavigation = styled.div`
 export default function Post({ data, pageContext }) {
   const { markdownRemark: post } = data
   const { next, prev, slug } = pageContext
-  let comments = []
+  const [state] = useState({ comments: [...data.commentsApi.commentsBySlug] })
 
-  if (data.commentsApi.commentsBySlug !== null) {
-    comments = [...data.commentsApi.commentsBySlug]
-  }
   return (
     <Layout>
       <SEO
@@ -73,7 +70,7 @@ export default function Post({ data, pageContext }) {
       <PostStyles dangerouslySetInnerHTML={{ __html: post.html }} />
       <Share title={post.frontmatter.title} path={post.frontmatter.path} />
       <Comments
-        comments={comments}
+        comments={state.comments}
         slug={slug}
         postTitle={post.frontmatter.title}
       />
