@@ -30,7 +30,7 @@ const RootMutation = new GraphQLObjectType({
           .catch(err => err);
       }
     },
-    upDateComment: {
+    updateComment: {
       type: CommentType,
       args: {
         name: { type: GraphQLString },

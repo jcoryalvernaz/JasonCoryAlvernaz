@@ -45,7 +45,8 @@ const StyledMain = styled(animated.main)`
     }
   }
   .value,
-  .contact {
+  .contact,
+  .comments {
     :before {
       background: ${props => props.theme.blue};
       content: "";

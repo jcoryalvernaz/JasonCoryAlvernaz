@@ -4,7 +4,6 @@ const FormStyles = styled.form`
   max-width: 80rem;
   width: 100%;
   padding: 5rem 1rem;
-  margin-top: 3rem;
   justify-self: center;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -50,7 +49,9 @@ const FormStyles = styled.form`
     resize: vertical;
   }
   .subject,
-  .message {
+  .message,
+  .comment-name,
+  .comment-text {
     grid-column: 1 / -1;
   }
   button {

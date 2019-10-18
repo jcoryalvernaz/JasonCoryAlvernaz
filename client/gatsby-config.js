@@ -165,6 +165,14 @@ module.exports = {
         trackingId: `UA-144187594-1`,
       },
     },
+    {
+      resolve: `gatsby-source-graphql`,
+      options: {
+        typeName: `CAPI`,
+        fieldName: `commentsApi`,
+        url: `https://jca-comments-api.herokuapp.com`,
+      },
+    },
     `gatsby-plugin-sitemap`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

@@ -6,12 +6,11 @@
 
 const path = require("path")
 const slugify = require("slugify")
-const { createFilePath } = require("gatsby-source-filesystem")
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
+exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions
   if (node.internal.type === "MarkdownRemark") {
-    const value = createFilePath({ node, getNode })
+    const value = slugify(node.frontmatter.title, { lower: true })
     createNodeField({
       name: "slug",
       node,
@@ -28,6 +27,9 @@ exports.createPages = ({ actions, graphql }) => {
       allMarkdownRemark(sort: { order: ASC, fields: [frontmatter___date] }) {
         edges {
           node {
+            fields {
+              slug
+            }
             html
             id
             frontmatter {
@@ -71,6 +73,7 @@ createPostPages = ({ posts, createPage }) => {
             : posts[index + 1].node.frontmatter.published
             ? posts[index + 1].node
             : null,
+        slug: node.fields.slug,
       },
     })
   })

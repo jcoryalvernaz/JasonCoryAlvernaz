@@ -58,6 +58,15 @@ const SectionStyles = styled.section`
   li > h2 {
     font-size: 2.5rem;
   }
+  .comments-heading {
+    text-align: center;
+    justify-self: center;
+    position: relative;
+    font-size: 2.5rem;
+    color: ${props => props.theme.white};
+    margin-bottom: 0;
+    text-shadow: -1px 1px 2px rgba(0, 0, 0, 0.2);
+  }
 `
 
 export default SectionStyles

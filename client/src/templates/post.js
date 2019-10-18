@@ -5,6 +5,7 @@ import styled from "styled-components"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Share from "../components/share"
+import Comments from "../components/comments"
 import PostStyles from "../styles/PostStyles"
 
 const PostNavigation = styled.div`
@@ -54,7 +55,12 @@ const PostNavigation = styled.div`
 
 export default function Post({ data, pageContext }) {
   const { markdownRemark: post } = data
-  const { next, prev } = pageContext
+  const { next, prev, slug } = pageContext
+  let comments = []
+
+  if (data.commentsApi.commentsBySlug !== null) {
+    comments = [...data.commentsApi.commentsBySlug]
+  }
   return (
     <Layout>
       <SEO
@@ -65,7 +71,12 @@ export default function Post({ data, pageContext }) {
         isBlogPost={true}
       />
       <PostStyles dangerouslySetInnerHTML={{ __html: post.html }} />
-      <Share title={post.frontmatter.title} path={post.frontmatter.path}/>
+      <Share title={post.frontmatter.title} path={post.frontmatter.path} />
+      <Comments
+        comments={comments}
+        slug={slug}
+        postTitle={post.frontmatter.title}
+      />
       <PostNavigation>
         {prev && (
           <Link className="prev" to={prev.frontmatter.path}>
@@ -117,8 +128,9 @@ export default function Post({ data, pageContext }) {
   )
 }
 
+//TODO handle case with no comments for given slug
 export const postQuery = graphql`
-  query BlogPostByPath($path: String!) {
+  query BlogPostByPath($path: String!, $slug: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       frontmatter {
@@ -135,6 +147,17 @@ export const postQuery = graphql`
           }
         }
         featuredAlt
+      }
+    }
+    commentsApi {
+      commentsBySlug(slug: $slug) {
+        id
+        name
+        date
+        text
+        parent_comment_id
+        slug
+        moderated
       }
     }
   }
