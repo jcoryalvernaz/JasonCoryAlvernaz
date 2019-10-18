@@ -1,7 +1,7 @@
 import darkBackground from "../images/darkBackground.svg"
 
 const darkTheme = {
-  purple: "#22133D",
+  purple: "#4C2A85",
   green: "#4ECDC4",
   black: "#000013",
   white: "#FFFFFA",
