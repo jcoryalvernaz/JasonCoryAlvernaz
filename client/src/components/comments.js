@@ -42,7 +42,9 @@ const Comments = ({ comments, slug, postTitle }) => {
   }
 
   const commentsTitle = commentsLength => {
-    if (commentsLength < 2) {
+    if (commentsLength === 0) {
+      return `No Replies for ${postTitle}`
+    } else if (commentsLength === 1) {
       return `1 Reply for ${postTitle}`
     } else {
       return `${commentsLength} Replies for ${postTitle}`
