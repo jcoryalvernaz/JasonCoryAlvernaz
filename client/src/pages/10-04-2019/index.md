@@ -1,5 +1,5 @@
 ---
-path: "/countown-clock-with-reactjs-and-momentjs"
+path: "/countdown-clock-with-reactjs-and-momentjs"
 title: "Building a Countdown Clock with ReactJS & MomentJS"
 description: "In this tutorial you will learn how to build a reusable countdown clock as a ReactJS component using the MomentJS library."
 tags: ["React", "JavaScript", "MomentJS", "CSS Grid"]
