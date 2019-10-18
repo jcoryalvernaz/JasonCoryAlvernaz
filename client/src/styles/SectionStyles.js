@@ -67,6 +67,20 @@ const SectionStyles = styled.section`
     margin-bottom: 0;
     text-shadow: -1px 1px 2px rgba(0, 0, 0, 0.2);
   }
+  .success {
+    margin-top: 0;
+    text-align: center;
+    position: relative;
+    font-size: 2rem;
+    color: ${props => props.theme.black};
+  }
+  .error {
+    margin-top: 0;
+    text-align: center;
+    position: relative;
+    font-size: 2rem;
+    color: red;
+  }
 `
 
 export default SectionStyles

@@ -6,14 +6,27 @@ import FormStyles from "../styles/FormStyles"
 import CommentsStyles from "../styles/CommentsStyles"
 
 const Comments = ({ comments, slug, postTitle }) => {
-  const [state, setState] = useState({})
+  const [state, setState] = useState({
+    submitting: false,
+    newComment: {
+      name: "",
+      text: "",
+    },
+    success: false,
+    error: false,
+  })
 
   const handleChange = e => {
-    setState({ ...state, [e.target.name]: e.target.value })
+    const { newComment } = state
+    setState({ newComment: { ...newComment, [e.target.name]: e.target.value } })
   }
 
   const handleSubmit = async e => {
     e.preventDefault()
+
+    const { newComment } = state
+
+    setState({ ...state, submitting: true })
 
     await fetch("https://jca-comments-api.herokuapp.com", {
       method: "POST",
@@ -21,16 +34,35 @@ const Comments = ({ comments, slug, postTitle }) => {
       body: JSON.stringify({
         query: `
         mutation {
-          createComment(name: "${state.name}" text: "${state.text}" slug: "${slug}" parent_comment_id: null)
+          createComment(name: "${newComment.name}" text: "${newComment.text}" slug: "${slug}" parent_comment_id: null)
           {
             name
           }
         }`,
       }),
     })
-      .then(res => res.json())
-      .then(res => console.log(res))
-      .catch(err => alert(err))
+      .then(() => {
+        setState({
+          submitting: false,
+          newComment: {
+            name: "",
+            text: "",
+          },
+          success: true,
+          error: false,
+        })
+      })
+      .catch(() => {
+        setState({
+          submitting: false,
+          newComment: {
+            name: "",
+            text: "",
+          },
+          success: false,
+          error: true,
+        })
+      })
   }
 
   const formTitle = commentsLength => {
@@ -51,6 +83,25 @@ const Comments = ({ comments, slug, postTitle }) => {
     }
   }
 
+  const showSuccess = () => {
+    return (
+      <p className="success">{`Thank you for submitting your comment for review!`}</p>
+    )
+  }
+
+  const showError = () => {
+    return (
+      <p className="error">{`Oops! Something went wrong. Please try again.`}</p>
+    )
+  }
+
+  const {
+    submitting,
+    newComment: { name, text },
+    success,
+    error,
+  } = state
+
   return (
     <>
       <SectionStyles className="comments">
@@ -63,9 +114,11 @@ const Comments = ({ comments, slug, postTitle }) => {
             name="name"
             className="comment-name"
             id="name"
-            maxLength="255"
             placeholder="Name"
             onChange={handleChange}
+            value={name}
+            minLength="3"
+            maxLength="255"
             required
           />
           <textarea
@@ -74,10 +127,19 @@ const Comments = ({ comments, slug, postTitle }) => {
             id="text"
             placeholder="Comment"
             onChange={handleChange}
+            value={text}
+            minLength="20"
+            maxLength="1000"
             required
           />
-          <button type="submit">Submit</button>
+          <button
+            type="submit"
+            disabled={!name || !text || text.length < 20 || submitting}
+          >
+            Submit
+          </button>
         </FormStyles>
+        {/*{success || error ? showSuccess() || showError() : ""}*/}
       </SectionStyles>
       <CommentsStyles>
         <h2 className="comments-count">
