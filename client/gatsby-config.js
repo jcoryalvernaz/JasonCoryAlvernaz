@@ -139,10 +139,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Jason Cory Alvernaz | Reno Website Development and Design`,
+        short_name: `Jason Cory Alvernaz`,
+        description: `Beautifully crafted and customized websites for your business! Located in Reno, NV. Specialized in Web Development, Design, SEO, and Digital Marketing.`,
         start_url: `/`,
-        background_color: `#663399`,
+        background_color: `#000013`,
         theme_color: `#4c2a85`,
         display: `minimal-ui`,
         icon: `src/images/JasonCoryCircle.png`, // This path is relative to the root of the site.
