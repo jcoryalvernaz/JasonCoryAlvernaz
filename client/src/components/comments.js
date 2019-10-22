@@ -28,7 +28,7 @@ const Comments = ({ comments, slug, postTitle }) => {
 
     setState({ ...state, submitting: true })
 
-    await fetch("https://jca-comments-api.herokuapp.com", {
+    await fetch(process.env.COMMENTS_API_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

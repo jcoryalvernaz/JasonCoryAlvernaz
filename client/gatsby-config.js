@@ -1,3 +1,5 @@
+require("dotenv").config({ path: `.env.${process.env.NODE_ENV}` })
+
 module.exports = {
   siteMetadata: {
     title: `Jason Cory Alvernaz | Reno Website Development and Design`,
@@ -170,7 +172,7 @@ module.exports = {
       options: {
         typeName: `CAPI`,
         fieldName: `commentsApi`,
-        url: `https://jca-comments-api.herokuapp.com`,
+        url: process.env.COMMENTS_API_URL,
       },
     },
     `gatsby-plugin-sitemap`,
