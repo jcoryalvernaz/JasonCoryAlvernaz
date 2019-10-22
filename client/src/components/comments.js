@@ -28,7 +28,7 @@ const Comments = ({ comments, slug, postTitle }) => {
 
     setState({ ...state, submitting: true })
 
-    await fetch(process.env.COMMENTS_API_URL, {
+    await fetch(process.env.GATSBY_COMMENTS_API, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
