@@ -31,13 +31,13 @@ export default function TagPage({ pageContext, data }) {
         {posts.map(post => {
           return (
             <li key={post.id}>
-              <Link className="featured-image" to={post.frontmatter.path}>
+              <Link className="featured-image" to={post.fields.slug}>
                 <Img
                   fluid={post.frontmatter.featuredImage.childImageSharp.fluid}
                   alt={post.frontmatter.featuredAlt}
                 />
               </Link>
-              <Link className="title" to={post.frontmatter.path}>
+              <Link className="title" to={post.fields.slug}>
                 {post.frontmatter.title}
               </Link>
               <p>{post.frontmatter.description}</p>
@@ -70,11 +70,13 @@ export const pageQuery = graphql`
       totalCount
       nodes {
         id
+        fields {
+          slug
+        }
         frontmatter {
           date
           description
           featuredAlt
-          path
           published
           tags
           title

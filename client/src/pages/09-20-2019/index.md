@@ -1,5 +1,4 @@
 ---
-path: "/introduction-to-create-react-app"
 title: "Introduction to Create-React-App"
 description: "Learn the basics of create-react-app, an amazing tool that allows you to quickly and effeciently get a React.js application up and running."
 tags: ["React", "JavaScript"]

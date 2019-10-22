@@ -18,7 +18,7 @@ const ShareWrapper = styled.div`
   grid-column-gap: 1rem;
   grid-row-gap: 4rem;
   max-width: 70rem;
-  @media(max-width: 630px) {
+  @media (max-width: 630px) {
     grid-template-columns: 1fr;
   }
   h2 {
@@ -30,7 +30,7 @@ const ShareWrapper = styled.div`
   }
 `
 
-const Share = ({ path, title }) => {
+const Share = ({ slug, title }) => {
   const data = useStaticQuery(graphql`
     query SiteQuery {
       site {
@@ -47,7 +47,7 @@ const Share = ({ path, title }) => {
     <ShareWrapper>
       <h2>Share this post: </h2>
       <SocialIconStyles
-        href={`https://twitter.com/intent/tweet/?text=${title}&url=${siteUrl}${path}%2F&via=jcoryalvernaz`}
+        href={`https://twitter.com/intent/tweet/?text=${title}&url=${siteUrl}${slug}%2F&via=jcoryalvernaz`}
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -56,7 +56,7 @@ const Share = ({ path, title }) => {
         </object>
       </SocialIconStyles>
       <SocialIconStyles
-        href={`https://www.facebook.com/sharer/sharer.php?u=${siteUrl}${path}`}
+        href={`https://www.facebook.com/sharer/sharer.php?u=${siteUrl}${slug}`}
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -65,7 +65,7 @@ const Share = ({ path, title }) => {
         </object>
       </SocialIconStyles>
       <SocialIconStyles
-        href={`https://www.linkedin.com/shareArticle?mini=true&url=${siteUrl}${path}&title=${title}&source=${title}`}
+        href={`https://www.linkedin.com/shareArticle?mini=true&url=${siteUrl}${slug}&title=${title}&source=${title}`}
         target="_blank"
         rel="noopener noreferrer"
       >

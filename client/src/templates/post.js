@@ -72,7 +72,7 @@ export default function Post({ data, pageContext }) {
         isBlogPost={true}
       />
       <PostStyles dangerouslySetInnerHTML={{ __html: post.html }} />
-      <Share title={post.frontmatter.title} path={post.frontmatter.path} />
+      <Share title={post.frontmatter.title} slug={post.fields.slug} />
       <Comments
         comments={state.comments}
         slug={post.fields.slug}
@@ -80,7 +80,7 @@ export default function Post({ data, pageContext }) {
       />
       <PostNavigation>
         {prev && (
-          <Link className="prev" to={prev.frontmatter.path}>
+          <Link className="prev" to={prev.fields.slug}>
             <h4>Previous</h4>
             <span>
               {" "}
@@ -103,7 +103,7 @@ export default function Post({ data, pageContext }) {
           </Link>
         )}
         {next && (
-          <Link className="next" to={next.frontmatter.path}>
+          <Link className="next" to={next.fields.slug}>
             <h4>Next</h4>
             <span>
               {next.frontmatter.title}{" "}
@@ -129,16 +129,15 @@ export default function Post({ data, pageContext }) {
   )
 }
 
-//TODO handle case with no comments for given slug
+//TODO handle case with no comments (i.e. comments server not available)
 export const postQuery = graphql`
-  query BlogPostByPath($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
+  query BlogPostBySlug($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       fields {
         slug
       }
       frontmatter {
-        path
         title
         description
         published

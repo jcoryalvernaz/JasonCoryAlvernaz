@@ -10,7 +10,7 @@ const slugify = require("slugify")
 exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions
   if (node.internal.type === "MarkdownRemark") {
-    const value = slugify(node.frontmatter.title, { lower: true })
+    const value = `/${slugify(node.frontmatter.title, { lower: true })}`
     createNodeField({
       name: "slug",
       node,
@@ -33,7 +33,6 @@ exports.createPages = ({ actions, graphql }) => {
             html
             id
             frontmatter {
-              path
               title
               published
               date
@@ -57,8 +56,9 @@ exports.createPages = ({ actions, graphql }) => {
 createPostPages = ({ posts, createPage }) => {
   const postTemplate = path.resolve("src/templates/post.js")
   posts.forEach(({ node }, index) => {
+    const slug = node.fields.slug
     createPage({
-      path: node.frontmatter.path,
+      path: slug,
       component: postTemplate,
       context: {
         prev:
@@ -73,6 +73,7 @@ createPostPages = ({ posts, createPage }) => {
             : posts[index + 1].node.frontmatter.published
             ? posts[index + 1].node
             : null,
+        slug,
       },
     })
   })
