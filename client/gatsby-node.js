@@ -73,7 +73,6 @@ createPostPages = ({ posts, createPage }) => {
             : posts[index + 1].node.frontmatter.published
             ? posts[index + 1].node
             : null,
-        slug: node.fields.slug,
       },
     })
   })

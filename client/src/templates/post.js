@@ -56,7 +56,11 @@ const PostNavigation = styled.div`
 export default function Post({ data, pageContext }) {
   const { markdownRemark: post } = data
   const { next, prev, slug } = pageContext
-  const [state] = useState({ comments: [...data.commentsApi.commentsBySlug] })
+  const [state] = useState({
+    comments: [...data.commentsApi.comments].filter(
+      comment => comment.slug === post.fields.slug && comment.moderated
+    ),
+  })
 
   return (
     <Layout>
@@ -127,9 +131,12 @@ export default function Post({ data, pageContext }) {
 
 //TODO handle case with no comments for given slug
 export const postQuery = graphql`
-  query BlogPostByPath($path: String!, $slug: String!) {
+  query BlogPostByPath($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
+      fields {
+        slug
+      }
       frontmatter {
         path
         title
@@ -147,7 +154,7 @@ export const postQuery = graphql`
       }
     }
     commentsApi {
-      commentsBySlug(slug: $slug) {
+      comments {
         id
         name
         date

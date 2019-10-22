@@ -105,9 +105,7 @@ const Comments = ({ comments, slug, postTitle }) => {
   return (
     <>
       <SectionStyles className="comments">
-        <h2 className="comments-heading">
-          {formTitle(comments.filter(comment => comment.moderated).length)}
-        </h2>
+        <h2 className="comments-heading">{formTitle(comments.length)}</h2>
         <FormStyles
           name="comment"
           data-netlify="true"
@@ -149,9 +147,7 @@ const Comments = ({ comments, slug, postTitle }) => {
         {/*{success || error ? showSuccess() || showError() : ""}*/}
       </SectionStyles>
       <CommentsStyles>
-        <h2 className="comments-count">
-          {commentsTitle(comments.filter(comment => comment.moderated).length)}
-        </h2>
+        <h2 className="comments-count">{commentsTitle(comments.length)}</h2>
         {comments.length > 0 &&
           comments
             .filter(comment => comment.moderated)
