@@ -108,7 +108,14 @@ const Comments = ({ comments, slug, postTitle }) => {
         <h2 className="comments-heading">
           {formTitle(comments.filter(comment => comment.moderated).length)}
         </h2>
-        <FormStyles onSubmit={handleSubmit}>
+        <FormStyles
+          name="comment"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          onSubmit={handleSubmit}
+        >
+          <input type="hidden" name="form-name" value="comment" />
+          <input type="hidden" name="botfield" onChange={handleChange} />
           <input
             type="text"
             name="name"
