@@ -55,7 +55,7 @@ const PostNavigation = styled.div`
 
 export default function Post({ data, pageContext }) {
   const { markdownRemark: post } = data
-  const { next, prev, slug } = pageContext
+  const { next, prev } = pageContext
   const [state] = useState({
     comments: [...data.commentsApi.comments].filter(
       comment => comment.slug === post.fields.slug && comment.moderated
@@ -75,7 +75,7 @@ export default function Post({ data, pageContext }) {
       <Share title={post.frontmatter.title} path={post.frontmatter.path} />
       <Comments
         comments={state.comments}
-        slug={slug}
+        slug={post.fields.slug}
         postTitle={post.frontmatter.title}
       />
       <PostNavigation>
