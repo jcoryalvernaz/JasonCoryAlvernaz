@@ -172,7 +172,7 @@ module.exports = {
       options: {
         typeName: `CAPI`,
         fieldName: `commentsApi`,
-        url: process.env.COMMENTS_API_URL,
+        url: process.env.GATSBY_COMMENTS_API,
       },
     },
     `gatsby-plugin-sitemap`,
