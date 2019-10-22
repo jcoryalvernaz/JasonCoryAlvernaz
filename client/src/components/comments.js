@@ -5,6 +5,7 @@ import SectionStyles from "../styles/SectionStyles"
 import FormStyles from "../styles/FormStyles"
 import CommentsStyles from "../styles/CommentsStyles"
 
+//TODO make comment system more robust
 const Comments = ({ comments, slug, postTitle }) => {
   const [state, setState] = useState({
     submitting: false,
@@ -63,6 +64,15 @@ const Comments = ({ comments, slug, postTitle }) => {
           error: true,
         })
       })
+
+    setTimeout(() => {
+      setState({
+        submitting: false,
+        newComment: { name: "", text: "" },
+        success: false,
+        error: false,
+      })
+    }, 3000)
   }
 
   const formTitle = commentsLength => {
@@ -144,7 +154,7 @@ const Comments = ({ comments, slug, postTitle }) => {
             Submit
           </button>
         </FormStyles>
-        {/*{success || error ? showSuccess() || showError() : ""}*/}
+        {success || error ? showSuccess() || showError() : ""}
       </SectionStyles>
       <CommentsStyles>
         <h2 className="comments-count">{commentsTitle(comments.length)}</h2>

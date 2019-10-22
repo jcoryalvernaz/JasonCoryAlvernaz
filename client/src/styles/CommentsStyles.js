@@ -1,5 +1,6 @@
 import styled from "styled-components"
 
+//TODO style success and error messages
 const CommentsStyles = styled.div`
   max-width: 80rem;
   width: 100%;
