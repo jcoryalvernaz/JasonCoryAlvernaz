@@ -1,9 +1,23 @@
 import React, { useState } from "react"
 import moment from "moment"
+import styled from "styled-components"
 
 import SectionStyles from "../styles/SectionStyles"
 import FormStyles from "../styles/FormStyles"
 import CommentsStyles from "../styles/CommentsStyles"
+
+const CommentsHeading = styled.div`
+  h2 {
+    text-align: center;
+    justify-self: center;
+    position: relative;
+    margin-bottom: 0;
+    font-size: 2.5rem;
+    color: ${props => props.theme.white};
+    text-shadow: -1px 1px 2px rgba(0, 0, 0, 0.2);
+  }
+  //TODO style success/error message differently
+`
 
 //TODO make comment system more robust
 const Comments = ({ comments, slug, postTitle }) => {
@@ -15,11 +29,15 @@ const Comments = ({ comments, slug, postTitle }) => {
     },
     success: false,
     error: false,
+    message: "",
   })
 
   const handleChange = e => {
     const { newComment } = state
-    setState({ newComment: { ...newComment, [e.target.name]: e.target.value } })
+    setState({
+      ...state,
+      newComment: { ...newComment, [e.target.name]: e.target.value },
+    })
   }
 
   const handleSubmit = async e => {
@@ -42,7 +60,8 @@ const Comments = ({ comments, slug, postTitle }) => {
         }`,
       }),
     })
-      .then(() => {
+      .then(data => data.json())
+      .then(json => {
         setState({
           submitting: false,
           newComment: {
@@ -51,9 +70,11 @@ const Comments = ({ comments, slug, postTitle }) => {
           },
           success: true,
           error: false,
+          toggle: true,
+          message: `Thanks ${json.data.createComment.name} for Submitting Your Comment!`,
         })
       })
-      .catch(() => {
+      .catch(err => {
         setState({
           submitting: false,
           newComment: {
@@ -62,17 +83,9 @@ const Comments = ({ comments, slug, postTitle }) => {
           },
           success: false,
           error: true,
+          message: `Ooops! ${err.message}`,
         })
       })
-
-    setTimeout(() => {
-      setState({
-        submitting: false,
-        newComment: { name: "", text: "" },
-        success: false,
-        error: false,
-      })
-    }, 3000)
   }
 
   const formTitle = commentsLength => {
@@ -93,29 +106,22 @@ const Comments = ({ comments, slug, postTitle }) => {
     }
   }
 
-  const showSuccess = () => {
-    return (
-      <p className="success">{`Thank you for submitting your comment for review!`}</p>
-    )
-  }
-
-  const showError = () => {
-    return (
-      <p className="error">{`Oops! Something went wrong. Please try again.`}</p>
-    )
-  }
-
   const {
     submitting,
     newComment: { name, text },
     success,
     error,
+    message,
   } = state
 
   return (
     <>
       <SectionStyles className="comments">
-        <h2 className="comments-heading">{formTitle(comments.length)}</h2>
+        <CommentsHeading>
+          <h2 className={success || error ? "success" || "error" : ""}>
+            {success || error ? message : formTitle(comments.length)}
+          </h2>
+        </CommentsHeading>
         <FormStyles
           name="comment"
           data-netlify="true"
@@ -154,7 +160,6 @@ const Comments = ({ comments, slug, postTitle }) => {
             Submit
           </button>
         </FormStyles>
-        {success || error ? showSuccess() || showError() : ""}
       </SectionStyles>
       <CommentsStyles>
         <h2 className="comments-count">{commentsTitle(comments.length)}</h2>
