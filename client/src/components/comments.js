@@ -136,6 +136,7 @@ const Comments = ({ comments, slug, postTitle }) => {
             className="comment-name"
             id="name"
             placeholder="Name"
+            aria-label="Enter Name"
             onChange={handleChange}
             value={name}
             minLength="3"
@@ -147,6 +148,7 @@ const Comments = ({ comments, slug, postTitle }) => {
             className="comment-text"
             id="text"
             placeholder="Comment"
+            aria-label="Enter Comment"
             onChange={handleChange}
             value={text}
             minLength="20"
