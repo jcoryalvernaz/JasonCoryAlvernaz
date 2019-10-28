@@ -49,7 +49,7 @@ const PostStyles = styled.article`
   :not(a) > p {
     a {
       :hover {
-        background-position: 0 100%;
+        background-position: 0 80%;
       }
     }
   }

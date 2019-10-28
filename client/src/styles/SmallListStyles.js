@@ -21,7 +21,7 @@ const SmallListStyles = styled.ul`
     );
     transition: background-position 0.5s;
     :hover {
-      background-position: 0 100%;
+      background-position: 0 80%;
     }
   }
 `
