@@ -2,9 +2,9 @@
 title: "Introduction to React Hooks"
 description: "In this tutorial you will learn about React Hooks, what they are, and why you should be using them in your application."
 tags: ["React", "JavaScript"]
-published: false
+published: true
 date: "2019-10-29"
-featuredImage: "ComingSoon_2.png"
+featuredImage: "react-hooks.png"
 featuredAlt: "What are React Hooks?"
 ---
 
