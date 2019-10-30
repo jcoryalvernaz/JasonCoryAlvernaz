@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://practical-mahavira-fdb325.netlify.com/sitemap.xml
-Host: https://practical-mahavira-fdb325.netlify.com
