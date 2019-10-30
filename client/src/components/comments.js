@@ -49,13 +49,18 @@ const Comments = ({ comments, slug, postTitle }) => {
 
     await fetch(process.env.GATSBY_COMMENTS_API, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "x-hasura-admin-secret": process.env.GATSBY_HASURA_GRAPHQL_ADMIN_SECRET,
+      },
       body: JSON.stringify({
         query: `
         mutation {
-          createComment(name: "${newComment.name}" text: "${newComment.text}" slug: "${slug}" parent_comment_id: null)
+          insert_comments(objects: {name: "${newComment.name}" text: "${newComment.text}" slug: "${slug}" parent_comment_id: null})
           {
-            name
+            returning {
+              name
+            }
           }
         }`,
       }),
@@ -71,7 +76,7 @@ const Comments = ({ comments, slug, postTitle }) => {
           success: true,
           error: false,
           toggle: true,
-          message: `Thanks ${json.data.createComment.name} for Submitting Your Comment!`,
+          message: `Thanks ${json.data.insert_comments.returning[0].name} for Submitting Your Comment!`,
         })
       })
       .catch(err => {
@@ -179,7 +184,7 @@ const Comments = ({ comments, slug, postTitle }) => {
                   <header>
                     <h2>{comment.name}</h2>
                     <div className="comment-date">
-                      {moment(parseInt(comment.date)).fromNow()}
+                      {moment(comment.date).fromNow()}
                     </div>
                   </header>
                   <p className="comment-text">{comment.text}</p>
@@ -188,7 +193,7 @@ const Comments = ({ comments, slug, postTitle }) => {
                       <header>
                         <h2>{child.name}</h2>
                         <div className="comment-date">
-                          {moment(parseInt(child.date)).fromNow()}
+                          {moment(child.date).fromNow()}
                         </div>
                       </header>
                       <p className="comment-text">{child.text}</p>

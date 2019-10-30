@@ -1,4 +1,6 @@
 require("dotenv").config({ path: `.env.${process.env.NODE_ENV}` })
+const fetch = require("isomorphic-fetch")
+const { createHttpLink } = require("apollo-link-http")
 
 module.exports = {
   siteMetadata: {
@@ -173,9 +175,18 @@ module.exports = {
     {
       resolve: `gatsby-source-graphql`,
       options: {
-        typeName: `CAPI`,
+        typeName: `hasura`,
         fieldName: `commentsApi`,
-        url: process.env.GATSBY_COMMENTS_API,
+        createLink: () => {
+          return createHttpLink({
+            uri: process.env.GATSBY_COMMENTS_API,
+            headers: {
+              "x-hasura-admin-secret":
+                process.env.GATSBY_HASURA_GRAPHQL_ADMIN_SECRET,
+            },
+            fetch,
+          })
+        },
       },
     },
     `gatsby-plugin-sitemap`,
