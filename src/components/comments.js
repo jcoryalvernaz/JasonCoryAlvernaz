@@ -1,4 +1,6 @@
 import React, { useState } from "react"
+import { useMutation } from "@apollo/react-hooks"
+import gql from "graphql-tag"
 import moment from "moment"
 import styled from "styled-components"
 
@@ -19,78 +21,36 @@ const CommentsHeading = styled.div`
   //TODO style success/error message differently
 `
 
-//TODO make comment system more robust
+const SUBMIT_COMMENT = gql`
+  mutation SubmitComment($name: String!, $text: String!, $slug: String!) {
+    insert_comments(
+      objects: {
+        name: $name
+        text: $text
+        slug: $slug
+        parent_comment_id: null
+      }
+    ) {
+      returning {
+        name
+      }
+    }
+  }
+`
+
 const Comments = ({ comments, slug, postTitle }) => {
   const [state, setState] = useState({
-    submitting: false,
     newComment: {
       name: "",
       text: "",
     },
-    success: false,
-    error: false,
-    message: "",
   })
 
   const handleChange = e => {
     const { newComment } = state
     setState({
-      ...state,
       newComment: { ...newComment, [e.target.name]: e.target.value },
     })
-  }
-
-  const handleSubmit = async e => {
-    e.preventDefault()
-
-    const { newComment } = state
-
-    setState({ ...state, submitting: true })
-
-    await fetch(process.env.GATSBY_COMMENTS_API, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "x-hasura-admin-secret": process.env.GATSBY_HASURA_GRAPHQL_ADMIN_SECRET,
-      },
-      body: JSON.stringify({
-        query: `
-        mutation {
-          insert_comments(objects: {name: "${newComment.name}" text: "${newComment.text}" slug: "${slug}" parent_comment_id: null})
-          {
-            returning {
-              name
-            }
-          }
-        }`,
-      }),
-    })
-      .then(data => data.json())
-      .then(json => {
-        setState({
-          submitting: false,
-          newComment: {
-            name: "",
-            text: "",
-          },
-          success: true,
-          error: false,
-          toggle: true,
-          message: `Thanks ${json.data.insert_comments.returning[0].name} for Submitting Your Comment!`,
-        })
-      })
-      .catch(err => {
-        setState({
-          submitting: false,
-          newComment: {
-            name: "",
-            text: "",
-          },
-          success: false,
-          error: true,
-          message: `Ooops! ${err.message}`,
-        })
-      })
   }
 
   const formTitle = commentsLength => {
@@ -102,36 +62,46 @@ const Comments = ({ comments, slug, postTitle }) => {
   }
 
   const commentsTitle = commentsLength => {
-    if (commentsLength === 0) {
-      return `No Replies for ${postTitle}`
-    } else if (commentsLength === 1) {
+    if (commentsLength === 1) {
       return `1 Reply for ${postTitle}`
-    } else {
+    } else if (commentsLength > 1) {
       return `${commentsLength} Replies for ${postTitle}`
+    } else {
+      return `No Replies for ${postTitle}`
     }
   }
 
   const {
-    submitting,
     newComment: { name, text },
-    success,
-    error,
-    message,
   } = state
+
+  const [submitComment, { data, loading, error, called }] = useMutation(
+    SUBMIT_COMMENT
+  )
 
   return (
     <>
       <SectionStyles className="comments">
         <CommentsHeading>
-          <h2 className={success || error ? "success" || "error" : ""}>
-            {success || error ? message : formTitle(comments.length)}
-          </h2>
+          {loading && <h2>Sending Comment...</h2>}
+          {error && <h2>Ooops! {JSON.stringify(error, null, 2)}</h2>}
+          {data && (
+            <h2>
+              Thanks {data.insert_comments.returning[0].name} for Submitting
+              Your Comment!
+            </h2>
+          )}
+          {!called && <h2>{formTitle(comments.length)}</h2>}
         </CommentsHeading>
         <FormStyles
           name="comment"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
-          onSubmit={handleSubmit}
+          onSubmit={e => {
+            e.preventDefault()
+            submitComment({ variables: { name: name, text: text, slug: slug } })
+            setState({ newComment: { name: "", text: "" } })
+          }}
         >
           <input type="hidden" name="form-name" value="comment" />
           <input type="hidden" name="botfield" onChange={handleChange} />
@@ -162,7 +132,7 @@ const Comments = ({ comments, slug, postTitle }) => {
           />
           <button
             type="submit"
-            disabled={!name || !text || text.length < 20 || submitting}
+            disabled={!name || !text || text.length < 20 || loading}
           >
             Submit
           </button>
