@@ -95,16 +95,12 @@ const Comments = ({ comments, slug, postTitle }) => {
         </CommentsHeading>
         <FormStyles
           name="comment"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
           onSubmit={e => {
             e.preventDefault()
             submitComment({ variables: { name: name, text: text, slug: slug } })
             setState({ newComment: { name: "", text: "" } })
           }}
         >
-          <input type="hidden" name="form-name" value="comment" />
-          <input type="hidden" name="botfield" onChange={handleChange} />
           <input
             type="text"
             name="name"
