@@ -1,16 +1,12 @@
 ---
 title: "Introduction to React Hooks"
 description: "In this tutorial you will learn about React Hooks, what they are, and why you should be using them in your application."
-tags: ["React", "JavaScript"]
+tags: ["React", "JavaScript", "React Hooks"]
 published: true
 date: "2019-10-29"
 featuredImage: "react-hooks.png"
 featuredAlt: "What are React Hooks?"
 ---
-
-# Introduction to React Hooks
-
-<div class="post-date">Oct- <span class="day">29</span> -2019</div>
 
 Hooks shipped with React 16.8 and allows you to "hook" into the React runtime. These Hooks allow you to access many React features without having to write a class component. Therefore, you can easily extend function components without converting them to a class. To learn React Hooks, I found it easiest to take an existing class component and convert it over to a function component using these Hooks. This way, you learn how to equate Hooks to the features of React that you already know and love. Now, let's take a look at a class component that you will be converting in order to learn about your first Hook.
 

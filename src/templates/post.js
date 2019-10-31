@@ -1,12 +1,14 @@
 import React, { useState } from "react"
 import { graphql, Link } from "gatsby"
 import styled from "styled-components"
+import moment from "moment"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Share from "../components/share"
 import Comments from "../components/comments"
 import PostStyles from "../styles/PostStyles"
+import HeadingStyles from "../styles/HeadingStyles"
 
 const PostNavigation = styled.div`
   display: grid;
@@ -53,6 +55,13 @@ const PostNavigation = styled.div`
   }
 `
 
+const PostDate = styled.div`
+  font-size: 2rem;
+  font-weight: bold;
+  justify-self: center;
+  text-decoration: underline ${props => props.theme.green};
+`
+
 export default function Post({ data, pageContext }) {
   const { markdownRemark: post } = data
   const { next, prev } = pageContext
@@ -71,6 +80,10 @@ export default function Post({ data, pageContext }) {
         imageAlt={post.frontmatter.featuredAlt}
         isBlogPost={true}
       />
+      <HeadingStyles>{post.frontmatter.title}</HeadingStyles>
+      <PostDate>
+        {moment(post.frontmatter.date).format("dddd, MMM Do YYYY")}
+      </PostDate>
       <PostStyles dangerouslySetInnerHTML={{ __html: post.html }} />
       <Share title={post.frontmatter.title} slug={post.fields.slug} />
       <Comments

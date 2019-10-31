@@ -53,40 +53,9 @@ const PostStyles = styled.article`
       }
     }
   }
-  p,
-  .post-date {
+  p {
     font-size: 2rem;
     line-height: 1.8;
-  }
-  h1 {
-    font-size: 6rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    margin-bottom: 0;
-    justify-self: center;
-    text-align: center;
-    grid-column: 1 / -1;
-    display: grid;
-    text-shadow: -2px 2px 3px rgba(0, 0, 0, 0.07);
-    :after {
-      content: "";
-      height: 0.5rem;
-      margin-top: 1rem;
-      background: ${props => props.theme.blue};
-      width: 100%;
-      box-shadow: ${props => props.theme.bs};
-    }
-    @media (max-width: 500px) {
-      font-size: 4rem;
-    }
-  }
-  .post-date {
-    font-weight: bold;
-  }
-  .day {
-    font-size: 2.5rem;
-    text-shadow: -1px 1px 2px rgba(0, 0, 0, 0.07);
-    color: ${props => props.theme.green};
   }
   .gatsby-highlight {
     overflow: auto;

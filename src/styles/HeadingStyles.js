@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 const HeadingStyles = styled.h1`
-  font-size: 7rem;
+  font-size: 6rem;
   padding: 2rem;
   justify-self: center;
   display: grid;
@@ -16,7 +16,7 @@ const HeadingStyles = styled.h1`
     box-shadow: ${props => props.theme.bs};
   }
   @media (max-width: 500px) {
-    font-size: 5rem;
+    font-size: 4rem;
   }
 `
 export default HeadingStyles
