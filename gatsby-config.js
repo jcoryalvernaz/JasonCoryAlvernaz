@@ -181,8 +181,7 @@ module.exports = {
           return createHttpLink({
             uri: process.env.GATSBY_COMMENTS_API,
             headers: {
-              "x-hasura-admin-secret":
-                process.env.GATSBY_HASURA_GRAPHQL_ADMIN_SECRET,
+              Authorization: `Bearer ${process.env.GATSBY_HASURA_TOKEN}`,
             },
             fetch,
           })
