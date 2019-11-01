@@ -50,7 +50,7 @@ const ContactPage = () => {
       </ParagraphStyles>
       <SectionStyles className="contact">
         <FormHeadingStyles>
-          <h2>Let's Create Something Beautiful</h2>
+          <h2>Let's Create Something Beautiful!</h2>
         </FormHeadingStyles>
         <FormStyles
           name="contact"
