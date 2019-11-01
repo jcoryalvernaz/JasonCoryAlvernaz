@@ -2,24 +2,11 @@ import React, { useState } from "react"
 import { useMutation } from "@apollo/react-hooks"
 import gql from "graphql-tag"
 import moment from "moment"
-import styled from "styled-components"
 
 import SectionStyles from "../styles/SectionStyles"
 import FormStyles from "../styles/FormStyles"
+import FormHeadingStyles from "../styles/FormHeadingStyles"
 import CommentsStyles from "../styles/CommentsStyles"
-
-const CommentsHeading = styled.div`
-  h2 {
-    text-align: center;
-    justify-self: center;
-    position: relative;
-    margin-bottom: 0;
-    font-size: 2.5rem;
-    color: ${props => props.theme.white};
-    text-shadow: -1px 1px 2px rgba(0, 0, 0, 0.2);
-  }
-  //TODO style success/error message differently
-`
 
 const SUBMIT_COMMENT = gql`
   mutation SubmitComment($name: String!, $text: String!, $slug: String!) {
@@ -82,17 +69,18 @@ const Comments = ({ comments, slug, postTitle }) => {
   return (
     <>
       <SectionStyles className="comments">
-        <CommentsHeading>
-          {loading && <h2>Sending Comment...</h2>}
-          {error && <h2>Ooops! {JSON.stringify(error, null, 2)}</h2>}
+        <FormHeadingStyles>
+          {error && (
+            <h2 className="error">Ooops! {JSON.stringify(error, null, 2)}</h2>
+          )}
           {data && (
             <h2>
               Thanks {data.insert_comments.returning[0].name} for Submitting
               Your Comment!
             </h2>
           )}
-          {!called && <h2>{formTitle(comments.length)}</h2>}
-        </CommentsHeading>
+          {!called || loading ? <h2>{formTitle(comments.length)}</h2> : ""}
+        </FormHeadingStyles>
         <FormStyles
           name="comment"
           onSubmit={e => {
@@ -130,7 +118,7 @@ const Comments = ({ comments, slug, postTitle }) => {
             type="submit"
             disabled={!name || !text || text.length < 20 || loading}
           >
-            Submit
+            {loading ? "Sending..." : "Submit"}
           </button>
         </FormStyles>
       </SectionStyles>

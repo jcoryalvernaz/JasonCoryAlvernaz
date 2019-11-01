@@ -11,6 +11,7 @@ const lightTheme = {
   blue: "#5386E4",
   bs: "0 6px 12px 0 rgba(0, 0, 0, 0.10)",
   textColor: "#000013",
+  red: "#DC0008",
   maxWidth: "1200px",
   backgroundImage: lightBackground,
 }

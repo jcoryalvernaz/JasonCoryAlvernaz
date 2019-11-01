@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Social from "../components/social"
 import FormStyles from "../styles/FormStyles"
+import FormHeadingStyles from "../styles/FormHeadingStyles"
 import HeadingStyles from "../styles/HeadingStyles"
 import ParagraphStyles from "../styles/ParagraphStyles"
 import SectionStyles from "../styles/SectionStyles"
@@ -48,6 +49,9 @@ const ContactPage = () => {
         what I can do for you!
       </ParagraphStyles>
       <SectionStyles className="contact">
+        <FormHeadingStyles>
+          <h2>Let's Create Something Beautiful</h2>
+        </FormHeadingStyles>
         <FormStyles
           name="contact"
           method="post"

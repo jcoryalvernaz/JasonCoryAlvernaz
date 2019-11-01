@@ -3,7 +3,7 @@ import styled from "styled-components"
 const FormStyles = styled.form`
   max-width: 80rem;
   width: 100%;
-  padding: 5rem 1rem;
+  padding: 3rem 1rem;
   justify-self: center;
   display: grid;
   grid-template-columns: 1fr 1fr;

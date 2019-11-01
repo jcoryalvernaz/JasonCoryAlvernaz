@@ -12,6 +12,7 @@ const darkTheme = {
   bs: "0 6px 12px 0 rgba(0, 0, 0, 0.10)",
   maxWidth: "1200px",
   textColor: "#FFFFFA",
+  red: "#DC0008",
   backgroundImage: darkBackground,
   isDark: true,
 }
