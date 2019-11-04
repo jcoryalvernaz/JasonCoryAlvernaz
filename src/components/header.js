@@ -21,7 +21,7 @@ const StyledHeader = styled.header`
   }
 `
 
-const PhoneBanner = styled.div`
+const ContactBanner = styled.div`
   grid-column: 1 / -1;
   grid-row: 1 / span 1;
   text-align: center;
@@ -84,9 +84,9 @@ const Header = () => {
 
   return (
     <StyledHeader>
-      <PhoneBanner>
+      <ContactBanner>
         <a href="tel:1-775-997-5429">Call Me: 775.997.5429</a>
-      </PhoneBanner>
+      </ContactBanner>
       <Avatar src={logo} alt="Jason Cory Alvernaz" />
       <MenuButton
         type="image"
