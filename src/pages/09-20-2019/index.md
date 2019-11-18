@@ -1,6 +1,6 @@
 ---
 title: "Introduction to Create-React-App"
-description: "Learn the basics of create-react-app, an amazing tool that allows you to quickly and effeciently get a React.js application up and running."
+description: "Learn the basics of create-react-app, an amazing tool that allows you to quickly and efficiently get a React.js application up and running."
 tags: ["React", "JavaScript"]
 published: true
 date: "2019-09-20"
