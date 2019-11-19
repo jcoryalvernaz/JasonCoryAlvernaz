@@ -129,6 +129,7 @@ SEO.defaultProps = {
   description: ``,
   image: {},
   imageAlt: ``,
+  isBlogPost: false,
 }
 
 SEO.propTypes = {
@@ -138,6 +139,7 @@ SEO.propTypes = {
   image: PropTypes.object,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
+  isBlogPost: PropTypes.bool,
 }
 
 export default SEO
