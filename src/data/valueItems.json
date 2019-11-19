@@ -1,17 +1,17 @@
 [
   {
     "name": "Responsive Design",
-    "image": "../images/responsive.svg",
+    "image": "../images/icons/responsive.svg",
     "description": "For modern-day websites to be useful, they must look good on any device of any size. To maximize the reach of your brand, every website that I create is built with a responsive design that allows for a consistent brand representation on any device. See this responsive design in action by changing the size of your browser window on this site."
   },
   {
     "name": "Customer Driven",
-    "image": "../images/interaction.svg",
+    "image": "../images/icons/interaction.svg",
     "description": "Your website should not only be an extension of your brand but create a competitive advantage for your business. With each site that I build, I make sure to understand my customer's business as well as they do so that I can create something that expresses their brand completely and accurately to their customers."
   },
   {
     "name": "SEO Optimized",
-    "image": "../images/seo.svg",
+    "image": "../images/icons/seo.svg",
     "description": "When your customers are researching their needs, they will more often than not use the power of Google or some other search engine. Your website needs to be built from the ground up with this in mind. That is why each site that I build for my customers is SEO optimized to funnel customers to your business and strengthen your competitive advantage."
   }
 ]

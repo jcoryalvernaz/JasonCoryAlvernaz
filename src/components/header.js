@@ -3,9 +3,9 @@ import styled from "styled-components"
 
 import Nav from "./nav"
 import logo from "../images/JasonCoryAlvernaz.jpg"
-import menu from "../images/hamburgerMenu.svg"
-import phone from "../images/phone.svg"
-import email from "../images/email.svg"
+import menu from "../images/icons/hamburgerMenu.svg"
+import phone from "../images/icons/phone.svg"
+import email from "../images/icons/email.svg"
 
 const StyledHeader = styled.header`
   background: ${props => props.theme.purple};
