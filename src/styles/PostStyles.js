@@ -66,9 +66,12 @@ const PostStyles = styled.article`
     display: block;
     overflow: auto;
     white-space: pre-wrap;
+    word-spacing: normal;
     word-break: normal;
-    word-wrap: normal;
     background: none;
+    @media (max-width: 400px) {
+      font-size: 1.2rem;
+    }
   }
   code {
     font-size: 1.5rem;
