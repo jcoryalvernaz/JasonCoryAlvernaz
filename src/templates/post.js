@@ -5,7 +5,7 @@ import moment from "moment"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Share from "../components/share"
+import SharePost from "../components/share-post"
 import Comments from "../components/comments"
 import PostStyles from "../styles/PostStyles"
 import HeadingStyles from "../styles/HeadingStyles"
@@ -85,7 +85,7 @@ export default function Post({ data, pageContext }) {
         {moment(post.frontmatter.date).format("dddd, MMM Do YYYY")}
       </PostDate>
       <PostStyles dangerouslySetInnerHTML={{ __html: post.html }} />
-      <Share title={post.frontmatter.title} slug={post.fields.slug} />
+      <SharePost title={post.frontmatter.title} slug={post.fields.slug} />
       <Comments
         comments={state.comments}
         slug={post.fields.slug}
