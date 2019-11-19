@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { useMutation } from "@apollo/react-hooks"
 import gql from "graphql-tag"
 import moment from "moment"
+import PropTypes from "prop-types"
 
 import SectionStyles from "../styles/SectionStyles"
 import FormStyles from "../styles/FormStyles"
@@ -159,6 +160,18 @@ const Comments = ({ comments, slug, postTitle }) => {
       </CommentsStyles>
     </>
   )
+}
+
+Comments.defaultProps = {
+  comments: [],
+  slug: "",
+  postTitle: "",
+}
+
+Comments.propTypes = {
+  comments: PropTypes.arrayOf(PropTypes.object),
+  slug: PropTypes.string,
+  postTitle: PropTypes.string,
 }
 
 export default Comments

@@ -1,5 +1,6 @@
 import React, { useContext } from "react"
 import styled, { ThemeContext } from "styled-components"
+import PropTypes from "prop-types"
 
 import ToggleStyles from "../styles/ToggleStyles"
 import heart from "../images/heart.svg"
@@ -65,6 +66,11 @@ const Footer = ({ toggleTheme, isChecked }) => {
       </p>
     </StyledFooter>
   )
+}
+
+Footer.propTypes = {
+  toggleTheme: PropTypes.func.isRequired,
+  isChecked: PropTypes.bool.isRequired,
 }
 
 export default Footer

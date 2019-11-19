@@ -1,4 +1,3 @@
-import PropTypes from "prop-types"
 import React, { useState } from "react"
 import styled from "styled-components"
 
@@ -117,14 +116,6 @@ const Header = () => {
       <Nav />
     </StyledHeader>
   )
-}
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
 }
 
 export default Header

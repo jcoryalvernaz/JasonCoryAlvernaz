@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
+import PropTypes from "prop-types"
 
 import SocialIconStyles from "../styles/SocialIconStyles"
 
@@ -84,6 +85,16 @@ const Share = ({ slug, title }) => {
       </SocialIconStyles>
     </ShareWrapper>
   )
+}
+
+Share.defaultProps = {
+  slug: "",
+  title: "",
+}
+
+Share.propTypes = {
+  slug: PropTypes.string,
+  title: PropTypes.string,
 }
 
 export default Share
