@@ -57,18 +57,17 @@ const PostStyles = styled.article`
     font-size: 2rem;
     line-height: 1.8;
   }
-  .gatsby-highlight {
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-    word-wrap: normal;
-    white-space: pre;
-  }
   pre {
     background: ${props => props.theme.green + "4D"};
     padding: 1rem;
     border-radius: 2px;
   }
   pre code {
+    display: block;
+    overflow: auto;
+    white-space: pre-wrap;
+    word-break: normal;
+    word-wrap: normal;
     background: none;
   }
   code {
@@ -79,6 +78,17 @@ const PostStyles = styled.article`
       props.theme.isDark ? props.theme.blue : props.theme.purple};
     border-radius: 2px;
     padding: 0 1rem;
+  }
+  .filename {
+    background: ${props => props.theme.black};
+    padding: 0.5rem 1rem 0.75rem;
+    color: ${props => props.theme.white};
+    font-weight: bold;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border: 1px solid ${props => props.theme.green + "4D"};
+    border-bottom: 0;
+    margin-bottom: -1.8rem;
   }
   .tip {
     background: ${props => props.theme.green + "4D"};
