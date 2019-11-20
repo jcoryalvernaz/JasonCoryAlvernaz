@@ -1,4 +1,4 @@
-import darkBackground from "../images/darkBackground.svg"
+import darkBackground from "../assets/backgrounds/darkBackground.svg"
 
 const darkTheme = {
   purple: "#4C2A85",

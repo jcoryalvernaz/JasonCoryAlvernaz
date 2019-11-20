@@ -2,26 +2,26 @@
   {
     "name": "LinkedIn",
     "url": "https://www.linkedin.com/in/JasonCoryAlvernaz",
-    "image": "../images/icons/linkedin.svg"
+    "image": "../assets/icons/linkedin.svg"
   },
   {
     "name": "Instagram",
     "url": "https://www.instagram.com/jcoryalvernaz/",
-    "image": "../images/icons/instagram.svg"
+    "image": "../assets/icons/instagram.svg"
   },
   {
     "name": "GitHub",
     "url": "https://www.github.com/jcoryalvernaz",
-    "image": "../images/icons/github.svg"
+    "image": "../assets/icons/github.svg"
   },
   {
     "name": "YouTube",
     "url": "https://www.youtube.com/channel/UC9Psp9-p9jgHfDBReAAcZ3w",
-    "image": "../images/icons/youtube.svg"
+    "image": "../assets/icons/youtube.svg"
   },
   {
     "name": "Twitter",
     "url": "https://www.twitter.com/jcoryalvernaz",
-    "image": "../images/icons/twitter.svg"
+    "image": "../assets/icons/twitter.svg"
   }
 ]

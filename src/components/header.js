@@ -2,10 +2,10 @@ import React, { useState } from "react"
 import styled from "styled-components"
 
 import Nav from "./nav"
-import logo from "../images/JasonCoryAlvernaz.jpg"
-import menu from "../images/icons/hamburgerMenu.svg"
-import phone from "../images/icons/phone.svg"
-import email from "../images/icons/email.svg"
+import logo from "../assets/images/JasonCoryAlvernaz.jpg"
+import menu from "../assets/icons/hamburgerMenu.svg"
+import phone from "../assets/icons/phone.svg"
+import email from "../assets/icons/email.svg"
 
 const StyledHeader = styled.header`
   background: ${props => props.theme.purple};

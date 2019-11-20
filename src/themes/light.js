@@ -1,4 +1,4 @@
-import lightBackground from "../images/lightBackground.svg"
+import lightBackground from "../assets/backgrounds/lightBackground.svg"
 
 const lightTheme = {
   purple: "#4C2A85",

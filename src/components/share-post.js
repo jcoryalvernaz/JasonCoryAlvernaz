@@ -5,10 +5,10 @@ import PropTypes from "prop-types"
 
 import SocialIconStyles from "../styles/SocialIconStyles"
 
-import twitter from "../images/icons/twitter.svg"
-import facebook from "../images/icons/facebook.svg"
-import linkedin from "../images/icons/linkedin.svg"
-import rss from "../images/icons/rss.svg"
+import twitter from "../assets/icons/twitter.svg"
+import facebook from "../assets/icons/facebook.svg"
+import linkedin from "../assets/icons/linkedin.svg"
+import rss from "../assets/icons/rss.svg"
 
 const ShareWrapper = styled.div`
   display: grid;

@@ -3,9 +3,9 @@ import styled, { ThemeContext } from "styled-components"
 import PropTypes from "prop-types"
 
 import ToggleStyles from "../styles/ToggleStyles"
-import heart from "../images/icons/heart.svg"
-import moon from "../images/icons/moon.svg"
-import sun from "../images/icons/sun.svg"
+import heart from "../assets/icons/heart.svg"
+import moon from "../assets/icons/moon.svg"
+import sun from "../assets/icons/sun.svg"
 
 const StyledFooter = styled.footer`
   margin-top: 10rem;
