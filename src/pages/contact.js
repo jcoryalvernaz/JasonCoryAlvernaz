@@ -1,5 +1,6 @@
 import React from "react"
 import { navigate } from "gatsby"
+import { encode } from "../utils/helpers"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -9,12 +10,6 @@ import FormHeadingStyles from "../styles/FormHeadingStyles"
 import HeadingStyles from "../styles/HeadingStyles"
 import ParagraphStyles from "../styles/ParagraphStyles"
 import SectionStyles from "../styles/SectionStyles"
-
-const encode = data => {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&")
-}
 
 const ContactPage = () => {
   const [state, setState] = React.useState({})
