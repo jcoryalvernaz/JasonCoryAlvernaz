@@ -6,7 +6,7 @@ import useInterval from "react-useinterval"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Social from "../components/social"
-import HeadingStyles from "../styles/HeadingStyles"
+import PageHeader from "../components/page-header"
 import ParagraphStyles from "../styles/ParagraphStyles"
 import SectionStyles from "../styles/SectionStyles"
 
@@ -101,7 +101,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      <HeadingStyles>Jason Cory Alvernaz</HeadingStyles>
+      <PageHeader>Jason Cory Alvernaz</PageHeader>
       <StyledMessage>
         I am a{" "}
         <FlashSpan>

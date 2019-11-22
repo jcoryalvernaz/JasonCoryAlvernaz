@@ -7,8 +7,8 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import SharePost from "../components/share-post"
 import Comments from "../components/comments"
+import PageHeader from "../components/page-header"
 import PostStyles from "../styles/PostStyles"
-import HeadingStyles from "../styles/HeadingStyles"
 
 const PostNavigation = styled.div`
   display: grid;
@@ -80,7 +80,7 @@ export default function Post({ data, pageContext }) {
         imageAlt={post.frontmatter.featuredAlt}
         isBlogPost={true}
       />
-      <HeadingStyles>{post.frontmatter.title}</HeadingStyles>
+      <PageHeader>{post.frontmatter.title}</PageHeader>
       <PostDate>
         {moment(post.frontmatter.date).format("dddd, MMM Do YYYY")}
       </PostDate>

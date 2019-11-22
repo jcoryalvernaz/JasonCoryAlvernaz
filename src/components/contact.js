@@ -4,7 +4,6 @@ import { encode } from "../utils/helpers"
 
 import FormStyles from "../styles/FormStyles"
 import FormHeadingStyles from "../styles/FormHeadingStyles"
-import HeadingStyles from "../styles/HeadingStyles"
 import ParagraphStyles from "../styles/ParagraphStyles"
 import SectionStyles from "../styles/SectionStyles"
 
@@ -31,7 +30,6 @@ const Contact = () => {
   }
   return (
     <>
-      <HeadingStyles>Contact</HeadingStyles>
       <ParagraphStyles>
         Do you need a new website for your growing business? Are you looking to
         learn to build websites yourself? If you answered yes to either of these

@@ -1,13 +1,13 @@
 import React from "react"
 import styled from "styled-components"
+import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import HeadingStyles from "../styles/HeadingStyles"
+import Social from "../components/social"
+import PageHeader from "../components/page-header"
 import ParagraphStyles from "../styles/ParagraphStyles"
 import SmallListStyles from "../styles/SmallListStyles"
-import { Link } from "gatsby"
-import Social from "../components/social"
 
 const ListHeading = styled.h2`
   max-width: 80rem;
@@ -29,7 +29,7 @@ const ListHeading = styled.h2`
 const UsesPage = () => (
   <Layout>
     <SEO title="Uses" />
-    <HeadingStyles>Uses</HeadingStyles>
+    <PageHeader>Uses</PageHeader>
     <ParagraphStyles>
       Welcome to my "uses" page! Below you will find a list of most of the tools
       and hardware that I use day-to-day. If you have a quesion about something

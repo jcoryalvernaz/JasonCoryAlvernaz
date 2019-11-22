@@ -5,8 +5,7 @@ import slugify from "slugify"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-
-import HeadingStyles from "../styles/HeadingStyles"
+import PageHeader from "../components/page-header"
 import ListStyles from "../styles/ListStyles"
 import ParagraphStyles from "../styles/ParagraphStyles"
 
@@ -16,7 +15,7 @@ export default function TagPage({ pageContext, data }) {
   return (
     <Layout>
       <SEO title={`${tag} Blog Posts`} />
-      <HeadingStyles>{tag} Blog Posts</HeadingStyles>
+      <PageHeader>{tag} Blog Posts</PageHeader>
       <ParagraphStyles>
         Here you will find all the posts that I have written on the topic of{" "}
         {tag}. If you would like to see a post on a topic that you don't see,

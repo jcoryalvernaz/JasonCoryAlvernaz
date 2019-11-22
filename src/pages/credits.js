@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import HeadingStyles from "../styles/HeadingStyles"
+import PageHeader from "../components/page-header"
 import SmallListStyles from "../styles/SmallListStyles"
 
 const CreditsPage = () => {
@@ -24,7 +24,7 @@ const CreditsPage = () => {
   return (
     <Layout>
       <SEO title="Credits" />
-      <HeadingStyles>Credits</HeadingStyles>
+      <PageHeader>Credits</PageHeader>
       <SmallListStyles>
         {credits.map(credit => {
           return (

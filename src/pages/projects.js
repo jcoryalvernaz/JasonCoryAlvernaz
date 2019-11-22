@@ -6,7 +6,7 @@ import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Social from "../components/social"
-import HeadingStyles from "../styles/HeadingStyles"
+import PageHeader from "../components/page-header"
 import ParagraphStyles from "../styles/ParagraphStyles"
 import ListStyles from "../styles/ListStyles"
 
@@ -15,7 +15,7 @@ const ProjectsPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="Projects" />
-      <HeadingStyles>Projects</HeadingStyles>
+      <PageHeader>Projects</PageHeader>
       <ParagraphStyles>
         I have worked on varying projects over my career. Some for professional
         purposes and others for personal growth. Here is a short list of some of

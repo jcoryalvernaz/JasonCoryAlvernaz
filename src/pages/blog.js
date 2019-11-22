@@ -5,7 +5,7 @@ import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import HeadingStyles from "../styles/HeadingStyles"
+import PageHeader from "../components/page-header"
 import ParagraphStyles from "../styles/ParagraphStyles"
 import ListStyles from "../styles/ListStyles"
 
@@ -14,7 +14,7 @@ const BlogPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="Blog" />
-      <HeadingStyles>Blog & Tutorials</HeadingStyles>
+      <PageHeader>Blog & Tutorials</PageHeader>
       <ParagraphStyles>
         Here you can find a wealth of information relating to web development
         topics. I love to teach, so if there is something you would like to see
