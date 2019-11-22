@@ -7,6 +7,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Social from "../components/social"
 import PageHeader from "../components/page-header"
+import Projects from "../components/projects"
 import ParagraphStyles from "../styles/ParagraphStyles"
 import ListStyles from "../styles/ListStyles"
 

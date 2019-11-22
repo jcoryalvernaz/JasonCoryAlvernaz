@@ -1,0 +1,30 @@
+import React from "react"
+import Img from "gatsby-image"
+import { Link } from "gatsby"
+import slugify from "slugify"
+
+const Project = project => (
+  <li>
+    <a href={project.link} className="featured-image">
+      <Img fluid={project.image.childImageSharp.fluid} alt={project.imageAlt} />
+    </a>
+    <a className="title" href={project.link}>
+      {project.name}
+    </a>
+    <p>{project.description}</p>
+    <p>
+      <strong>Built wilth: </strong>
+      {project.technologies.map((tag, i) => (
+        <Link
+          key={i}
+          className="tag"
+          to={`/tags/${slugify(tag, { lower: true })}`}
+        >
+          {tag}
+        </Link>
+      ))}
+    </p>
+  </li>
+)
+
+export default Project
