@@ -3,7 +3,7 @@ import Img from "gatsby-image"
 import { Link } from "gatsby"
 import slugify from "slugify"
 
-const Project = project => (
+const Project = ({ project }) => (
   <li>
     <a href={project.link} className="featured-image">
       <Img fluid={project.image.childImageSharp.fluid} alt={project.imageAlt} />
