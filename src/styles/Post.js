@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-const PostStyles = styled.article`
+const Post = styled.article`
   max-width: ${props => props.theme.maxWidth};
   justify-self: center;
   margin: 0;
@@ -116,4 +116,4 @@ const PostStyles = styled.article`
   }
 `
 
-export default PostStyles
+export default Post

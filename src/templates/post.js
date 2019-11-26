@@ -8,7 +8,7 @@ import SEO from "../components/seo"
 import PostShare from "../components/post-share"
 import Comments from "../components/comments"
 import PageHeader from "../components/page-header"
-import PostStyles from "../styles/PostStyles"
+import Post from "../styles/Post"
 
 const PostNavigation = styled.div`
   display: grid;
@@ -62,7 +62,7 @@ const PostDate = styled.div`
   text-decoration: underline ${props => props.theme.green};
 `
 
-export default function Post({ data, pageContext }) {
+export default function PostPage({ data, pageContext }) {
   const { markdownRemark: post } = data
   const { next, prev } = pageContext
   const [state] = useState({
@@ -84,7 +84,7 @@ export default function Post({ data, pageContext }) {
       <PostDate>
         {moment(post.frontmatter.date).format("dddd, MMM Do YYYY")}
       </PostDate>
-      <PostStyles dangerouslySetInnerHTML={{ __html: post.html }} />
+      <Post dangerouslySetInnerHTML={{ __html: post.html }} />
       <PostShare title={post.frontmatter.title} slug={post.fields.slug} />
       <Comments
         comments={state.comments}
