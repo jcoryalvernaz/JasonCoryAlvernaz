@@ -1,13 +1,11 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import slugify from "slugify"
-import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PageHeader from "../components/page-header"
+import BlogPreviewList from "../components/blog-preview-list"
 import ParagraphStyles from "../styles/ParagraphStyles"
-import ListStyles from "../styles/ListStyles"
 
 const BlogPage = ({ data }) => {
   const posts = [...data.allMarkdownRemark.nodes]
@@ -25,36 +23,7 @@ const BlogPage = ({ data }) => {
         </a>{" "}
         to see all the video tutorials I have available!
       </ParagraphStyles>
-      <ListStyles>
-        {posts.map(post => {
-          return (
-            <li key={post.id}>
-              <Link className="featured-image" to={post.fields.slug}>
-                <Img
-                  fluid={post.frontmatter.featuredImage.childImageSharp.fluid}
-                  alt={post.frontmatter.featuredAlt}
-                />
-              </Link>
-              <Link className="title" to={post.fields.slug}>
-                {post.frontmatter.title}
-              </Link>
-              <p>{post.frontmatter.description}</p>
-              <p>
-                <strong>Categories: </strong>
-                {post.frontmatter.tags.map((tag, i) => (
-                  <Link
-                    key={i}
-                    className="tag"
-                    to={`/tags/${slugify(tag, { lower: true })}`}
-                  >
-                    {tag}
-                  </Link>
-                ))}
-              </p>
-            </li>
-          )
-        })}
-      </ListStyles>
+      <BlogPreviewList posts={posts} />
     </Layout>
   )
 }
