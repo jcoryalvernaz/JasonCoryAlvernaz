@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import Img from "gatsby-image"
 import slugify from "slugify"
 
-const BlogPreview = ({ post }) => (
+const PostPreview = ({ post }) => (
   <li>
     <Link className="featured-image" to={post.fields.slug}>
       <Img
@@ -30,4 +30,4 @@ const BlogPreview = ({ post }) => (
   </li>
 )
 
-export default BlogPreview
+export default PostPreview

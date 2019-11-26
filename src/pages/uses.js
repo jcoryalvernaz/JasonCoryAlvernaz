@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 import Social from "../components/social"
 import PageHeader from "../components/page-header"
 import ParagraphStyles from "../styles/ParagraphStyles"
-import SmallListStyles from "../styles/SmallListStyles"
+import SmallList from "../styles/SmallList"
 
 const ListHeading = styled.h2`
   max-width: 80rem;
@@ -37,7 +37,7 @@ const UsesPage = () => (
       <Link to="/contact">contact page</Link>.
     </ParagraphStyles>
     <ListHeading>Terminal & Editor</ListHeading>
-    <SmallListStyles>
+    <SmallList>
       <li>
         Currently I use <a href="https://code.visualstudio.com/">VS Code</a> as
         my editor and <a href="https://cmder.net/">cmder</a> as my terminal.
@@ -70,9 +70,9 @@ const UsesPage = () => (
         </a>{" "}
         extension helps me write code much faster.
       </li>
-    </SmallListStyles>
+    </SmallList>
     <ListHeading>Productivity Applications</ListHeading>
-    <SmallListStyles>
+    <SmallList>
       <li>
         I use <a href="https://todoist.com/">Todoist</a> for my daily to-do
         list.
@@ -89,9 +89,9 @@ const UsesPage = () => (
         I use <a href="https://evernote.com">Evernote</a> to quickly write down
         ideas that I have before I make them into tasks.
       </li>
-    </SmallListStyles>
+    </SmallList>
     <ListHeading>Other Apps</ListHeading>
-    <SmallListStyles>
+    <SmallList>
       <li>
         For my screen recording, I currently use{" "}
         <a href="https://obsproject.com">OBS Studio</a>.
@@ -113,9 +113,9 @@ const UsesPage = () => (
         I use <a href="https://www.dropbox.com">Dropbox</a> to share my files
         across all my devices.
       </li>
-    </SmallListStyles>
+    </SmallList>
     <ListHeading>Gear</ListHeading>
-    <SmallListStyles>
+    <SmallList>
       <li>
         For my audio recording, I use the{" "}
         <a href="https://www.amazon.com/Neewer-Professional-Broadcasting-Microphone-Adjustable/dp/B00XOXRTX6">
@@ -153,7 +153,7 @@ const UsesPage = () => (
         My current machine is a 13.5" Microsoft Surface Book 2.6GHz i7 with 16GB
         of RAM.
       </li>
-    </SmallListStyles>
+    </SmallList>
     <Social />
   </Layout>
 )

@@ -4,7 +4,7 @@ import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PageHeader from "../components/page-header"
-import BlogPreviewList from "../components/blog-preview-list"
+import PostPreviewList from "../components/post-preview-list"
 import ParagraphStyles from "../styles/ParagraphStyles"
 
 const BlogPage = ({ data }) => {
@@ -23,7 +23,7 @@ const BlogPage = ({ data }) => {
         </a>{" "}
         to see all the video tutorials I have available!
       </ParagraphStyles>
-      <BlogPreviewList posts={posts} />
+      <PostPreviewList posts={posts} />
     </Layout>
   )
 }

@@ -1,15 +1,15 @@
 import React from "react"
 
 import Project from "./project"
-import ListStyles from "../styles/ListStyles"
+import LargeList from "../styles/LargeList"
 
 const Projects = ({ projects }) => {
   return (
-    <ListStyles>
+    <LargeList>
       {projects.map(project => (
         <Project key={project.id} project={project} />
       ))}
-    </ListStyles>
+    </LargeList>
   )
 }
 

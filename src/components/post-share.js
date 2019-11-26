@@ -31,7 +31,7 @@ const ShareWrapper = styled.div`
   }
 `
 
-const SharePost = ({ slug, title }) => {
+const PostShare = ({ slug, title }) => {
   const data = useStaticQuery(graphql`
     query SiteQuery {
       site {
@@ -87,14 +87,14 @@ const SharePost = ({ slug, title }) => {
   )
 }
 
-SharePost.defaultProps = {
+PostShare.defaultProps = {
   slug: "",
   title: "",
 }
 
-SharePost.propTypes = {
+PostShare.propTypes = {
   slug: PropTypes.string,
   title: PropTypes.string,
 }
 
-export default SharePost
+export default PostShare
