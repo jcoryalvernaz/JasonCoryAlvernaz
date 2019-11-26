@@ -6,7 +6,7 @@ import LargeList from "../styles/LargeList"
 const PostPreviewList = ({ posts }) => (
   <LargeList>
     {posts.map(post => (
-      <PostPreview post={post} />
+      <PostPreview key={post.ic} post={post} />
     ))}
   </LargeList>
 )
