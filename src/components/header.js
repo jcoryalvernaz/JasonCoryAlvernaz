@@ -27,7 +27,7 @@ const Avatar = styled.img`
   position: relative;
   width: 24rem;
   box-shadow: ${props => props.theme.bs};
-  border-radius: 13rem;
+  border-radius: 50%;
   filter: contrast(120%) brightness(0.9);
   transition: all 0.8s ease-in-out;
   @media (max-width: 800px) {
@@ -35,7 +35,6 @@ const Avatar = styled.img`
     margin-top: 1rem;
     margin-left: 1rem;
     width: 9rem;
-    border-radius: 6rem;
   }
   @media (max-width: 630px) {
     margin-bottom: -3rem;
