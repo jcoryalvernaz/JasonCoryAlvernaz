@@ -52,7 +52,6 @@ export default function PostPage({ data, pageContext }) {
   )
 }
 
-//TODO handle case with no comments (i.e. comments server not available)
 export const postQuery = graphql`
   query BlogPostBySlug($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
