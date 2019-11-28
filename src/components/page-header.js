@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import PropTypes from "prop-types"
 
 const Header = styled.h1`
   font-size: 6rem;
@@ -22,5 +23,9 @@ const Header = styled.h1`
 `
 
 const PageHeader = props => <Header>{props.children}</Header>
+
+PageHeader.propTypes = {
+  children: PropTypes.node.isRequired,
+}
 
 export default PageHeader

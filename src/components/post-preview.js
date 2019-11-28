@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 import slugify from "slugify"
+import PropTypes from "prop-types"
 
 const PostPreview = ({ post }) => (
   <li>
@@ -29,5 +30,9 @@ const PostPreview = ({ post }) => (
     </p>
   </li>
 )
+
+PostPreview.propTypes = {
+  post: PropTypes.object.isRequired,
+}
 
 export default PostPreview

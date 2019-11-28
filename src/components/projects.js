@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 
 import Project from "./project"
 import LargeList from "../styles/LargeList"
@@ -11,6 +12,10 @@ const Projects = ({ projects }) => {
       ))}
     </LargeList>
   )
+}
+
+Projects.propTypes = {
+  projects: PropTypes.arrayOf(PropTypes.object).isRequired,
 }
 
 export default Projects

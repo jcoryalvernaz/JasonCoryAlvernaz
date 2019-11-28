@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import PropTypes from "prop-types"
 
 import PostNavigationStyles from "../styles/PostNavigationStyles"
 
@@ -52,5 +53,15 @@ const PostNavigation = ({ prev, next }) => (
     )}
   </PostNavigationStyles>
 )
+
+PostNavigation.defaultProps = {
+  prev: null,
+  next: null,
+}
+
+PostNavigation.propTypes = {
+  prev: PropTypes.object,
+  next: PropTypes.object,
+}
 
 export default PostNavigation

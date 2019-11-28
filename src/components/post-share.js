@@ -87,14 +87,9 @@ const PostShare = ({ slug, title }) => {
   )
 }
 
-PostShare.defaultProps = {
-  slug: "",
-  title: "",
-}
-
 PostShare.propTypes = {
-  slug: PropTypes.string,
-  title: PropTypes.string,
+  slug: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 }
 
 export default PostShare

@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 
 const Credit = ({ credit }) => (
   <li key={credit.id}>
@@ -16,5 +17,9 @@ const Credit = ({ credit }) => (
     </a>
   </li>
 )
+
+Credit.propTypes = {
+  credit: PropTypes.object.isRequired,
+}
 
 export default Credit

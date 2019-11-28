@@ -164,14 +164,12 @@ const Comments = ({ comments, slug, postTitle }) => {
 
 Comments.defaultProps = {
   comments: [],
-  slug: "",
-  postTitle: "",
 }
 
 Comments.propTypes = {
   comments: PropTypes.arrayOf(PropTypes.object),
-  slug: PropTypes.string,
-  postTitle: PropTypes.string,
+  slug: PropTypes.string.isRequired,
+  postTitle: PropTypes.string.isRequired,
 }
 
 export default Comments
