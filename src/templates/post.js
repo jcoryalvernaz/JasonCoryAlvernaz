@@ -9,6 +9,7 @@ import PageHeader from "../components/page-header"
 import Post from "../styles/Post"
 import PostShare from "../components/post-share"
 import Comments from "../components/comments"
+import CommentSubmit from "../components/comment-submit"
 import PostNavigation from "../components/post-navigation"
 
 const PostDate = styled.div`
@@ -42,11 +43,8 @@ export default function PostPage({ data, pageContext }) {
       </PostDate>
       <Post dangerouslySetInnerHTML={{ __html: post.html }} />
       <PostShare title={post.frontmatter.title} slug={post.fields.slug} />
-      <Comments
-        comments={state.comments}
-        slug={post.fields.slug}
-        postTitle={post.frontmatter.title}
-      />
+      <CommentSubmit count={state.comments.length} slug={post.fields.slug} />
+      <Comments comments={state.comments} postTitle={post.frontmatter.title} />
       <PostNavigation prev={prev} next={next} />
     </Layout>
   )
