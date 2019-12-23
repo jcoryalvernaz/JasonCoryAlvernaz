@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { useMutation } from "@apollo/react-hooks"
 import gql from "graphql-tag"
+import { encode } from "../utils/helpers"
 
 import SectionStyles from "../styles/SectionStyles"
 import FormStyles from "../styles/FormStyles"
@@ -67,12 +68,25 @@ const CommentSubmit = ({ count, slug }) => {
       </FormHeadingStyles>
       <FormStyles
         name="comment"
+        method="post"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
         onSubmit={e => {
           e.preventDefault()
           submitComment({ variables: { name: name, text: text, slug: slug } })
+          const form = e.target
+          fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: encode({
+              "form-name": form.getAttribute("name"),
+              ...state,
+            }),
+          }).then(res => console.log(res))
           setState({ newComment: { name: "", text: "" } })
         }}
       >
+        <input type="hidden" name="form-name" value="comment" />
         <input
           type="text"
           name="name"
