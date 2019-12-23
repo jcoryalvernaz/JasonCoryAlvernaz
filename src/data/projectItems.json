@@ -1,11 +1,19 @@
 [
   {
+    "name": "Just a Girl From Oz Photography Site",
+    "description": "A website showcasing the photography of Just a Girl From Oz.",
+    "link": "https://justagirlfromoz.com",
+    "technologies": ["Gatsby", "React", "GraphQL", "CSS Grid", "Sanity CMS"],
+    "image": "../assets/images/project4.png",
+    "imageAlt": "Just a Girl From Oz Photography Site"
+  },
+  {
     "name": "Jason Cory Alvernaz Portfolio Site",
     "description": "My personal site designed to showcase my work and allow new clients to contact me.",
     "link": "https://jasoncoryalvernaz.com",
     "technologies": ["Gatsby", "React", "GraphQL", "CSS Grid"],
     "image": "../assets/images/project1.png",
-    "imageAlt": "settings"
+    "imageAlt": "Jason Cory Alvernaz Portfolio Site"
   },
   {
     "name": "Coding From Null Course Platform",
@@ -13,7 +21,7 @@
     "link": "https://codingfromnull.io",
     "technologies": ["React", "CSS Grid"],
     "image": "../assets/images/project2.png",
-    "imageAlt": "settings"
+    "imageAlt": "Coding From Null Course Platform"
   },
   {
     "name": "Coding From Null YouTube Channel",
@@ -21,6 +29,6 @@
     "link": "https://www.youtube.com/channel/UC9Psp9-p9jgHfDBReAAcZ3w",
     "technologies": ["Premiere Pro", "Photoshop", "OBS Studio", "VS Code"],
     "image": "../assets/images/project3.png",
-    "imageAlt": "settings"
+    "imageAlt": "Coding From Null YouTube Channel"
   }
 ]
