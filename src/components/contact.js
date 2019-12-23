@@ -1,6 +1,6 @@
 import React from "react"
 import { navigate } from "gatsby"
-import { encode } from "../utils/helpers"
+import { submitFormData } from "../utils/helpers"
 
 import FormStyles from "../styles/FormStyles"
 import FormHeadingStyles from "../styles/FormHeadingStyles"
@@ -11,23 +11,20 @@ const Contact = () => {
   const [state, setState] = React.useState({})
 
   const handleChange = e => {
-    setState({ ...state, [e.target.name]: e.target.value })
+    setState({
+      ...state,
+      [e.target.name]: e.target.value,
+    })
   }
 
   const handleSubmit = e => {
     e.preventDefault()
-    const form = e.target
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({
-        "form-name": form.getAttribute("name"),
-        ...state,
-      }),
-    })
-      .then(() => navigate(form.getAttribute("action")))
-      .catch(error => console.log(error))
+    submitFormData(e, state)
+    navigate("/thanks")
   }
+
+  const { name, email, subject, message } = state
+
   return (
     <>
       <ParagraphStyles>
@@ -44,7 +41,6 @@ const Contact = () => {
         <FormStyles
           name="contact"
           method="post"
-          action="/thanks/"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           onSubmit={handleSubmit}
@@ -57,6 +53,7 @@ const Contact = () => {
             placeholder="Name"
             aria-label="Enter Name"
             onChange={handleChange}
+            value={name}
             required
           />
           <input
@@ -65,6 +62,7 @@ const Contact = () => {
             placeholder="Email"
             aria-label="Enter Email Address"
             onChange={handleChange}
+            value={email}
             required
           />
           <input
@@ -74,6 +72,7 @@ const Contact = () => {
             placeholder="Subject"
             aria-label="Enter Subject"
             onChange={handleChange}
+            value={subject}
             required
           />
           <textarea
@@ -83,9 +82,15 @@ const Contact = () => {
             placeholder="What can I create for you?"
             aria-label="Enter Message"
             onChange={handleChange}
+            value={message}
             required
           />
-          <button type="submit">Send Email</button>
+          <button
+            disabled={!name || !email || !subject || !message}
+            type="submit"
+          >
+            Send Email
+          </button>
         </FormStyles>
       </SectionStyles>
     </>

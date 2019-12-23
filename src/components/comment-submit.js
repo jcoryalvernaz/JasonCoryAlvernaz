@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { useMutation } from "@apollo/react-hooks"
 import gql from "graphql-tag"
-import { encode } from "../utils/helpers"
+import { submitFormData } from "../utils/helpers"
 
 import SectionStyles from "../styles/SectionStyles"
 import FormStyles from "../styles/FormStyles"
@@ -73,16 +73,8 @@ const CommentSubmit = ({ count, slug }) => {
         data-netlify-honeypot="bot-field"
         onSubmit={e => {
           e.preventDefault()
-          submitComment({ variables: { name: name, text: text, slug: slug } })
-          const form = e.target
-          fetch("/", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: encode({
-              "form-name": form.getAttribute("name"),
-              ...state.newComment,
-            }),
-          }).then(res => console.log(res))
+          submitComment({ variables: { name, text, slug } })
+          submitFormData(e, state.newComment)
           setState({ newComment: { name: "", text: "" } })
         }}
       >
@@ -91,32 +83,23 @@ const CommentSubmit = ({ count, slug }) => {
           type="text"
           name="name"
           className="comment-name"
-          id="name"
           placeholder="Name"
           aria-label="Enter Name"
           onChange={handleChange}
           value={name}
-          minLength="3"
-          maxLength="255"
           required
         />
         <textarea
           name="text"
           className="comment-text"
-          id="text"
           placeholder="Comment"
           aria-label="Enter Comment"
           onChange={handleChange}
           value={text}
-          minLength="20"
-          maxLength="1000"
           required
         />
-        <button
-          type="submit"
-          disabled={!name || !text || text.length < 20 || loading}
-        >
-          Submit{loading ? "ing" : ""}
+        <button type="submit" disabled={!name || !text || loading}>
+          Submit{loading ? "ting" : ""}
         </button>
       </FormStyles>
     </SectionStyles>
