@@ -56,6 +56,7 @@ const Post = styled.article`
   p {
     font-size: 2rem;
     line-height: 1.8;
+    word-break: break-word;
   }
   pre {
     background: ${props => props.theme.green + "4D"};

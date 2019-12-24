@@ -144,7 +144,9 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 1200,
+              maxWidth: 800,
+              wrapperStyle: fluidResult =>
+                `flex:${Math.round(fluidResult.aspectRatio, 2)}`,
             },
           },
           `gatsby-remark-responsive-iframe`,
