@@ -8,6 +8,14 @@
     "imageAlt": "Just a Girl From Oz Photography Site"
   },
   {
+    "name": "Bridenvy Site and Dashboard",
+    "description": "A customized website for Bridenvy Mobile Beauty Bar powered by a Sanity CMS dashboard.",
+    "link": "https://bridenvy.com",
+    "technologies": ["Gatsby", "React", "GraphQL", "CSS Grid", "Sanity CMS"],
+    "image": "../assets/images/project3.png",
+    "imageAlt": "Bridenvy Mobile Beauty Bar"
+  },
+  {
     "name": "Jason Cory Alvernaz Portfolio Site",
     "description": "My personal site designed to showcase my work and allow new clients to contact me.",
     "link": "https://jasoncoryalvernaz.com",
@@ -22,13 +30,5 @@
     "technologies": ["React", "CSS Grid"],
     "image": "../assets/images/project2.png",
     "imageAlt": "Coding From Null Course Platform"
-  },
-  {
-    "name": "Coding From Null YouTube Channel",
-    "description": "The Coding From Null YouTube channel is dedicated to offering free web development tutorials on the most cutting edge technologies in our industry.",
-    "link": "https://www.youtube.com/channel/UC9Psp9-p9jgHfDBReAAcZ3w",
-    "technologies": ["Premiere Pro", "Photoshop", "OBS Studio", "VS Code"],
-    "image": "../assets/images/project3.png",
-    "imageAlt": "Coding From Null YouTube Channel"
   }
 ]

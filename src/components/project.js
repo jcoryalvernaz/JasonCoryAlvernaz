@@ -14,7 +14,7 @@ const Project = ({ project }) => (
     </a>
     <p>{project.description}</p>
     <p>
-      <strong>Built wilth: </strong>
+      <strong>Built with: </strong>
       {project.technologies.map((tag, i) => (
         <Link
           key={i}
