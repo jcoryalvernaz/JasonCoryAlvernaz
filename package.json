@@ -9,7 +9,7 @@
     "apollo-boost": "^0.4.7",
     "apollo-link-http": "^1.5.16",
     "babel-plugin-styled-components": "^1.10.7",
-    "gatsby": "^2.13.42",
+    "gatsby": "^2.20.13",
     "gatsby-image": "^2.2.7",
     "gatsby-plugin-catch-links": "^2.1.27",
     "gatsby-plugin-feed": "^2.3.28",
