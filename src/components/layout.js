@@ -1,4 +1,3 @@
-/* eslint-disable */
 import Footer from './footer'
 import GlobalStyles from 'styles/GlobalStyles'
 import Header from './header'

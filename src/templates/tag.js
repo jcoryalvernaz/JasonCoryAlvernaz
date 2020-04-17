@@ -9,7 +9,6 @@ import {
   graphql,
 } from 'gatsby'
 
-/* eslint-disable */
 export default function TagPage({ pageContext, data }) {
   const { tag } = pageContext
   const posts = [...data.allMarkdownRemark.nodes]

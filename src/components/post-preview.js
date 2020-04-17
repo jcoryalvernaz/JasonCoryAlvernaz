@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import slugify from 'slugify'
 
-/* eslint-disable */
 function PostPreview({ post }) {
   return <li>
     <Link className="featured-image" to={post.fields.slug}>

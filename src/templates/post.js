@@ -1,4 +1,3 @@
-/* eslint-disable */
 import CommentSubmit from 'components/comment-submit'
 import Comments from 'components/comments'
 import Layout from 'components/layout'
