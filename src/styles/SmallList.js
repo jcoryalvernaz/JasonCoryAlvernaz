@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 const SmallList = styled.ul`
   max-width: 80rem;
@@ -16,7 +16,7 @@ const SmallList = styled.ul`
     background-size: 100% 200%;
     background-image: linear-gradient(
       to top,
-      ${props => props.theme.green + "4D"} 50%,
+      ${props => props.theme.green + '4D'} 50%,
       transparent 50%
     );
     transition: background-position 0.5s;

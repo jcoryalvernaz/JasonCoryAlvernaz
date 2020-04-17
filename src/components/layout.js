@@ -1,14 +1,22 @@
-import React, { useState, useLayoutEffect } from "react"
-import styled, { ThemeProvider } from "styled-components"
-import { useSpring, config, animated } from "react-spring"
-import PropTypes from "prop-types"
-
-import Header from "./header"
-import Footer from "./footer"
-import GlobalStyles from "../styles/GlobalStyles"
-
-import lightTheme from "../themes/light"
-import darkTheme from "../themes/dark"
+/* eslint-disable */
+import Footer from './footer'
+import GlobalStyles from 'styles/GlobalStyles'
+import Header from './header'
+import PropTypes from 'prop-types'
+import darkTheme from '../themes/dark'
+import lightTheme from '../themes/light'
+import React, {
+  useLayoutEffect,
+  useState,
+} from 'react'
+import {
+  animated,
+  config,
+  useSpring,
+} from 'react-spring'
+import styled, {
+  ThemeProvider,
+} from 'styled-components'
 
 const SiteWrapper = styled.div`
   min-height: 100%;
@@ -60,36 +68,36 @@ const StyledMain = styled(animated.main)`
   }
 `
 
-const Layout = ({ children }) => {
+function Layout({ children }) {
   const [isDarkMode, setIsDarkMode] = useState(false)
 
   useLayoutEffect(() => {
-    const stored = localStorage.getItem("isDarkMode")
-    setIsDarkMode(stored === "true" ? true : false)
+    const stored = localStorage.getItem('isDarkMode')
+    setIsDarkMode(stored === 'true' ? true : false)
   })
 
   const toggleTheme = () => {
-    localStorage.setItem("isDarkMode", !isDarkMode)
+    localStorage.setItem('isDarkMode', !isDarkMode)
     setIsDarkMode(!isDarkMode)
   }
 
   const mainProps = useSpring({
     config: config.slow,
     delay: 200,
-    from: { opacity: 0, transform: `translate3d(0, 80px, 0)` },
-    to: { opacity: 1, transform: `translate3d(0, 0, 0)` },
+    from: { opacity: 0, transform: 'translate3d(0, 80px, 0)' },
+    to: { opacity: 1, transform: 'translate3d(0, 0, 0)' },
   })
 
   return (
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
-      <>
+      <React.Fragment>
         <GlobalStyles />
         <SiteWrapper>
           <Header />
           <StyledMain style={mainProps}>{children}</StyledMain>
-          <Footer toggleTheme={toggleTheme} isChecked={isDarkMode} />
+          <Footer isChecked={isDarkMode} toggleTheme={toggleTheme} />
         </SiteWrapper>
-      </>
+      </React.Fragment>
     </ThemeProvider>
   )
 }

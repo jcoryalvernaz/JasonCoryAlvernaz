@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 const SocialIconStyles = styled.a`
   position: relative;
@@ -16,9 +16,9 @@ const SocialIconStyles = styled.a`
     .icon {
       transform: translateY(-10%);
       filter: ${props =>
-        props.theme.isDark
-          ? `drop-shadow(0px 6px 2px rgba(76, 42, 133, 1))`
-          : `drop-shadow(0px 6px 2px rgba(0, 0, 0, 0.2))`};
+    props.theme.isDark
+      ? 'drop-shadow(0px 6px 2px rgba(76, 42, 133, 1))'
+      : 'drop-shadow(0px 6px 2px rgba(0, 0, 0, 0.2))'};
     }
   }
   .icon {

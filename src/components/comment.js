@@ -1,9 +1,10 @@
-import React from "react"
-import moment from "moment"
-import PropTypes from "prop-types"
+/* eslint-disable */
+import PropTypes from 'prop-types'
+import React from 'react'
+import moment from 'moment'
 
-const Comment = ({ comment, reply }) => (
-  <div className="comment">
+function Comment({ comment, reply }) {
+  return <div className="comment">
     <header>
       <h2>{comment.name}</h2>
       <div className="comment-date">{moment(comment.date).fromNow()}</div>
@@ -19,7 +20,7 @@ const Comment = ({ comment, reply }) => (
       </div>
     )}
   </div>
-)
+}
 
 Comment.defaultProps = {
   reply: null,

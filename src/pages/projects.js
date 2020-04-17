@@ -1,14 +1,13 @@
-import React from "react"
-import { graphql } from "gatsby"
+import Layout from 'components/layout'
+import PageHeader from 'components/page-header'
+import ParagraphStyles from 'styles/ParagraphStyles'
+import Projects from 'components/projects'
+import React from 'react'
+import SEO from 'components/seo'
+import Social from 'components/social'
+import { graphql } from 'gatsby'
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Social from "../components/social"
-import PageHeader from "../components/page-header"
-import Projects from "../components/projects"
-import ParagraphStyles from "../styles/ParagraphStyles"
-
-const ProjectsPage = ({ data }) => {
+function ProjectsPage({ data }) {
   const projects = [...data.allProjectItemsJson.nodes]
   return (
     <Layout>
@@ -20,7 +19,7 @@ const ProjectsPage = ({ data }) => {
         the projects that I have developed.
       </ParagraphStyles>
       <Projects projects={projects} />
-      <Social></Social>
+      <Social />
     </Layout>
   )
 }

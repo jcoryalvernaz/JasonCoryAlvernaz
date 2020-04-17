@@ -1,15 +1,15 @@
-const path = require("path")
-const slugify = require("slugify")
+const path = require('path')
+const slugify = require('slugify')
 const sharp = require('sharp')
 sharp.simd(false)
 sharp.cache(false)
 
 exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions
-  if (node.internal.type === "MarkdownRemark") {
+  if (node.internal.type === 'MarkdownRemark') {
     const value = `/${slugify(node.frontmatter.title, { lower: true })}`
     createNodeField({
-      name: "slug",
+      name: 'slug',
       node,
       value,
     })
@@ -53,13 +53,13 @@ exports.createPages = ({ actions, graphql }) => {
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
-      modules: [path.resolve(__dirname, "src"), "node_modules"],
-    }
+      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+    },
   })
 }
 
-createPostPages = ({ posts, createPage }) => {
-  const postTemplate = path.resolve("src/templates/post.js")
+const createPostPages = ({ posts, createPage }) => {
+  const postTemplate = path.resolve('src/templates/post.js')
   posts.forEach(({ node }, index) => {
     const slug = node.fields.slug
     createPage({
@@ -70,22 +70,22 @@ createPostPages = ({ posts, createPage }) => {
           index === 0
             ? null
             : posts[index - 1].node.frontmatter.published
-            ? posts[index - 1].node
-            : null,
+              ? posts[index - 1].node
+              : null,
         next:
           index === posts.length - 1
             ? null
             : posts[index + 1].node.frontmatter.published
-            ? posts[index + 1].node
-            : null,
+              ? posts[index + 1].node
+              : null,
         slug,
       },
     })
   })
 }
 
-createTagsPages = ({ posts, createPage }) => {
-  const tagTemplate = path.resolve("src/templates/tag.js")
+const createTagsPages = ({ posts, createPage }) => {
+  const tagTemplate = path.resolve('src/templates/tag.js')
 
   const allTags = new Set()
   posts.forEach(({ node: { frontmatter: { tags } } }) => {

@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 const ToggleStyles = styled.label`
   position: relative;
@@ -9,9 +9,9 @@ const ToggleStyles = styled.label`
   margin-bottom: 1.5rem;
   img {
     margin-top: 0.5rem;
-    margin-left: ${props => (props.theme.isDark ? "0.5rem" : "0")};
-    margin-right: ${props => (props.theme.isDark ? "0" : "0.5rem")};
-    justify-self: ${props => (props.theme.isDark ? "" : "flex-end")};
+    margin-left: ${props => (props.theme.isDark ? '0.5rem' : '0')};
+    margin-right: ${props => (props.theme.isDark ? '0' : '0.5rem')};
+    justify-self: ${props => (props.theme.isDark ? '' : 'flex-end')};
     height: 2rem;
   }
   .switch {

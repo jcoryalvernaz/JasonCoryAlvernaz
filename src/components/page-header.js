@@ -1,6 +1,6 @@
-import React from "react"
-import styled from "styled-components"
-import PropTypes from "prop-types"
+import PropTypes from 'prop-types'
+import React from 'react'
+import styled from 'styled-components'
 
 const Header = styled.h1`
   font-size: 6rem;
@@ -22,7 +22,11 @@ const Header = styled.h1`
   }
 `
 
-const PageHeader = props => <Header>{props.children}</Header>
+function PageHeader({ children }) {
+  return (
+    <Header>{children}</Header>
+  )
+}
 
 PageHeader.propTypes = {
   children: PropTypes.node.isRequired,

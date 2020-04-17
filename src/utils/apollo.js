@@ -1,9 +1,9 @@
-import fetch from "isomorphic-fetch"
-import React from "react"
-import ApolloClient from "apollo-boost"
-import { ApolloProvider } from "react-apollo"
+import ApolloClient from 'apollo-boost'
+import { ApolloProvider } from 'react-apollo'
+import React from 'react'
+import fetch from 'isomorphic-fetch'
 
-export const wrapRootElement = ({ element }) => {
+export function wrapRootElement({ element }) {
   const client = new ApolloClient({
     uri: process.env.GATSBY_COMMENTS_API,
     headers: {

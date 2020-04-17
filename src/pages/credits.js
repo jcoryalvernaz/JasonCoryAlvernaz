@@ -1,12 +1,14 @@
-import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import Credits from 'components/credits'
+import Layout from 'components/layout'
+import PageHeader from 'components/page-header'
+import React from 'react'
+import SEO from 'components/seo'
+import {
+  graphql,
+  useStaticQuery,
+} from 'gatsby'
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import PageHeader from "../components/page-header"
-import Credits from "../components/credits"
-
-const CreditsPage = () => {
+function CreditsPage() {
   const data = useStaticQuery(graphql`
     query CreditsQuery {
       allCreditsItemsJson {
@@ -23,6 +25,7 @@ const CreditsPage = () => {
   const credits = [...data.allCreditsItemsJson.nodes]
   return (
     <Layout>
+      {/* eslint-disable react/jsx-pascal-case */}
       <SEO title="Credits" />
       <PageHeader>Credits</PageHeader>
       <Credits credits={credits} />

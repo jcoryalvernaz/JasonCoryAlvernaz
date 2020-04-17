@@ -1,16 +1,18 @@
-import React, { useState } from "react"
-import { graphql } from "gatsby"
-import styled from "styled-components"
-import moment from "moment"
-
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import PageHeader from "../components/page-header"
-import Post from "../styles/Post"
-import PostShare from "../components/post-share"
-import Comments from "../components/comments"
-import CommentSubmit from "../components/comment-submit"
-import PostNavigation from "../components/post-navigation"
+/* eslint-disable */
+import CommentSubmit from 'components/comment-submit'
+import Comments from 'components/comments'
+import Layout from 'components/layout'
+import PageHeader from 'components/page-header'
+import Post from 'styles/Post'
+import PostNavigation from 'components/post-navigation'
+import PostShare from 'components/post-share'
+import SEO from 'components/seo'
+import { graphql } from 'gatsby'
+import moment from 'moment'
+import styled from 'styled-components'
+import React, {
+  useState,
+} from 'react'
 
 const PostDate = styled.div`
   font-size: 2rem;
@@ -30,22 +32,23 @@ export default function PostPage({ data, pageContext }) {
 
   return (
     <Layout>
+      {/* eslint-disable react/jsx-pascal-case */}
       <SEO
-        title={post.frontmatter.title}
         description={post.frontmatter.description}
         image={post.frontmatter.featuredImage.childImageSharp.fluid}
         imageAlt={post.frontmatter.featuredAlt}
-        isBlogPost={true}
+        isBlogPost
+        title={post.frontmatter.title}
       />
       <PageHeader>{post.frontmatter.title}</PageHeader>
       <PostDate>
-        {moment(post.frontmatter.date).format("dddd, MMM Do YYYY")}
+        {moment(post.frontmatter.date).format('dddd, MMM Do YYYY')}
       </PostDate>
       <Post dangerouslySetInnerHTML={{ __html: post.html }} />
-      <PostShare title={post.frontmatter.title} slug={post.fields.slug} />
+      <PostShare slug={post.fields.slug} title={post.frontmatter.title} />
       <CommentSubmit count={state.comments.length} slug={post.fields.slug} />
       <Comments comments={state.comments} postTitle={post.frontmatter.title} />
-      <PostNavigation prev={prev} next={next} />
+      <PostNavigation next={next} prev={prev} />
     </Layout>
   )
 }

@@ -1,14 +1,14 @@
-import React from "react"
+import Contact from 'components/contact'
+import Layout from 'components/layout'
+import PageHeader from 'components/page-header'
+import ParagraphStyles from 'styles/ParagraphStyles'
+import React from 'react'
+import SEO from 'components/seo'
+import Social from 'components/social'
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Social from "../components/social"
-import Contact from "../components/contact"
-import PageHeader from "../components/page-header"
-import ParagraphStyles from "../styles/ParagraphStyles"
-
-const ContactPage = () => (
-  <Layout>
+function ContactPage() {
+  return <Layout>
+    {/* eslint-disable react/jsx-pascal-case */}
     <SEO title="Contact" />
     <PageHeader>Contact</PageHeader>
     <ParagraphStyles>
@@ -21,6 +21,6 @@ const ContactPage = () => (
     <Contact />
     <Social />
   </Layout>
-)
+}
 
 export default ContactPage

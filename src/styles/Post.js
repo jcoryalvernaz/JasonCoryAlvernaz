@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 const Post = styled.article`
   max-width: ${props => props.theme.maxWidth};
@@ -41,7 +41,7 @@ const Post = styled.article`
     background-size: 100% 200%;
     background-image: linear-gradient(
       to top,
-      ${props => props.theme.green + "4D"} 50%,
+      ${props => props.theme.green + '4D'} 50%,
       transparent 50%
     );
     transition: background-position 0.5s;
@@ -59,7 +59,7 @@ const Post = styled.article`
     word-break: break-word;
   }
   pre {
-    background: ${props => props.theme.green + "4D"};
+    background: ${props => props.theme.green + '4D'};
     padding: 1rem;
     border-radius: 2px;
   }
@@ -77,9 +77,9 @@ const Post = styled.article`
   code {
     font-size: 1.5rem;
     display: inline-block;
-    background: ${props => props.theme.green + "4D"};
+    background: ${props => props.theme.green + '4D'};
     color: ${props =>
-      props.theme.isDark ? props.theme.blue : props.theme.purple};
+    props.theme.isDark ? props.theme.blue : props.theme.purple};
     border-radius: 2px;
     padding: 0 1rem;
   }
@@ -90,12 +90,12 @@ const Post = styled.article`
     font-weight: bold;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
-    border: 1px solid ${props => props.theme.green + "4D"};
+    border: 1px solid ${props => props.theme.green + '4D'};
     border-bottom: 0;
     margin-bottom: -1.8rem;
   }
   .tip {
-    background: ${props => props.theme.green + "4D"};
+    background: ${props => props.theme.green + '4D'};
     padding: 1rem;
     align-self: flex-start;
     margin: 3rem 0;

@@ -1,43 +1,43 @@
-require("dotenv").config({ path: `.env.${process.env.NODE_ENV}` })
-const fetch = require("isomorphic-fetch")
-const { createHttpLink } = require("apollo-link-http")
+require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` })
+const fetch = require('isomorphic-fetch')
+const { createHttpLink } = require('apollo-link-http')
 
 module.exports = {
   siteMetadata: {
-    title: `Jason Cory Alvernaz | Reno Website Development and Design`,
-    description: `Beautifully crafted and customized websites for your business! Located in Reno, NV. Specialized in Web Development, Design, SEO, and Digital Marketing.`,
-    author: `@jcoryalvernaz`,
-    siteUrl: `https://jasoncoryalvernaz.com`,
+    title: 'Jason Cory Alvernaz | Reno Website Development and Design',
+    description: 'Beautifully crafted and customized websites for your business! Located in Reno, NV. Specialized in Web Development, Design, SEO, and Digital Marketing.',
+    author: '@jcoryalvernaz',
+    siteUrl: 'https://jasoncoryalvernaz.com',
     keywords: [
-      `reno website design`,
-      `reno website seo`,
-      `reno website builders`,
-      `reno website developers`,
-      `websites reno nevada`,
-      `web developer reno`,
-      `web developer portfolio`,
-      `web developer resume`,
-      `learn javascript`,
-      `learn react js`,
-      `learn react online`,
-      `learn react hooks`,
-      `web design company`,
-      `web design classes`,
-      `web design services`,
-      `web design agency`,
-      `web designers near me`,
-      `website designer`,
-      `website developer`,
-      `business website`,
-      `javacript blog tutorial`,
-      `javacript tutorials`,
-      `react js blog`,
-      `react js tutorials`,
+      'reno website design',
+      'reno website seo',
+      'reno website builders',
+      'reno website developers',
+      'websites reno nevada',
+      'web developer reno',
+      'web developer portfolio',
+      'web developer resume',
+      'learn javascript',
+      'learn react js',
+      'learn react online',
+      'learn react hooks',
+      'web design company',
+      'web design classes',
+      'web design services',
+      'web design agency',
+      'web designers near me',
+      'website designer',
+      'website developer',
+      'business website',
+      'javacript blog tutorial',
+      'javacript tutorials',
+      'react js blog',
+      'react js tutorials',
     ],
   },
   plugins: [
     {
-      resolve: `gatsby-plugin-feed`,
+      resolve: 'gatsby-plugin-feed',
       options: {
         query: `
           {
@@ -60,7 +60,7 @@ module.exports = {
                   date: edge.node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                   guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  custom_elements: [{ "content:encoded": edge.node.html }],
+                  custom_elements: [{ 'content:encoded': edge.node.html }],
                 })
               })
             },
@@ -85,46 +85,46 @@ module.exports = {
                 }
               }
             `,
-            output: "/rss.xml",
-            title: "Jason Cory Alvernaz's RSS Feed",
+            output: '/rss.xml',
+            title: 'Jason Cory Alvernaz\'s RSS Feed',
           },
         ],
       },
     },
-    `gatsby-plugin-catch-links`,
-    `gatsby-plugin-react-helmet`,
+    'gatsby-plugin-catch-links',
+    'gatsby-plugin-react-helmet',
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `images`,
+        name: 'images',
         path: `${__dirname}/src/assets`,
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `pages`,
+        name: 'pages',
         path: `${__dirname}/src/pages`,
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `data`,
+        name: 'data',
         path: `${__dirname}/src/data`,
       },
     },
-    `gatsby-transformer-json`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    'gatsby-transformer-json',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
           {
-            resolve: `gatsby-remark-prismjs`,
+            resolve: 'gatsby-remark-prismjs',
             options: {
-              classPrefix: "language-",
+              classPrefix: 'language-',
               inlineCodeMarker: null,
               aliases: {},
               showLineNumbers: false,
@@ -132,7 +132,7 @@ module.exports = {
             },
           },
           {
-            resolve: `gatsby-remark-embed-video`,
+            resolve: 'gatsby-remark-embed-video',
             options: {
               maxWidth: 800,
               ratio: 1.77,
@@ -142,54 +142,54 @@ module.exports = {
             },
           },
           {
-            resolve: `gatsby-remark-images`,
+            resolve: 'gatsby-remark-images',
             options: {
               maxWidth: 800,
               wrapperStyle: fluidResult =>
                 `flex:${Math.round(fluidResult.aspectRatio, 2)}`,
             },
           },
-          `gatsby-remark-responsive-iframe`,
+          'gatsby-remark-responsive-iframe',
         ],
       },
     },
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        name: `Jason Cory Alvernaz | Reno Website Development and Design`,
-        short_name: `Jason Cory Alvernaz`,
-        description: `Beautifully crafted and customized websites for your business! Located in Reno, NV. Specialized in Web Development, Design, SEO, and Digital Marketing.`,
-        start_url: `/`,
-        background_color: `#000013`,
-        theme_color: `#4c2a85`,
-        display: `minimal-ui`,
-        icon: `src/assets/images/JasonCoryCircle.png`, // This path is relative to the root of the site.
+        name: 'Jason Cory Alvernaz | Reno Website Development and Design',
+        short_name: 'Jason Cory Alvernaz',
+        description: 'Beautifully crafted and customized websites for your business! Located in Reno, NV. Specialized in Web Development, Design, SEO, and Digital Marketing.',
+        start_url: '/',
+        background_color: '#000013',
+        theme_color: '#4c2a85',
+        display: 'minimal-ui',
+        icon: 'src/assets/images/JasonCoryCircle.png', // This path is relative to the root of the site.
       },
     },
     {
-      resolve: `gatsby-plugin-styled-components`,
+      resolve: 'gatsby-plugin-styled-components',
       options: {
         //Add any options here
       },
     },
     //SEO plugins
     {
-      resolve: `gatsby-plugin-robots-txt`,
+      resolve: 'gatsby-plugin-robots-txt',
       options: {
-        policy: [{ userAgent: `*`, allow: `/` }],
+        policy: [{ userAgent: '*', allow: '/' }],
       },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: `UA-144187594-1`,
+        trackingId: 'UA-144187594-1',
       },
     },
     {
-      resolve: `gatsby-source-graphql`,
+      resolve: 'gatsby-source-graphql',
       options: {
-        typeName: `hasura`,
-        fieldName: `commentsApi`,
+        typeName: 'hasura',
+        fieldName: 'commentsApi',
         createLink: () => {
           return createHttpLink({
             uri: process.env.GATSBY_COMMENTS_API,
@@ -201,9 +201,9 @@ module.exports = {
         },
       },
     },
-    `gatsby-plugin-sitemap`,
+    'gatsby-plugin-sitemap',
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    // 'gatsby-plugin-offline',
   ],
 }

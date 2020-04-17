@@ -1,11 +1,14 @@
-import React, { useContext } from "react"
-import styled, { ThemeContext } from "styled-components"
-import PropTypes from "prop-types"
-
-import ToggleStyles from "../styles/ToggleStyles"
-import heart from "../assets/icons/heart.svg"
-import moon from "../assets/icons/moon.svg"
-import sun from "../assets/icons/sun.svg"
+import PropTypes from 'prop-types'
+import ToggleStyles from 'styles/ToggleStyles'
+import heart from 'assets/icons/heart.svg'
+import moon from 'assets/icons/moon.svg'
+import sun from 'assets/icons/sun.svg'
+import React, {
+  useContext,
+} from 'react'
+import styled, {
+  ThemeContext,
+} from 'styled-components'
 
 const StyledFooter = styled.footer`
   margin-top: 10rem;
@@ -27,35 +30,35 @@ const StyledFooter = styled.footer`
   }
   .pipe {
     color: ${props =>
-      props.theme.isDark ? props.theme.green : props.theme.blue};
+    props.theme.isDark ? props.theme.green : props.theme.blue};
     margin-left: 0.5rem;
     margin-right: 0.5rem;
     font-weight: bold;
   }
 `
 
-const Footer = ({ toggleTheme, isChecked }) => {
+function Footer({ toggleTheme, isChecked }) {
   const themeContext = useContext(ThemeContext)
 
   return (
     <StyledFooter>
       © {new Date().getFullYear()}, Jason Cory Alvernaz
       <p>
-        Made With <img className="heart" src={heart} alt="love heart" /> in Reno
+        Made With <img alt="love heart" className="heart" src={heart} /> in Reno
       </p>
       <br />
       <ToggleStyles>
         <input
           aria-label="Change Between Light and Dark Site Theme"
-          className="switch"
-          type="checkbox"
-          onChange={toggleTheme}
           checked={isChecked}
+          className="switch"
+          onChange={toggleTheme}
+          type="checkbox"
         />
         <span className="slider">
           <img
+            alt={themeContext.isDark ? 'Moon' : 'Sun'}
             src={themeContext.isDark ? moon : sun}
-            alt={themeContext.isDark ? "Moon" : "Sun"}
           />
         </span>
       </ToggleStyles>
@@ -69,8 +72,8 @@ const Footer = ({ toggleTheme, isChecked }) => {
 }
 
 Footer.propTypes = {
-  toggleTheme: PropTypes.func.isRequired,
   isChecked: PropTypes.bool.isRequired,
+  toggleTheme: PropTypes.func.isRequired,
 }
 
 export default Footer

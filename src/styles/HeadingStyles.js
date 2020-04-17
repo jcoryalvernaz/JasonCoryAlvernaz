@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 const HeadingStyles = styled.h1`
   font-size: 6rem;

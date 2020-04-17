@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 const LargeList = styled.ul`
   max-width: 80rem;
@@ -32,7 +32,7 @@ const LargeList = styled.ul`
   }
   .title {
     color: ${props =>
-      props.theme.isDark ? props.theme.blue : props.theme.purple};
+    props.theme.isDark ? props.theme.blue : props.theme.purple};
     font-weight: bold;
     font-size: 2.5rem;
   }
@@ -40,9 +40,9 @@ const LargeList = styled.ul`
     font-size: 1.5rem;
     display: inline-block;
     margin-right: 1rem;
-    background: ${props => props.theme.green + "4D"};
+    background: ${props => props.theme.green + '4D'};
     color: ${props =>
-      props.theme.isDark ? props.theme.blue : props.theme.purple};
+    props.theme.isDark ? props.theme.blue : props.theme.purple};
     border-radius: 2px;
     padding: 0 1rem;
     :hover {

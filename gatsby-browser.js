@@ -1,2 +1,2 @@
-import "prismjs/themes/prism-solarizedlight.css"
-export { wrapRootElement } from "./src/utils/apollo"
+import 'prismjs/themes/prism-solarizedlight.css'
+export { wrapRootElement } from './src/utils/apollo'

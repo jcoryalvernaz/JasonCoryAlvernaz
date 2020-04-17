@@ -1,22 +1,23 @@
-import React from "react"
-import PropTypes from "prop-types"
+/* eslint-disable */
+import PropTypes from 'prop-types'
+import React from 'react'
 
-const Credit = ({ credit }) => (
-  <li key={credit.id}>
-    "
-    <a target="_blank" rel="noopener noreferrer" href={credit.link}>
+function Credit({ credit }) {
+  return <li key={credit.id}>
+    &quot;
+    <a href={credit.link} rel="noopener noreferrer" target="_blank">
       {credit.icon}
     </a>
-    " icon by {credit.author} from{" "}
+    &quot; icon by {credit.author} from{' '}
     <a
-      target="_blank"
-      rel="noopener noreferrer"
       href="https://thenounproject.com"
+      rel="noopener noreferrer"
+      target="_blank"
     >
       the Noun Project.
     </a>
   </li>
-)
+}
 
 Credit.propTypes = {
   credit: PropTypes.object.isRequired,

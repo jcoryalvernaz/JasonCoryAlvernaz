@@ -1,80 +1,87 @@
-import React from "react"
-import { navigate } from "gatsby"
-import { submitFormData } from "../utils/helpers"
+import FormHeadingStyles from 'styles/FormHeadingStyles'
+import FormStyles from 'styles/FormStyles'
+import SectionStyles from 'styles/SectionStyles'
+import { navigate } from 'gatsby'
+import { submitFormData } from 'utils/helpers'
+import React, {
+  useCallback,
+} from 'react'
 
-import FormStyles from "../styles/FormStyles"
-import FormHeadingStyles from "../styles/FormHeadingStyles"
-import SectionStyles from "../styles/SectionStyles"
-
-const Contact = () => {
+function Contact() {
   const [state, setState] = React.useState({})
 
-  const handleChange = e => {
-    setState({
-      ...state,
-      [e.target.name]: e.target.value,
-    })
-  }
+  const handleChange = useCallback(
+    e => {
+      setState({
+        ...state,
+        [e.target.name]: e.target.value,
+      })
+    },
+    [setState]
+  )
 
-  const handleSubmit = e => {
-    e.preventDefault()
-    submitFormData(e, state)
-    navigate("/thanks")
-  }
+  const handleSubmit = useCallback(
+    e => {
+      e.preventDefault()
+      submitFormData(e, state)
+      navigate('/thanks')
+    },
+    [submitFormData]
+  )
 
   const { name, email, subject, message } = state
 
   return (
     <SectionStyles className="contact">
       <FormHeadingStyles>
-        <h2>Let's Create Something Beautiful!</h2>
+        <h2>Let&apos;s Create Something Beautiful!</h2>
       </FormHeadingStyles>
       <FormStyles
-        name="contact"
-        method="post"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
+        method="post"
+        name="contact"
         onSubmit={handleSubmit}
       >
-        <input type="hidden" name="form-name" value="contact" />
-        <input type="hidden" name="bot-field" onChange={handleChange} />
+        <input name="form-name" type="hidden" value="contact" />
+        <input name="bot-field" onChange={handleChange} type="hidden" />
         <input
-          name="name"
-          type="text"
-          placeholder="Name"
           aria-label="Enter Name"
+          name="name"
           onChange={handleChange}
+          placeholder="Name"
+          required
+          type="text"
           value={name}
-          required
         />
         <input
-          name="email"
-          type="email"
-          placeholder="Email"
           aria-label="Enter Email Address"
+          name="email"
           onChange={handleChange}
-          value={email}
+          placeholder="Email"
           required
+          type="email"
+          value={email}
         />
         <input
+          aria-label="Enter Subject"
           className="subject"
           name="subject"
-          type="text"
-          placeholder="Subject"
-          aria-label="Enter Subject"
           onChange={handleChange}
-          value={subject}
+          placeholder="Subject"
           required
+          type="text"
+          value={subject}
         />
         <textarea
+          aria-label="Enter Message"
           className="message"
           name="message"
-          type="text"
-          placeholder="What can I create for you?"
-          aria-label="Enter Message"
           onChange={handleChange}
-          value={message}
+          placeholder="What can I create for you?"
           required
+          type="text"
+          value={message}
         />
         <button
           disabled={!name || !email || !subject || !message}

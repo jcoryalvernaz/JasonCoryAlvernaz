@@ -1,14 +1,15 @@
-import React from "react"
-import styled from "styled-components"
-import { useStaticQuery, graphql } from "gatsby"
-import PropTypes from "prop-types"
-
-import SocialIconStyles from "../styles/SocialIconStyles"
-
-import twitter from "../assets/icons/twitter.svg"
-import facebook from "../assets/icons/facebook.svg"
-import linkedin from "../assets/icons/linkedin.svg"
-import rss from "../assets/icons/rss.svg"
+import PropTypes from 'prop-types'
+import React from 'react'
+import SocialIconStyles from 'styles/SocialIconStyles'
+import facebook from 'assets/icons/facebook.svg'
+import linkedin from 'assets/icons/linkedin.svg'
+import rss from 'assets/icons/rss.svg'
+import styled from 'styled-components'
+import twitter from 'assets/icons/twitter.svg'
+import {
+  graphql,
+  useStaticQuery,
+} from 'gatsby'
 
 const ShareWrapper = styled.div`
   display: grid;
@@ -31,7 +32,7 @@ const ShareWrapper = styled.div`
   }
 `
 
-const PostShare = ({ slug, title }) => {
+function PostShare({ slug, title }) {
   const data = useStaticQuery(graphql`
     query SiteQuery {
       site {
@@ -49,37 +50,37 @@ const PostShare = ({ slug, title }) => {
       <h2>Share this post: </h2>
       <SocialIconStyles
         href={`https://twitter.com/intent/tweet/?text=${title}&url=${siteUrl}${slug}%2F&via=jcoryalvernaz`}
-        target="_blank"
         rel="noopener noreferrer"
+        target="_blank"
       >
-        <object className="icon" type="image/svg+xml" data={twitter}>
+        <object className="icon" data={twitter} type="image/svg+xml">
           Twitter
         </object>
       </SocialIconStyles>
       <SocialIconStyles
         href={`https://www.facebook.com/sharer/sharer.php?u=${siteUrl}${slug}`}
-        target="_blank"
         rel="noopener noreferrer"
+        target="_blank"
       >
-        <object className="icon" type="image/svg+xml" data={facebook}>
+        <object className="icon" data={facebook} type="image/svg+xml">
           Facebook
         </object>
       </SocialIconStyles>
       <SocialIconStyles
         href={`https://www.linkedin.com/shareArticle?mini=true&url=${siteUrl}${slug}&title=${title}&source=${title}`}
-        target="_blank"
         rel="noopener noreferrer"
+        target="_blank"
       >
-        <object className="icon" type="image/svg+xml" data={linkedin}>
+        <object className="icon" data={linkedin} type="image/svg+xml">
           LinkedIn
         </object>
       </SocialIconStyles>
       <SocialIconStyles
         href={`${siteUrl}/rss.xml`}
-        target="_blank"
         rel="noopener noreferrer"
+        target="_blank"
       >
-        <object className="icon" type="image/svg+xml" data={rss}>
+        <object className="icon" data={rss} type="image/svg+xml">
           RSS Feed
         </object>
       </SocialIconStyles>

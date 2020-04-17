@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 const CommentsStyles = styled.div`
   max-width: 80rem;
@@ -9,7 +9,7 @@ const CommentsStyles = styled.div`
     padding-left: 3rem;
     border-left: 0.5rem solid ${props => props.theme.green};
     border-bottom: 0.2rem solid ${props => props.theme.orange};
-    background: ${props => props.theme.green + "4D"};
+    background: ${props => props.theme.green + '4D'};
     :after {
       content: "";
       height: 0.2rem;

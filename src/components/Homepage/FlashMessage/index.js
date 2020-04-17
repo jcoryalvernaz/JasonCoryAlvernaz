@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import useInterval from "react-useinterval"
+import useInterval from 'react-useinterval'
 import React, {
   useState,
 } from 'react'
@@ -42,12 +42,12 @@ const FlashSpan = styled.span`
   text-align: center;
 `
 
-const FlashMessage = () => {
+function FlashMessage() {
   const [titles] = useState([
-    "Developer!",
-    "Teacher!",
-    "Entrepreneur!",
-    "Designer!",
+    'Developer!',
+    'Teacher!',
+    'Entrepreneur!',
+    'Designer!',
   ])
   const [currentTitle, setCurrentTitle] = useState(titles[0])
 
@@ -65,10 +65,10 @@ const FlashMessage = () => {
 
   return (
     <StyledMessage>
-      I am a{" "}
+      I am a{' '}
       <FlashSpan>
         <StyledSpan>{currentTitle}</StyledSpan>
-      </FlashSpan>{" "}
+      </FlashSpan>{' '}
     </StyledMessage>
   )
 }

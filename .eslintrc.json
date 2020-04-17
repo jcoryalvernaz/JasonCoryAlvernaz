@@ -1,0 +1,113 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "jest": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:jsx-a11y/strict",
+    "plugin:react/all",
+    "plugin:security/recommended",
+    "prettier",
+    "prettier/react"
+  ],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "jsx": true
+    },
+    "ecmaVersion": 7,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "import",
+    "jest",
+    "jsx-a11y",
+    "prettier",
+    "react",
+    "react-hooks",
+    "security"
+  ],
+  "rules": {
+    "comma-dangle": ["error", "always-multiline"],
+    "eqeqeq": ["error", "always"],
+    "indent": ["error", 2],
+    "jsx-quotes": ["error", "prefer-double"],
+    "linebreak-style": ["error", "unix"],
+    "no-alert": "error",
+    "no-console": "error",
+    "no-debugger": "error",
+    "no-multiple-empty-lines": ["error", {"max": 1}],
+    "no-restricted-imports": ["error", {
+      "paths": [
+        {
+          "name": "lodash",
+          "message": "Use lodash-es or individual packages"
+        },
+        {
+          "name": "moment",
+          "message": "Use date-fns or Luxon"
+        }
+      ]
+    }],
+    "no-warning-comments": "warn",
+    "object-curly-spacing": ["error", "always"],
+    "quotes": ["error", "single"],
+    "react/forbid-component-props": [
+      "error",
+      {
+        "forbid": ["style"]
+      }
+    ],
+    "react/jsx-filename-extension": [
+      "warn",
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ],
+    "react/jsx-fragments": ["error", "element"],
+    "react/jsx-max-depth": [
+      "error",
+      {
+        "max": 4
+      }
+    ],
+    "react/jsx-no-literals": "off",
+    "react/jsx-tag-spacing": [
+      "error",
+      {
+        "closingSlash": "never",
+        "beforeSelfClosing": "always",
+        "afterOpening": "never"
+      }
+    ],
+    "react/prefer-stateless-function": [
+      "error",
+      {
+        "ignorePureComponents": true
+      }
+    ],
+    "react-hooks/rules-of-hooks": "error",
+    "semi": ["error", "never"],
+    "sort-imports": ["error", {
+      "ignoreCase": false,
+      "ignoreMemberSort": false,
+      "memberSyntaxSortOrder": ["single", "multiple", "all", "none"]
+    }]
+  },
+  "settings": {
+    "react": {
+       "linkComponents": [
+         {
+           "linkAttribute": "to",
+           "name": "Link"
+         }
+       ],
+      "version": "detect"
+    }
+  }
+}

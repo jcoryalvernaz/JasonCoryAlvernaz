@@ -1,9 +1,11 @@
-import React, { useState } from "react"
-import styled from "styled-components"
-
-import Nav from "./nav"
-import logo from "../assets/images/JasonCoryAlvernaz.jpg"
-import menu from "../assets/icons/hamburgerMenu.svg"
+import Nav from './nav'
+import logo from 'assets/images/JasonCoryAlvernaz.jpg'
+import menu from 'assets/icons/hamburgerMenu.svg'
+import styled from 'styled-components'
+import React, {
+  useCallback,
+  useState,
+} from 'react'
 
 const StyledHeader = styled.header`
   background: ${props => props.theme.purple};
@@ -56,22 +58,25 @@ const MenuButton = styled.input`
   }
 `
 
-const Header = () => {
+function Header() {
   const [expanded, setExpanded] = useState(false)
 
-  const toggleNav = () => {
-    setExpanded(!expanded)
-  }
+  const toggleNav = useCallback(
+    () => {
+      setExpanded(!expanded)
+    },
+    [setExpanded]
+  )
 
   return (
     <StyledHeader>
-      <Avatar src={logo} alt="Jason Cory Alvernaz" />
+      <Avatar alt="Jason Cory Alvernaz" src={logo} />
       <MenuButton
-        type="image"
-        src={menu}
         aria-expanded={expanded}
         aria-label="menu"
         onClick={toggleNav}
+        src={menu}
+        type="image"
       />
       <Nav />
     </StyledHeader>

@@ -1,10 +1,9 @@
-import React from "react"
-import PropTypes from "prop-types"
+import Comment from 'components/comment'
+import CommentsStyles from 'styles/CommentsStyles'
+import PropTypes from 'prop-types'
+import React from 'react'
 
-import Comment from "../components/comment"
-import CommentsStyles from "../styles/CommentsStyles"
-
-const Comments = ({ comments, postTitle }) => {
+function Comments({ comments, postTitle }) {
   const commentsTitle = commentsLength => {
     if (commentsLength === 1) {
       return `1 Reply for ${postTitle}`
@@ -27,7 +26,7 @@ const Comments = ({ comments, postTitle }) => {
             if (comment.id) {
               reply = comments.find(c => comment.id === c.parent_comment_id)
             }
-            return <Comment key={comment.id} comment={comment} reply={reply} />
+            return <Comment comment={comment} key={comment.id} reply={reply} />
           })}
     </CommentsStyles>
   )

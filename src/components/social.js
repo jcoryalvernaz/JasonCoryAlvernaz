@@ -1,9 +1,11 @@
-import React from "react"
-import { useInView } from "react-intersection-observer"
-import styled from "styled-components"
-import { graphql, useStaticQuery } from "gatsby"
-
-import SocialIconStyles from "../styles/SocialIconStyles"
+import React from 'react'
+import SocialIconStyles from 'styles/SocialIconStyles'
+import styled from 'styled-components'
+import { useInView } from 'react-intersection-observer'
+import {
+  graphql,
+  useStaticQuery,
+} from 'gatsby'
 
 const SocialWrapper = styled.div`
   margin-top: 5rem;
@@ -24,7 +26,7 @@ const SocialWrapper = styled.div`
   }
   .arrow {
     fill: ${props =>
-      props.theme.isDark ? props.theme.blue : props.theme.purple};
+    props.theme.isDark ? props.theme.blue : props.theme.purple};
     height: 4.5rem;
     width: 4.5rem;
   }
@@ -56,7 +58,7 @@ const SocialWrapper = styled.div`
   }
 `
 
-const Social = () => {
+function Social() {
   const data = useStaticQuery(graphql`
     query SocialLinksQuery {
       allSocialLinksJson {
@@ -82,18 +84,19 @@ const Social = () => {
   return (
     <SocialWrapper>
       <h2>Where to Find Me</h2>
-      <div ref={ref} className={inView ? "active" : ""}>
+      <div className={inView ? 'active' : ''} ref={ref}>
         <svg
           className="arrow"
-          xmlns="http://www.w3.org/2000/svg"
           version="1.1"
-          x="0px"
-          y="0px"
           viewBox="0 0 100 100"
+          x="0px"
+          xmlns="http://www.w3.org/2000/svg"
+          y="0px"
         >
           <g>
             <g>
-              <path d="m50 97.5c-26.3 0-47.6-21.3-47.6-47.6 0-24.9 19.1-45.3 43.5-47.4v54.4l-14.5-14.4c-1.6-1.6-4.2-1.6-5.8 0-0.8 0.8-1.2 1.8-1.2 2.9s0.4 2.1 1.2 2.9l21.5 21.5c1.6 1.6 4.2 1.6 5.8 0l21.5-21.5c1.6-1.6 1.6-4.2 0-5.8s-4.2-1.6-5.8 0l-14.5 14.4v-54.4c24.4 2.1 43.5 22.5 43.5 47.4 0 26.3-21.3 47.6-47.6 47.6z"></path>
+              {/* eslint-disable react/jsx-max-depth */}
+              <path d="m50 97.5c-26.3 0-47.6-21.3-47.6-47.6 0-24.9 19.1-45.3 43.5-47.4v54.4l-14.5-14.4c-1.6-1.6-4.2-1.6-5.8 0-0.8 0.8-1.2 1.8-1.2 2.9s0.4 2.1 1.2 2.9l21.5 21.5c1.6 1.6 4.2 1.6 5.8 0l21.5-21.5c1.6-1.6 1.6-4.2 0-5.8s-4.2-1.6-5.8 0l-14.5 14.4v-54.4c24.4 2.1 43.5 22.5 43.5 47.4 0 26.3-21.3 47.6-47.6 47.6z" />
             </g>
           </g>
         </svg>
@@ -101,15 +104,15 @@ const Social = () => {
       {links.map(link => {
         return (
           <SocialIconStyles
-            key={link.id}
-            target="_blank"
-            rel="noopener noreferrer"
             href={link.url}
+            key={link.id}
+            rel="noopener noreferrer"
+            target="_blank"
           >
             <object
-              type="image/svg+xml"
-              data={link.image.publicURL}
               className="icon"
+              data={link.image.publicURL}
+              type="image/svg+xml"
             >
               {link.name}
             </object>

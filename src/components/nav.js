@@ -1,10 +1,9 @@
-import React from "react"
-import { Link } from "gatsby"
+import { Link } from 'gatsby'
+import NavStyles from 'styles/NavStyles'
+import React from 'react'
 
-import NavStyles from "../styles/NavStyles"
-
-const Nav = () => (
-  <NavStyles>
+function Nav() {
+  return <NavStyles>
     <li>
       <Link to="/">Home</Link>
     </li>
@@ -18,6 +17,6 @@ const Nav = () => (
       <Link to="/projects">Projects</Link>
     </li>
   </NavStyles>
-)
+}
 
 export default Nav

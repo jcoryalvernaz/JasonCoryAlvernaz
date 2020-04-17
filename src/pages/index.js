@@ -1,13 +1,17 @@
-import React from "react"
-import styled from "styled-components"
-import { Link, useStaticQuery, graphql } from "gatsby"
 import FlashMessage from 'components/Homepage/FlashMessage'
-import Layout from "components/layout"
-import SEO from "components/seo"
-import Social from "components/social"
-import PageHeader from "components/page-header"
-import ParagraphStyles from "styles/ParagraphStyles"
-import SectionStyles from "styles/SectionStyles"
+import Layout from 'components/layout'
+import PageHeader from 'components/page-header'
+import ParagraphStyles from 'styles/ParagraphStyles'
+import React from 'react'
+import SEO from 'components/seo'
+import SectionStyles from 'styles/SectionStyles'
+import Social from 'components/social'
+import styled from 'styled-components'
+import {
+  Link,
+  graphql,
+  useStaticQuery,
+} from 'gatsby'
 
 const ConsultWrapper = styled.div`
   display: grid;
@@ -21,7 +25,7 @@ const ConsultWrapper = styled.div`
   }
 `
 
-const IndexPage = () => {
+function IndexPage() {
 
   const data = useStaticQuery(graphql`
     query ValueItemsQuery {
@@ -42,15 +46,16 @@ const IndexPage = () => {
 
   return (
     <Layout>
+      {/* eslint-disable react/jsx-pascal-case */}
       <SEO title="Home" />
       <PageHeader>Jason Cory Alvernaz</PageHeader>
       <FlashMessage />
       <ParagraphStyles>
         I love building fast, responsive, modern websites and helping others
         grow in their careers. Whether you need a website for your growing
-        business or looking to learn web development, you've come to the right
-        place. Take a look at <Link to="/projects">my work</Link>,{" "}
-        <Link to="/blog">read my blog</Link>, or{" "}
+        business or looking to learn web development, you&apos;ve come to the right
+        place. Take a look at <Link to="/projects">my work</Link>,{' '}
+        <Link to="/blog">read my blog</Link>, or{' '}
         <Link to="/contact">contact me</Link> for more information!
       </ParagraphStyles>
       <SectionStyles className="about">
@@ -85,8 +90,8 @@ const IndexPage = () => {
                 <li key={value.id}>
                   <object
                     className="icon"
-                    type="image/svg+xml"
                     data={value.image.publicURL}
+                    type="image/svg+xml"
                   >
                     {value.name}
                   </object>
@@ -98,7 +103,7 @@ const IndexPage = () => {
           </ul>
         </div>
       </SectionStyles>
-      <Social></Social>
+      <Social />
     </Layout>
   )
 }

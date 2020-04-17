@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 const PostNavigationStyles = styled.div`
   display: grid;
@@ -6,7 +6,7 @@ const PostNavigationStyles = styled.div`
   padding: 3rem;
   span {
     color: ${props =>
-      props.theme.isDark ? props.theme.blue : props.theme.purple};
+    props.theme.isDark ? props.theme.blue : props.theme.purple};
     font-size: 2.5rem;
   }
   h4 {
@@ -14,7 +14,7 @@ const PostNavigationStyles = styled.div`
   }
   .arrow {
     fill: ${props =>
-      props.theme.isDark ? props.theme.blue : props.theme.purple};
+    props.theme.isDark ? props.theme.blue : props.theme.purple};
     height: 2.5rem;
     width: 2.5rem;
     transition: transform 0.25s cubic-bezier(0.455, 0.03, 0.515, 0.955);

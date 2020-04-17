@@ -1,12 +1,14 @@
-import React, { useState } from "react"
-import PropTypes from "prop-types"
-import { useMutation } from "@apollo/react-hooks"
-import gql from "graphql-tag"
-import { submitFormData } from "../utils/helpers"
-
-import SectionStyles from "../styles/SectionStyles"
-import FormStyles from "../styles/FormStyles"
-import FormHeadingStyles from "../styles/FormHeadingStyles"
+import FormHeadingStyles from 'styles/FormHeadingStyles'
+import FormStyles from 'styles/FormStyles'
+import PropTypes from 'prop-types'
+import SectionStyles from 'styles/SectionStyles'
+import gql from 'graphql-tag'
+import { submitFormData } from 'utils/helpers'
+import { useMutation } from '@apollo/react-hooks'
+import React, {
+  useCallback,
+  useState,
+} from 'react'
 
 const SUBMIT_COMMENT_MUTATION = gql`
   mutation SubmitComment($name: String!, $text: String!, $slug: String!) {
@@ -25,28 +27,42 @@ const SUBMIT_COMMENT_MUTATION = gql`
   }
 `
 
-const CommentSubmit = ({ count, slug }) => {
+function CommentSubmit({ count, slug }) {
   const [state, setState] = useState({
     newComment: {
-      name: "",
-      text: "",
+      name: '',
+      text: '',
     },
   })
 
-  const handleChange = e => {
-    const { newComment } = state
-    setState({
-      newComment: { ...newComment, [e.target.name]: e.target.value },
-    })
-  }
+  const [submitComment, { data, loading, error, called }] = useMutation(
+    SUBMIT_COMMENT_MUTATION
+  )
+
+  const handleChange = useCallback(
+    e => {
+      const { newComment } = state
+      setState({
+        newComment: { ...newComment, [e.target.name]: e.target.value },
+      })
+    },
+    [setState]
+  )
+
+  const handleSubmit = useCallback(
+    e => {
+      e.preventDefault()
+      submitComment({ variables: { name, text, slug } })
+      submitFormData(e, state.newComment)
+      setState({ newComment: { name: '', text: '' } })
+    },
+    [setState, submitComment, submitFormData]
+  )
 
   const {
     newComment: { name, text },
   } = state
 
-  const [submitComment, { data, loading, error, called }] = useMutation(
-    SUBMIT_COMMENT_MUTATION
-  )
 
   return (
     <SectionStyles className="comments">
@@ -61,45 +77,40 @@ const CommentSubmit = ({ count, slug }) => {
           </h2>
         )}
         {!called || loading ? (
-          <h2>{count === 0 ? "Be the First to " : ""}Leave a Comment</h2>
+          <h2>{count === 0 ? 'Be the First to ' : ''}Leave a Comment</h2>
         ) : (
-          ""
+          ''
         )}
       </FormHeadingStyles>
       <FormStyles
-        name="comment"
-        method="post"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
-        onSubmit={e => {
-          e.preventDefault()
-          submitComment({ variables: { name, text, slug } })
-          submitFormData(e, state.newComment)
-          setState({ newComment: { name: "", text: "" } })
-        }}
+        method="post"
+        name="comment"
+        onSubmit={handleSubmit}
       >
-        <input type="hidden" name="form-name" value="comment" />
+        <input name="form-name" type="hidden" value="comment" />
         <input
-          type="text"
-          name="name"
-          className="comment-name"
-          placeholder="Name"
           aria-label="Enter Name"
+          className="comment-name"
+          name="name"
           onChange={handleChange}
-          value={name}
+          placeholder="Name"
           required
+          type="text"
+          value={name}
         />
         <textarea
-          name="text"
-          className="comment-text"
-          placeholder="Comment"
           aria-label="Enter Comment"
+          className="comment-text"
+          name="text"
           onChange={handleChange}
-          value={text}
+          placeholder="Comment"
           required
+          value={text}
         />
-        <button type="submit" disabled={!name || !text || loading}>
-          Submit{loading ? "ting" : ""}
+        <button disabled={!name || !text || loading} type="submit">
+          Submit{loading ? 'ting' : ''}
         </button>
       </FormStyles>
     </SectionStyles>
