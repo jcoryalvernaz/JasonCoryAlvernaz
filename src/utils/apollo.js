@@ -1,9 +1,16 @@
 import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo'
+import PropTypes from 'prop-types'
 import React from 'react'
 import fetch from 'isomorphic-fetch'
 
-export function wrapRootElement({ element }) {
+const propTypes = {
+  element: PropTypes.element.isRequired,
+}
+
+const wrapRootElement = ({
+  element,
+}) => {
   const client = new ApolloClient({
     uri: process.env.GATSBY_COMMENTS_API,
     headers: {
@@ -14,3 +21,7 @@ export function wrapRootElement({ element }) {
 
   return <ApolloProvider client={client}>{element}</ApolloProvider>
 }
+
+wrapRootElement.propTypes = propTypes
+
+export default wrapRootElement

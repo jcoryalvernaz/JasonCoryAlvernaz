@@ -42,7 +42,7 @@ const FlashSpan = styled.span`
   text-align: center;
 `
 
-function FlashMessage() {
+const FlashMessage = () => {
   const [titles] = useState([
     'Developer!',
     'Teacher!',

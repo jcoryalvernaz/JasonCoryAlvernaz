@@ -94,13 +94,26 @@ const Layout = ({
   })
 
   return (
-    <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
+    <ThemeProvider
+      theme={isDarkMode ? darkTheme : lightTheme}
+    >
       <React.Fragment>
         <GlobalStyles />
         <SiteWrapper>
           <Header />
-          <StyledMain style={mainProps}>{children}</StyledMain>
-          <Footer isChecked={isDarkMode} toggleTheme={toggleTheme} />
+          {/* eslint-disable react/forbid-component-props */}
+          <StyledMain
+            style={mainProps}
+          >
+            {children}
+          </StyledMain>
+          {/* eslint-enable react/forbid-component-props */}
+          {/* eslint-disable react/jsx-no-bind */}
+          <Footer
+            isChecked={isDarkMode}
+            toggleTheme={toggleTheme}
+          />
+          {/* eslint-enable react/jsx-no-bind */}
         </SiteWrapper>
       </React.Fragment>
     </ThemeProvider>
