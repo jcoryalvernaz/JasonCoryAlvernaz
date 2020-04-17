@@ -1,52 +1,13 @@
-import React, { useState } from "react"
+import React from "react"
 import styled from "styled-components"
 import { Link, useStaticQuery, graphql } from "gatsby"
-import useInterval from "react-useinterval"
-
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Social from "../components/social"
-import PageHeader from "../components/page-header"
-import ParagraphStyles from "../styles/ParagraphStyles"
-import SectionStyles from "../styles/SectionStyles"
-
-const StyledMessage = styled.p`
-  font-size: 3rem;
-  margin: 0;
-  padding: 2rem;
-  max-width: 70rem;
-  width: 100%;
-  justify-self: center;
-  line-height: 1.8;
-`
-
-const StyledSpan = styled.span`
-  display: grid;
-  transform: rotate(-1deg);
-  margin-left: 1rem;
-  width: fit-content;
-  color: ${props => props.theme.black};
-  &:after {
-    content: "";
-    height: 3.5rem;
-    background: ${props => props.theme.orange};
-    margin-top: -4.2rem;
-    z-index: -1;
-    width: 105%;
-    justify-self: center;
-    transform: skew(4deg);
-    box-shadow: ${props => props.theme.bs};
-  }
-  @media (max-width: 388px) {
-    margin-left: 0;
-  }
-`
-
-const FlashSpan = styled.span`
-  display: inline-block;
-  width: 25rem;
-  text-align: center;
-`
+import FlashMessage from 'components/Homepage/FlashMessage'
+import Layout from "components/layout"
+import SEO from "components/seo"
+import Social from "components/social"
+import PageHeader from "components/page-header"
+import ParagraphStyles from "styles/ParagraphStyles"
+import SectionStyles from "styles/SectionStyles"
 
 const ConsultWrapper = styled.div`
   display: grid;
@@ -61,25 +22,6 @@ const ConsultWrapper = styled.div`
 `
 
 const IndexPage = () => {
-  const [titles] = useState([
-    "Developer!",
-    "Teacher!",
-    "Entrepreneur!",
-    "Designer!",
-  ])
-  const [currentTitle, setCurrentTitle] = useState(titles[0])
-
-  const incrementTitle = index => {
-    if (index < titles.length - 1) {
-      setCurrentTitle(titles[index + 1])
-    } else {
-      setCurrentTitle(titles[0])
-    }
-  }
-
-  useInterval(() => {
-    incrementTitle(titles.indexOf(currentTitle))
-  }, 1000)
 
   const data = useStaticQuery(graphql`
     query ValueItemsQuery {
@@ -102,12 +44,7 @@ const IndexPage = () => {
     <Layout>
       <SEO title="Home" />
       <PageHeader>Jason Cory Alvernaz</PageHeader>
-      <StyledMessage>
-        I am a{" "}
-        <FlashSpan>
-          <StyledSpan>{currentTitle}</StyledSpan>
-        </FlashSpan>{" "}
-      </StyledMessage>
+      <FlashMessage />
       <ParagraphStyles>
         I love building fast, responsive, modern websites and helping others
         grow in their careers. Whether you need a website for your growing
