@@ -7,7 +7,7 @@ import React, {
   useCallback,
 } from 'react'
 
-function Contact() {
+const Contact = () => {
   const [state, setState] = React.useState({})
 
   const handleChange = useCallback(

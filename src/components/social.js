@@ -58,7 +58,7 @@ const SocialWrapper = styled.div`
   }
 `
 
-function Social() {
+const Social = () => {
   const data = useStaticQuery(graphql`
     query SocialLinksQuery {
       allSocialLinksJson {

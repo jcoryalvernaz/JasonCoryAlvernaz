@@ -8,7 +8,7 @@ import {
   useStaticQuery,
 } from 'gatsby'
 
-function CreditsPage() {
+const CreditsPage = () => {
   const data = useStaticQuery(graphql`
     query CreditsQuery {
       allCreditsItemsJson {

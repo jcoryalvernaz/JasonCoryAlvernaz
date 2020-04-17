@@ -27,7 +27,15 @@ const SUBMIT_COMMENT_MUTATION = gql`
   }
 `
 
-function CommentSubmit({ count, slug }) {
+const propTypes = {
+  count: PropTypes.number.isRequired,
+  slug: PropTypes.string.isRequired,
+}
+
+const CommentSubmit = ({
+  count,
+  slug,
+}) => {
   const [state, setState] = useState({
     newComment: {
       name: '',
@@ -62,7 +70,6 @@ function CommentSubmit({ count, slug }) {
   const {
     newComment: { name, text },
   } = state
-
 
   return (
     <SectionStyles className="comments">
@@ -117,9 +124,6 @@ function CommentSubmit({ count, slug }) {
   )
 }
 
-CommentSubmit.propTypes = {
-  count: PropTypes.number.isRequired,
-  slug: PropTypes.string.isRequired,
-}
+CommentSubmit.propTypes = propTypes
 
 export default CommentSubmit

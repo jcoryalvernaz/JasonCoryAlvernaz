@@ -58,7 +58,7 @@ const MenuButton = styled.input`
   }
 `
 
-function Header() {
+const Header = () => {
   const [expanded, setExpanded] = useState(false)
 
   const toggleNav = useCallback(

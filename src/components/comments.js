@@ -2,8 +2,24 @@ import Comment from 'components/comment'
 import CommentsStyles from 'styles/CommentsStyles'
 import PropTypes from 'prop-types'
 import React from 'react'
+import {
+  CommentType,
+  StringType,
+} from 'types'
 
-function Comments({ comments, postTitle }) {
+const defaultProps = {
+  comments: [],
+}
+
+const propTypes = {
+  comments: PropTypes.arrayOf(CommentType),
+  postTitle: StringType.isRequired,
+}
+
+const Comments = ({
+  comments,
+  postTitle,
+}) => {
   const commentsTitle = commentsLength => {
     if (commentsLength === 1) {
       return `1 Reply for ${postTitle}`
@@ -32,13 +48,7 @@ function Comments({ comments, postTitle }) {
   )
 }
 
-Comments.defaultProps = {
-  comments: [],
-}
-
-Comments.propTypes = {
-  comments: PropTypes.arrayOf(PropTypes.object),
-  postTitle: PropTypes.string.isRequired,
-}
+Comments.propTypes = propTypes
+Comments.defaultProps = defaultProps
 
 export default Comments

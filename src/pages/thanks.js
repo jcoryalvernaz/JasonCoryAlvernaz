@@ -5,17 +5,19 @@ import React from 'react'
 import SEO from 'components/seo'
 import Social from 'components/social'
 
-function ThanksPage() {
-  return <Layout>
-    {/* eslint-disable react/jsx-pascal-case */}
-    <SEO title="Thanks" />
-    <PageHeader>Thanks!</PageHeader>
-    <ParagraphStyles>
-      I will reply to your inquiry as quickly as possible. In the meantime, make
-      sure to check me out on social media by visiting the links below.
-    </ParagraphStyles>
-    <Social />
-  </Layout>
+const ThanksPage = () => {
+  return (
+    <Layout>
+      {/* eslint-disable react/jsx-pascal-case */}
+      <SEO title="Thanks" />
+      <PageHeader>Thanks!</PageHeader>
+      <ParagraphStyles>
+        I will reply to your inquiry as quickly as possible. In the meantime, make
+        sure to check me out on social media by visiting the links below.
+      </ParagraphStyles>
+      <Social />
+    </Layout>
+  )
 }
 
 export default ThanksPage

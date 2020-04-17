@@ -1,9 +1,20 @@
-/* eslint-disable */
-import PropTypes from 'prop-types'
+import { CommentType } from 'types'
 import React from 'react'
 import moment from 'moment'
 
-function Comment({ comment, reply }) {
+const defaultProps = {
+  reply: null,
+}
+
+const propTypes = {
+  comment: CommentType.isRequired,
+  reply: CommentType,
+}
+
+const Comment = ({
+  comment,
+  reply,
+}) => {
   return <div className="comment">
     <header>
       <h2>{comment.name}</h2>
@@ -22,13 +33,7 @@ function Comment({ comment, reply }) {
   </div>
 }
 
-Comment.defaultProps = {
-  reply: null,
-}
-
-Comment.propTypes = {
-  comment: PropTypes.object.isRequired,
-  reply: PropTypes.object,
-}
+Comment.propTypes = propTypes
+Comment.defaultProps = defaultProps
 
 export default Comment

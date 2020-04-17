@@ -25,7 +25,7 @@ const ConsultWrapper = styled.div`
   }
 `
 
-function IndexPage() {
+const IndexPage = () => {
 
   const data = useStaticQuery(graphql`
     query ValueItemsQuery {

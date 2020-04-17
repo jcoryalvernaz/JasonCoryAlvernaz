@@ -1,4 +1,3 @@
-/* eslint-disable */
 import CommentSubmit from 'components/comment-submit'
 import Comments from 'components/comments'
 import Layout from 'components/layout'
@@ -6,13 +5,16 @@ import PageHeader from 'components/page-header'
 import Post from 'styles/Post'
 import PostNavigation from 'components/post-navigation'
 import PostShare from 'components/post-share'
+import PropTypes from 'prop-types'
+import React from 'react'
 import SEO from 'components/seo'
 import { graphql } from 'gatsby'
 import moment from 'moment'
 import styled from 'styled-components'
-import React, {
-  useState,
-} from 'react'
+import {
+  CommentType,
+  ObjectType,
+} from 'types'
 
 const PostDate = styled.div`
   font-size: 2rem;
@@ -21,41 +23,89 @@ const PostDate = styled.div`
   text-decoration: underline ${props => props.theme.green};
 `
 
-export default function PostPage({ data, pageContext }) {
-  const { markdownRemark: post } = data
-  const { next, prev } = pageContext
-  const [state] = useState({
-    comments: [...data.commentsApi.comments].filter(
-      comment => comment.slug === post.fields.slug && comment.moderated
-    ),
-  })
+const propTypes = {
+  data: PropTypes.shape({
+    commentsApi: PropTypes.shape({
+      comments: PropTypes.arrayOf(CommentType),
+    }),
+    post: PropTypes.object,
+  }).isRequired,
+  pageContext: PropTypes.shape({
+    next: ObjectType,
+    prev: ObjectType,
+  }).isRequired,
+}
+
+const PostPage = ({
+  data: {
+    commentsApi: {
+      comments,
+    },
+    post: {
+      fields: {
+        slug,
+      },
+      frontmatter: {
+        date,
+        description,
+        featuredAlt,
+        featuredImage,
+        title,
+      },
+      html,
+    },
+  },
+  pageContext: {
+    next,
+    prev,
+  },
+}) => {
+  const moderatedComments = comments.filter(
+    comment => comment.slug === slug && comment.moderated
+  )
 
   return (
     <Layout>
       {/* eslint-disable react/jsx-pascal-case */}
       <SEO
-        description={post.frontmatter.description}
-        image={post.frontmatter.featuredImage.childImageSharp.fluid}
-        imageAlt={post.frontmatter.featuredAlt}
+        description={description}
+        image={featuredImage.childImageSharp.fluid}
+        imageAlt={featuredAlt}
         isBlogPost
-        title={post.frontmatter.title}
+        title={title}
       />
-      <PageHeader>{post.frontmatter.title}</PageHeader>
+      <PageHeader>
+        {title}
+      </PageHeader>
       <PostDate>
-        {moment(post.frontmatter.date).format('dddd, MMM Do YYYY')}
+        {moment(date).format('dddd, MMM Do YYYY')}
       </PostDate>
-      <Post dangerouslySetInnerHTML={{ __html: post.html }} />
-      <PostShare slug={post.fields.slug} title={post.frontmatter.title} />
-      <CommentSubmit count={state.comments.length} slug={post.fields.slug} />
-      <Comments comments={state.comments} postTitle={post.frontmatter.title} />
-      <PostNavigation next={next} prev={prev} />
+      <Post dangerouslySetInnerHTML={{ __html: html }} />
+      <PostShare
+        slug={slug}
+        title={title}
+      />
+      <CommentSubmit
+        count={moderatedComments.length}
+        slug={slug}
+      />
+      <Comments
+        comments={moderatedComments}
+        postTitle={ title}
+      />
+      <PostNavigation
+        next={next}
+        prev={prev}
+      />
     </Layout>
   )
 }
 
+PostPage.propTypes = propTypes
+
 export const postQuery = graphql`
   query BlogPostBySlug($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    post: markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       fields {
         slug
@@ -88,3 +138,5 @@ export const postQuery = graphql`
     }
   }
 `
+
+export default PostPage

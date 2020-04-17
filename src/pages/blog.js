@@ -2,6 +2,8 @@ import Layout from 'components/layout'
 import PageHeader from 'components/page-header'
 import ParagraphStyles from 'styles/ParagraphStyles'
 import PostPreviewList from 'components/post-preview-list'
+import { PostType } from 'types'
+import PropTypes from 'prop-types'
 import React from 'react'
 import SEO from 'components/seo'
 import {
@@ -9,8 +11,21 @@ import {
   graphql,
 } from 'gatsby'
 
-function BlogPage({ data }) {
-  const posts = [...data.allMarkdownRemark.nodes]
+const propTypes = {
+  data: PropTypes.shape({
+    allPosts: PropTypes.shape({
+      posts: PropTypes.arrayOf(PostType),
+    }),
+  }).isRequired,
+}
+
+const BlogPage = ({
+  data: {
+    allPosts: {
+      posts,
+    },
+  },
+}) => {
   return (
     <Layout>
       {/* eslint-disable react/jsx-pascal-case */}
@@ -33,11 +48,11 @@ function BlogPage({ data }) {
 
 export const pageQuery = graphql`
   query IndexQuery {
-    allMarkdownRemark(
+    allPosts: allMarkdownRemark(
       filter: { frontmatter: { published: { eq: true } } }
       sort: { fields: frontmatter___date, order: DESC }
     ) {
-      nodes {
+      posts: nodes {
         id
         fields {
           slug
@@ -61,5 +76,7 @@ export const pageQuery = graphql`
     }
   }
 `
+
+BlogPage.propTypes = propTypes
 
 export default BlogPage
