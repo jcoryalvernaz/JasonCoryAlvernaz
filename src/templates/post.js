@@ -8,8 +8,8 @@ import PostShare from 'components/post-share'
 import PropTypes from 'prop-types'
 import React from 'react'
 import SEO from 'components/seo'
+import { format } from 'date-fns'
 import { graphql } from 'gatsby'
-import moment from 'moment'
 import styled from 'styled-components'
 import {
   CommentType,
@@ -78,7 +78,7 @@ const PostPage = ({
         {title}
       </PageHeader>
       <PostDate>
-        {moment(date).format('dddd, MMM Do YYYY')}
+        {format(date, 'dddd, MMM Do YYYY')}
       </PostDate>
       <Post dangerouslySetInnerHTML={{ __html: html }} />
       <PostShare
