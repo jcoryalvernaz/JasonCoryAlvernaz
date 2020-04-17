@@ -1,7 +1,7 @@
 import Footer from './footer'
 import GlobalStyles from 'styles/GlobalStyles'
 import Header from './header'
-import PropTypes from 'prop-types'
+import { NodeType } from 'types'
 import darkTheme from '../themes/dark'
 import lightTheme from '../themes/light'
 import React, {
@@ -67,7 +67,13 @@ const StyledMain = styled(animated.main)`
   }
 `
 
-function Layout({ children }) {
+const propTypes = {
+  children: NodeType.isRequired,
+}
+
+const Layout = ({
+  children,
+}) => {
   const [isDarkMode, setIsDarkMode] = useState(false)
 
   useLayoutEffect(() => {
@@ -101,8 +107,6 @@ function Layout({ children }) {
   )
 }
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
+Layout.propTypes = propTypes
 
 export default Layout

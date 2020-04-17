@@ -2,7 +2,7 @@ import { Link } from 'gatsby'
 import NavStyles from 'styles/NavStyles'
 import React from 'react'
 
-function Nav() {
+const Nav = () => {
   return <NavStyles>
     <li>
       <Link to="/">Home</Link>

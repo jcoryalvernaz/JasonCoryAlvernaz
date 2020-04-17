@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+import { NodeType } from 'types'
 import React from 'react'
 import styled from 'styled-components'
 
@@ -22,14 +22,18 @@ const Header = styled.h1`
   }
 `
 
-function PageHeader({ children }) {
+const propTypes = {
+  children: NodeType.isRequired,
+}
+
+const PageHeader = ({
+  children,
+}) => {
   return (
     <Header>{children}</Header>
   )
 }
 
-PageHeader.propTypes = {
-  children: PropTypes.node.isRequired,
-}
+PageHeader.propTypes = propTypes
 
 export default PageHeader

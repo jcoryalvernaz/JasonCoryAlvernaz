@@ -1,16 +1,32 @@
 import Layout from 'components/layout'
+import { ObjectType } from 'types'
 import PageHeader from 'components/page-header'
 import ParagraphStyles from 'styles/ParagraphStyles'
 import Projects from 'components/projects'
+import PropTypes from 'prop-types'
 import React from 'react'
 import SEO from 'components/seo'
 import Social from 'components/social'
 import { graphql } from 'gatsby'
 
-function ProjectsPage({ data }) {
-  const projects = [...data.allProjectItemsJson.nodes]
+const propTypes = {
+  data: PropTypes.shape({
+    allProjects: PropTypes.shape({
+      projects: PropTypes.arrayOf(ObjectType),
+    }),
+  }).isRequired,
+}
+
+const ProjectsPage = ({
+  data: {
+    allProjects: {
+      projects,
+    },
+  },
+}) => {
   return (
     <Layout>
+      {/* eslint-disable react/jsx-pascal-case */}
       <SEO title="Projects" />
       <PageHeader>Projects</PageHeader>
       <ParagraphStyles>
@@ -26,8 +42,8 @@ function ProjectsPage({ data }) {
 
 export const pageQuery = graphql`
   query ProjectItemsQuery {
-    allProjectItemsJson {
-      nodes {
+    allProjects: allProjectItemsJson {
+      projects: nodes {
         id
         name
         description
@@ -45,5 +61,7 @@ export const pageQuery = graphql`
     }
   }
 `
+
+ProjectsPage.propTypes = propTypes
 
 export default ProjectsPage

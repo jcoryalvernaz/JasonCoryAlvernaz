@@ -1,8 +1,11 @@
-import PropTypes from 'prop-types'
 import ToggleStyles from 'styles/ToggleStyles'
 import heart from 'assets/icons/heart.svg'
 import moon from 'assets/icons/moon.svg'
 import sun from 'assets/icons/sun.svg'
+import {
+  BooleanType,
+  FunctionType,
+} from 'types'
 import React, {
   useContext,
 } from 'react'
@@ -37,7 +40,15 @@ const StyledFooter = styled.footer`
   }
 `
 
-function Footer({ toggleTheme, isChecked }) {
+const propTypes = {
+  isChecked: BooleanType.isRequired,
+  toggleTheme: FunctionType.isRequired,
+}
+
+const Footer = ({
+  isChecked,
+  toggleTheme,
+}) => {
   const themeContext = useContext(ThemeContext)
 
   return (
@@ -71,9 +82,6 @@ function Footer({ toggleTheme, isChecked }) {
   )
 }
 
-Footer.propTypes = {
-  isChecked: PropTypes.bool.isRequired,
-  toggleTheme: PropTypes.func.isRequired,
-}
+Footer.propTypes = propTypes
 
 export default Footer

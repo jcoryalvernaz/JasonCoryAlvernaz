@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types'
 import React from 'react'
 import SocialIconStyles from 'styles/SocialIconStyles'
+import { StringType } from 'types'
 import facebook from 'assets/icons/facebook.svg'
 import linkedin from 'assets/icons/linkedin.svg'
 import rss from 'assets/icons/rss.svg'
@@ -32,7 +32,15 @@ const ShareWrapper = styled.div`
   }
 `
 
-function PostShare({ slug, title }) {
+const propTypes = {
+  slug: StringType.isRequired,
+  title: StringType.isRequired,
+}
+
+const PostShare = ({
+  slug,
+  title,
+}) => {
   const data = useStaticQuery(graphql`
     query SiteQuery {
       site {
@@ -88,9 +96,6 @@ function PostShare({ slug, title }) {
   )
 }
 
-PostShare.propTypes = {
-  slug: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-}
+PostShare.propTypes = propTypes
 
 export default PostShare
