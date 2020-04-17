@@ -1,9 +1,5 @@
 {
-  "name": "gatsby-starter-default",
-  "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Jason Cory Alvernaz <jason@twentytwolabs.com>",
   "dependencies": {
     "@apollo/react-hooks": "^3.1.3",
     "apollo-boost": "^0.4.7",
@@ -45,13 +41,24 @@
     "slugify": "^1.4.0",
     "styled-components": "^4.3.2"
   },
+  "description": "Jason Cory Alvernaz's Blog and Portfolio running on Gatsby",
   "devDependencies": {
     "prettier": "^1.19.1"
   },
-  "keywords": [
-    "gatsby"
-  ],
   "license": "MIT",
+  "moduleFileExtensions": [
+    "jsx",
+    "js"
+  ],
+  "modulePaths": [
+    "<rootDir>/src"
+  ],
+  "name": "jason-cory-alvernaz",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+  },
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
@@ -60,11 +67,5 @@
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  }
+  "version": "1.0.0"
 }
