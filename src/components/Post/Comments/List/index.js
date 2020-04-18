@@ -1,5 +1,5 @@
-import Comment from 'components/comment'
-import CommentsStyles from 'styles/CommentsStyles'
+import Comment from './Comment'
+import { CommentsStyles } from 'styles'
 import PropTypes from 'prop-types'
 import React from 'react'
 import {
@@ -16,7 +16,7 @@ const propTypes = {
   postTitle: StringType.isRequired,
 }
 
-const Comments = ({
+const List = ({
   comments,
   postTitle,
 }) => {
@@ -48,7 +48,7 @@ const Comments = ({
   )
 }
 
-Comments.propTypes = propTypes
-Comments.defaultProps = defaultProps
+List.propTypes = propTypes
+List.defaultProps = defaultProps
 
-export default Comments
+export default List

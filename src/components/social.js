@@ -1,5 +1,5 @@
 import React from 'react'
-import SocialIconStyles from 'styles/SocialIconStyles'
+import { SocialIconStyles } from 'styles'
 import styled from 'styled-components'
 import { useInView } from 'react-intersection-observer'
 import {

@@ -1,10 +1,12 @@
-import FormHeadingStyles from 'styles/FormHeadingStyles'
-import FormStyles from 'styles/FormStyles'
 import PropTypes from 'prop-types'
-import SectionStyles from 'styles/SectionStyles'
 import gql from 'graphql-tag'
 import { submitFormData } from 'utils/helpers'
 import { useMutation } from '@apollo/react-hooks'
+import {
+  FormHeadingStyles,
+  FormStyles,
+  SectionStyles,
+} from 'styles'
 import React, {
   useCallback,
   useState,
@@ -32,7 +34,7 @@ const propTypes = {
   slug: PropTypes.string.isRequired,
 }
 
-const CommentSubmit = ({
+const Form = ({
   count,
   slug,
 }) => {
@@ -124,6 +126,6 @@ const CommentSubmit = ({
   )
 }
 
-CommentSubmit.propTypes = propTypes
+Form.propTypes = propTypes
 
-export default CommentSubmit
+export default Form

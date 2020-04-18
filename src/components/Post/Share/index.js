@@ -1,5 +1,5 @@
 import React from 'react'
-import SocialIconStyles from 'styles/SocialIconStyles'
+import { SocialIconStyles } from 'styles'
 import { StringType } from 'types'
 import facebook from 'assets/icons/facebook.svg'
 import linkedin from 'assets/icons/linkedin.svg'
@@ -37,7 +37,7 @@ const propTypes = {
   title: StringType.isRequired,
 }
 
-const PostShare = ({
+const Share = ({
   slug,
   title,
 }) => {
@@ -96,6 +96,6 @@ const PostShare = ({
   )
 }
 
-PostShare.propTypes = propTypes
+Share.propTypes = propTypes
 
-export default PostShare
+export default Share

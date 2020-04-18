@@ -4,7 +4,7 @@ import PageHeader from 'components/page-header'
 import ParagraphStyles from 'styles/ParagraphStyles'
 import React from 'react'
 import SEO from 'components/seo'
-import SectionStyles from 'styles/SectionStyles'
+import { SectionStyles } from 'styles'
 import Social from 'components/social'
 import styled from 'styled-components'
 import {

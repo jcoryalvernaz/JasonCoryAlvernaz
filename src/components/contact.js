@@ -1,8 +1,10 @@
-import FormHeadingStyles from 'styles/FormHeadingStyles'
-import FormStyles from 'styles/FormStyles'
-import SectionStyles from 'styles/SectionStyles'
 import { navigate } from 'gatsby'
 import { submitFormData } from 'utils/helpers'
+import {
+  FormHeadingStyles,
+  FormStyles,
+  SectionStyles,
+} from 'styles'
 import React, {
   useCallback,
 } from 'react'
