@@ -1,4 +1,4 @@
-import Nav from './nav'
+import Nav from './Nav'
 import logo from 'assets/images/JasonCoryAlvernaz.jpg'
 import menu from 'assets/icons/hamburgerMenu.svg'
 import styled from 'styled-components'

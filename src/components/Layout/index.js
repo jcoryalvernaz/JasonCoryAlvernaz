@@ -1,10 +1,9 @@
-import Footer from './footer'
-import GlobalStyles from 'styles/GlobalStyles'
-import Header from './header'
+import Footer from './Footer'
+import { GlobalStyles } from 'styles'
+import Header from './Header'
 import { NodeType } from 'types'
-import darkTheme from '../themes/dark'
-import lightTheme from '../themes/light'
 import React, {
+  Fragment,
   useLayoutEffect,
   useState,
 } from 'react'
@@ -13,6 +12,10 @@ import {
   config,
   useSpring,
 } from 'react-spring'
+import {
+  darkTheme,
+  lightTheme,
+} from 'themes'
 import styled, {
   ThemeProvider,
 } from 'styled-components'
@@ -97,7 +100,7 @@ const Layout = ({
     <ThemeProvider
       theme={isDarkMode ? darkTheme : lightTheme}
     >
-      <React.Fragment>
+      <Fragment>
         <GlobalStyles />
         <SiteWrapper>
           <Header />
@@ -115,7 +118,7 @@ const Layout = ({
           />
           {/* eslint-enable react/jsx-no-bind */}
         </SiteWrapper>
-      </React.Fragment>
+      </Fragment>
     </ThemeProvider>
   )
 }

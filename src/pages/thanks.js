@@ -1,4 +1,4 @@
-import Layout from 'components/layout'
+import Layout from 'components/Layout'
 import PageHeader from 'components/page-header'
 import ParagraphStyles from 'styles/ParagraphStyles'
 import React from 'react'

@@ -1,4 +1,4 @@
-import Layout from 'components/layout'
+import Layout from 'components/Layout'
 import PageHeader from 'components/page-header'
 import Post from 'components/Post'
 import PropTypes from 'prop-types'

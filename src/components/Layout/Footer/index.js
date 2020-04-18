@@ -1,11 +1,14 @@
-import ToggleStyles from 'styles/ToggleStyles'
-import heart from 'assets/icons/heart.svg'
-import moon from 'assets/icons/moon.svg'
-import sun from 'assets/icons/sun.svg'
+import { ToggleStyles } from 'styles'
 import {
   BooleanType,
   FunctionType,
 } from 'types'
+import {
+  HeartIcon,
+  MoonIcon,
+  Pipe,
+  SunIcon,
+} from 'assets/icons'
 import React, {
   useContext,
 } from 'react'
@@ -26,17 +29,11 @@ const StyledFooter = styled.footer`
     color: ${props => props.theme.white};
   }
   .heart {
+    width: 1.5rem;
     margin-bottom: -0.2rem;
     margin-left: 0.2rem;
     margin-right: 0.2rem;
     height: 1.5rem;
-  }
-  .pipe {
-    color: ${props =>
-    props.theme.isDark ? props.theme.green : props.theme.blue};
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-    font-weight: bold;
   }
 `
 
@@ -50,12 +47,13 @@ const Footer = ({
   toggleTheme,
 }) => {
   const themeContext = useContext(ThemeContext)
+  const { isDark } = themeContext
 
   return (
     <StyledFooter>
       © {new Date().getFullYear()}, Jason Cory Alvernaz
       <p>
-        Made With <img alt="love heart" className="heart" src={heart} /> in Reno
+        Made With <HeartIcon /> in Reno
       </p>
       <br />
       <ToggleStyles>
@@ -67,15 +65,12 @@ const Footer = ({
           type="checkbox"
         />
         <span className="slider">
-          <img
-            alt={themeContext.isDark ? 'Moon' : 'Sun'}
-            src={themeContext.isDark ? moon : sun}
-          />
+          {isDark ? <MoonIcon /> : <SunIcon />}
         </span>
       </ToggleStyles>
       <p>
         Built with <a href="https://gatsbyjs.org">Gatsby</a>
-        <span className="pipe"> | </span>
+        <Pipe />
         Hosted on <a href="https://netlify.com">Netlify</a>
       </p>
     </StyledFooter>

@@ -7,12 +7,13 @@ const ToggleStyles = styled.label`
   height: 3rem;
   align-self: flex-end;
   margin-bottom: 1.5rem;
-  img {
+  svg {
     margin-top: 0.5rem;
     margin-left: ${props => (props.theme.isDark ? '0.5rem' : '0')};
     margin-right: ${props => (props.theme.isDark ? '0' : '0.5rem')};
     justify-self: ${props => (props.theme.isDark ? '' : 'flex-end')};
     height: 2rem;
+    width: 2rem;
   }
   .switch {
     opacity: 0;

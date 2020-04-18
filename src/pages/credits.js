@@ -1,5 +1,5 @@
 import Credits from 'components/credits'
-import Layout from 'components/layout'
+import Layout from 'components/Layout'
 import PageHeader from 'components/page-header'
 import React from 'react'
 import SEO from 'components/seo'
