@@ -24,4 +24,7 @@ const wrapRootElement = ({
 
 wrapRootElement.propTypes = propTypes
 
+export {
+  wrapRootElement,
+}
 export default wrapRootElement

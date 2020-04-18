@@ -78,7 +78,7 @@ const PostPage = ({
         {title}
       </PageHeader>
       <PostDate>
-        {format(date, 'dddd, MMM Do YYYY')}
+        {format(new Date(date), 'dddd, MMM Do yyyy')}
       </PostDate>
       <Post dangerouslySetInnerHTML={{ __html: html }} />
       <PostShare
