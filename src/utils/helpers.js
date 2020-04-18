@@ -1,6 +1,6 @@
 const encode = data => {
   return Object.keys(data)
-    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[parseInt(key)]))
     .join('&')
 }
 
@@ -14,6 +14,7 @@ const submitFormData = (e, data) => {
       ...data,
     }),
   }).catch(err => {
+    /* eslint-disable-next-line */
     console.log(err)
   })
 }
