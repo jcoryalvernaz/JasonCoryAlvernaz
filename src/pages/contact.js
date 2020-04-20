@@ -4,7 +4,7 @@ import PageHeader from 'components/page-header'
 import ParagraphStyles from 'styles/ParagraphStyles'
 import React from 'react'
 import SEO from 'components/Seo'
-import Social from 'components/social'
+import Social from 'components/Social'
 
 const ContactPage = () => {
   return (

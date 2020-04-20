@@ -5,7 +5,7 @@ import ParagraphStyles from 'styles/ParagraphStyles'
 import React from 'react'
 import SEO from 'components/Seo'
 import SmallList from 'styles/SmallList'
-import Social from 'components/social'
+import Social from 'components/Social'
 import styled from 'styled-components'
 
 const ListHeading = styled.h2`

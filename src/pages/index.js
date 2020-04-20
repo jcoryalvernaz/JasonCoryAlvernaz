@@ -5,7 +5,7 @@ import ParagraphStyles from 'styles/ParagraphStyles'
 import React from 'react'
 import SEO from 'components/Seo'
 import { SectionStyles } from 'styles'
-import Social from 'components/social'
+import Social from 'components/Social'
 import styled from 'styled-components'
 import {
   Link,

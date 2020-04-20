@@ -6,7 +6,7 @@ import Projects from 'components/projects'
 import PropTypes from 'prop-types'
 import React from 'react'
 import SEO from 'components/Seo'
-import Social from 'components/social'
+import Social from 'components/Social'
 import { graphql } from 'gatsby'
 
 const propTypes = {

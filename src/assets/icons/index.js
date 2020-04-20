@@ -1,3 +1,4 @@
+import DownArrow from './DownArrow'
 import HeartIcon from './Heart'
 import LeftArrow from './LeftArrow'
 import MoonIcon from './Moon'
@@ -6,6 +7,7 @@ import RightArrow from './RightArrow'
 import SunIcon from './Sun'
 
 export {
+  DownArrow,
   HeartIcon,
   LeftArrow,
   MoonIcon,
