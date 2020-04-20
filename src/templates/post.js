@@ -3,7 +3,7 @@ import PageHeader from 'components/page-header'
 import Post from 'components/Post'
 import PropTypes from 'prop-types'
 import React from 'react'
-import SEO from 'components/seo'
+import SEO from 'components/Seo'
 import { graphql } from 'gatsby'
 import {
   CommentType,

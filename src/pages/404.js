@@ -2,7 +2,7 @@ import Layout from 'components/Layout'
 import PageHeader from 'components/page-header'
 import ParagraphStyles from 'styles/ParagraphStyles'
 import React from 'react'
-import SEO from 'components/seo'
+import SEO from 'components/Seo'
 import Social from 'components/social'
 
 const NotFoundPage = () => {

@@ -4,7 +4,7 @@ import ParagraphStyles from 'styles/ParagraphStyles'
 import PostPreviewList from 'components/post-preview-list'
 import PropTypes from 'prop-types'
 import React from 'react'
-import SEO from 'components/seo'
+import SEO from 'components/Seo'
 import {
   Link,
   graphql,

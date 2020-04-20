@@ -5,7 +5,7 @@ import PostPreviewList from 'components/post-preview-list'
 import { PostType } from 'types'
 import PropTypes from 'prop-types'
 import React from 'react'
-import SEO from 'components/seo'
+import SEO from 'components/Seo'
 import {
   Link,
   graphql,
