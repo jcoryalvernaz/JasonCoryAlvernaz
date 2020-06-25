@@ -1,12 +1,12 @@
-import Layout from 'components/layout'
+import Layout from 'components/Layout'
 import { ObjectType } from 'types'
-import PageHeader from 'components/page-header'
-import ParagraphStyles from 'styles/ParagraphStyles'
-import Projects from 'components/projects'
+import PageHeader from 'components/Layout/PageHeader'
+import { ParagraphStyles } from 'styles'
+import Projects from 'components/Projects'
 import PropTypes from 'prop-types'
 import React from 'react'
-import SEO from 'components/seo'
-import Social from 'components/social'
+import SEO from 'components/Seo'
+import Social from 'components/Social'
 import { graphql } from 'gatsby'
 
 const propTypes = {

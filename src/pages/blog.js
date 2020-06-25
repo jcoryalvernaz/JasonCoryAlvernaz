@@ -1,11 +1,11 @@
-import Layout from 'components/layout'
-import PageHeader from 'components/page-header'
-import ParagraphStyles from 'styles/ParagraphStyles'
-import PostPreviewList from 'components/post-preview-list'
+import Layout from 'components/Layout'
+import PageHeader from 'components/Layout/PageHeader'
+import { ParagraphStyles } from 'styles'
+import PostPreviewList from 'components/Post/List'
 import { PostType } from 'types'
 import PropTypes from 'prop-types'
 import React from 'react'
-import SEO from 'components/seo'
+import SEO from 'components/Seo'
 import {
   Link,
   graphql,

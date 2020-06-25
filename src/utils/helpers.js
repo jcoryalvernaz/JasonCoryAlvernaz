@@ -15,7 +15,7 @@ const submitFormData = (e, data) => {
     }),
   }).catch(err => {
     /* eslint-disable-next-line */
-    console.log(err)
+    console.error(err)
   })
 }
 

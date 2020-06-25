@@ -1,11 +1,11 @@
-import Layout from 'components/layout'
+import Layout from 'components/Layout'
 import { Link } from 'gatsby'
-import PageHeader from 'components/page-header'
-import ParagraphStyles from 'styles/ParagraphStyles'
+import PageHeader from 'components/Layout/PageHeader'
+import { ParagraphStyles } from 'styles'
 import React from 'react'
-import SEO from 'components/seo'
-import SmallList from 'styles/SmallList'
-import Social from 'components/social'
+import SEO from 'components/Seo'
+import { SmallListStyles } from 'styles'
+import Social from 'components/Social'
 import styled from 'styled-components'
 
 const ListHeading = styled.h2`
@@ -38,7 +38,7 @@ const UsesPage = () => {
         <Link to="/contact">contact page</Link>.
       </ParagraphStyles>
       <ListHeading>Terminal & Editor</ListHeading>
-      <SmallList>
+      <SmallListStyles>
         <li>
           Currently I use <a href="https://code.visualstudio.com/">VS Code</a> as
           my editor and <a href="https://cmder.net/">cmder</a> as my terminal.
@@ -71,9 +71,9 @@ const UsesPage = () => {
           </a>{' '}
           extension helps me write code much faster.
         </li>
-      </SmallList>
+      </SmallListStyles>
       <ListHeading>Productivity Applications</ListHeading>
-      <SmallList>
+      <SmallListStyles>
         <li>
           I use <a href="https://todoist.com/">Todoist</a> for my daily to-do
           list.
@@ -90,9 +90,9 @@ const UsesPage = () => {
           I use <a href="https://evernote.com">Evernote</a> to quickly write down
           ideas that I have before I make them into tasks.
         </li>
-      </SmallList>
+      </SmallListStyles>
       <ListHeading>Other Apps</ListHeading>
-      <SmallList>
+      <SmallListStyles>
         <li>
           For my screen recording, I currently use{' '}
           <a href="https://obsproject.com">OBS Studio</a>.
@@ -114,9 +114,9 @@ const UsesPage = () => {
           I use <a href="https://www.dropbox.com">Dropbox</a> to share my files
           across all my devices.
         </li>
-      </SmallList>
+      </SmallListStyles>
       <ListHeading>Gear</ListHeading>
-      <SmallList>
+      <SmallListStyles>
         <li>
           For my audio recording, I use the{' '}
           <a href="https://www.amazon.com/Neewer-Professional-Broadcasting-Microphone-Adjustable/dp/B00XOXRTX6">
@@ -154,7 +154,7 @@ const UsesPage = () => {
           My current machine is a 13.5&quot; Microsoft Surface Book 2.6GHz i7 with 16GB
           of RAM.
         </li>
-      </SmallList>
+      </SmallListStyles>
       <Social />
     </Layout>
   )

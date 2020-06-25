@@ -1,27 +1,14 @@
-import CommentSubmit from 'components/comment-submit'
-import Comments from 'components/comments'
-import Layout from 'components/layout'
-import PageHeader from 'components/page-header'
-import Post from 'styles/Post'
-import PostNavigation from 'components/post-navigation'
-import PostShare from 'components/post-share'
+import Layout from 'components/Layout'
+import PageHeader from 'components/Layout/PageHeader'
+import Post from 'components/Post'
 import PropTypes from 'prop-types'
 import React from 'react'
-import SEO from 'components/seo'
-import { format } from 'date-fns'
+import SEO from 'components/Seo'
 import { graphql } from 'gatsby'
-import styled from 'styled-components'
 import {
   CommentType,
   ObjectType,
 } from 'types'
-
-const PostDate = styled.div`
-  font-size: 2rem;
-  font-weight: bold;
-  justify-self: center;
-  text-decoration: underline ${props => props.theme.green};
-`
 
 const propTypes = {
   data: PropTypes.shape({
@@ -77,25 +64,14 @@ const PostPage = ({
       <PageHeader>
         {title}
       </PageHeader>
-      <PostDate>
-        {format(new Date(date), 'dddd, MMM Do yyyy')}
-      </PostDate>
-      <Post dangerouslySetInnerHTML={{ __html: html }} />
-      <PostShare
-        slug={slug}
-        title={title}
-      />
-      <CommentSubmit
-        count={moderatedComments.length}
-        slug={slug}
-      />
-      <Comments
-        comments={moderatedComments}
-        postTitle={ title}
-      />
-      <PostNavigation
+      <Post
+        date={date}
+        html={html}
+        moderatedComments={moderatedComments}
         next={next}
         prev={prev}
+        slug={slug}
+        title={title}
       />
     </Layout>
   )

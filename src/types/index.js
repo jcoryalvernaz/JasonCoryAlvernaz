@@ -3,6 +3,7 @@ import BooleanType from './boolean-type'
 import CommentType from './comment-type'
 import FunctionType from './function-type'
 import NodeType from './node-type'
+import NumberType from './number-type'
 import ObjectType from './object-type'
 import PostType from './post-type'
 import StringType from './string-type'
@@ -13,6 +14,7 @@ export {
   CommentType,
   FunctionType,
   NodeType,
+  NumberType,
   ObjectType,
   PostType,
   StringType,
