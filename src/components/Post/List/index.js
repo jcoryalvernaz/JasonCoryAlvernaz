@@ -1,5 +1,5 @@
-import LargeList from 'styles/LargeList'
-import PostPreview from './post-preview'
+import { LargeListStyles } from 'styles'
+import PostPreview from './Preview'
 import { PostType } from 'types'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -12,11 +12,11 @@ const PostPreviewList = ({
   posts,
 }) => {
   return (
-    <LargeList>
+    <LargeListStyles>
       {posts.map(post => (
         <PostPreview key={post.id} post={post} />
       ))}
-    </LargeList>
+    </LargeListStyles>
   )
 }
 

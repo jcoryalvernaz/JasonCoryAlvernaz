@@ -1,6 +1,6 @@
-import LargeList from 'styles/LargeList'
+import { LargeListStyles } from 'styles'
 import { ObjectType } from 'types'
-import Project from './project'
+import Project from './Project'
 import PropTypes from 'prop-types'
 import React from 'react'
 
@@ -12,11 +12,11 @@ const Projects = ({
   projects,
 }) => {
   return (
-    <LargeList>
+    <LargeListStyles>
       {projects.map(project => (
         <Project key={project.id} project={project} />
       ))}
-    </LargeList>
+    </LargeListStyles>
   )
 }
 

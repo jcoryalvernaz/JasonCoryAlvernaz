@@ -1,6 +1,7 @@
 import Form from './Form'
 import List from './List'
 import PropTypes from 'prop-types'
+import { SectionStyles } from 'styles'
 import {
   CommentType,
   StringType,
@@ -22,10 +23,12 @@ const Comments = ({
 }) => {
   return (
     <Fragment>
-      <Form
-        count={moderatedComments.length}
-        slug={slug}
-      />
+      <SectionStyles className="comments">
+        <Form
+          count={moderatedComments.length}
+          slug={slug}
+        />
+      </SectionStyles>
       <List
         comments={moderatedComments}
         postTitle={title}

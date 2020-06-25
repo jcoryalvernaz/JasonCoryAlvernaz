@@ -1,6 +1,6 @@
 import Layout from 'components/Layout'
-import PageHeader from 'components/page-header'
-import ParagraphStyles from 'styles/ParagraphStyles'
+import PageHeader from 'components/Layout/PageHeader'
+import { ParagraphStyles } from 'styles'
 import React from 'react'
 import SEO from 'components/Seo'
 import Social from 'components/Social'

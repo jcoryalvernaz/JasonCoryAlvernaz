@@ -1,8 +1,8 @@
-import Credit from './credit'
+import Credit from './Credit'
 import { ObjectType } from 'types'
 import PropTypes from 'prop-types'
 import React from 'react'
-import SmallList from 'styles/SmallList'
+import { SmallListStyles } from 'styles'
 
 const propTypes = {
   credits: PropTypes.arrayOf(ObjectType).isRequired,
@@ -12,11 +12,11 @@ const Credits = ({
   credits,
 }) => {
   return (
-    <SmallList>
+    <SmallListStyles>
       {credits.map(credit => (
         <Credit credit={credit} key={credit.id} />
       ))}
-    </SmallList>
+    </SmallListStyles>
   )
 }
 

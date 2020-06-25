@@ -1,5 +1,5 @@
 import Layout from 'components/Layout'
-import PageHeader from 'components/page-header'
+import PageHeader from 'components/Layout/PageHeader'
 import Post from 'components/Post'
 import PropTypes from 'prop-types'
 import React from 'react'

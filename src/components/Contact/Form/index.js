@@ -1,23 +1,27 @@
+import { FormStyles } from 'styles'
+import Heading from './Heading'
 import { navigate } from 'gatsby'
 import { submitFormData } from 'utils/helpers'
-import {
-  FormHeadingStyles,
-  FormStyles,
-  SectionStyles,
-} from 'styles'
 import React, {
+  Fragment,
   useCallback,
 } from 'react'
 
-const Contact = () => {
-  const [state, setState] = React.useState({})
+const Form = () => {
+  const [state, setState] = React.useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  })
 
   const handleChange = useCallback(
     e => {
-      setState({
-        ...state,
-        [e.target.name]: e.target.value,
-      })
+      const { name, value } = e.target
+      setState(prevState => ({
+        ...prevState,
+        [name]: value,
+      }))
     },
     [setState]
   )
@@ -34,10 +38,8 @@ const Contact = () => {
   const { name, email, subject, message } = state
 
   return (
-    <SectionStyles className="contact">
-      <FormHeadingStyles>
-        <h2>Let&apos;s Create Something Beautiful!</h2>
-      </FormHeadingStyles>
+    <Fragment>
+      <Heading />
       <FormStyles
         data-netlify="true"
         data-netlify-honeypot="bot-field"
@@ -92,8 +94,8 @@ const Contact = () => {
           Send Email
         </button>
       </FormStyles>
-    </SectionStyles>
+    </Fragment>
   )
 }
 
-export default Contact
+export default Form

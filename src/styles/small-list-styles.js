@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const SmallList = styled.ul`
+const SmallListStyles = styled.ul`
   max-width: 80rem;
   width: 100%;
   justify-self: center;
@@ -26,4 +26,4 @@ const SmallList = styled.ul`
   }
 `
 
-export default SmallList
+export default SmallListStyles

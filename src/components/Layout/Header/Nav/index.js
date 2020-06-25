@@ -1,5 +1,5 @@
 import { Link } from 'gatsby'
-import NavStyles from 'styles/NavStyles'
+import { NavStyles } from 'styles'
 import React from 'react'
 
 const Nav = () => {

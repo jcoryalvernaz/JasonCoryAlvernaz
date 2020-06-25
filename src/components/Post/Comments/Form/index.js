@@ -1,14 +1,10 @@
+import { FormStyles } from 'styles'
+import Heading from './Heading'
 import PropTypes from 'prop-types'
 import gql from 'graphql-tag'
-import { submitFormData } from 'utils/helpers'
 import { useMutation } from '@apollo/react-hooks'
-import {
-  FormHeadingStyles,
-  FormStyles,
-  SectionStyles,
-} from 'styles'
 import React, {
-  useCallback,
+  Fragment,
   useState,
 } from 'react'
 
@@ -34,63 +30,50 @@ const propTypes = {
   slug: PropTypes.string.isRequired,
 }
 
+const initialState = {
+  name: '',
+  text: '',
+}
+
 const Form = ({
   count,
   slug,
 }) => {
-  const [state, setState] = useState({
-    newComment: {
-      name: '',
-      text: '',
-    },
-  })
+  const [comment, setComment] = useState(initialState)
+
+  const { name, text } = comment
+
+  const resetForm = () => {
+    setComment(initialState)
+  }
 
   const [submitComment, { data, loading, error, called }] = useMutation(
-    SUBMIT_COMMENT_MUTATION
+    SUBMIT_COMMENT_MUTATION, {
+      onCompleted: resetForm,
+    }
   )
 
-  const handleChange = useCallback(
-    e => {
-      const { newComment } = state
-      setState({
-        newComment: { ...newComment, [e.target.name]: e.target.value },
-      })
-    },
-    [setState]
-  )
+  const handleChange = e => {
+    const { name, value } = e.target
+    setComment({
+      ...comment,
+      [name]: value,
+    })
+  }
 
-  const handleSubmit = useCallback(
-    e => {
-      e.preventDefault()
-      submitComment({ variables: { name, text, slug } })
-      submitFormData(e, state.newComment)
-      setState({ newComment: { name: '', text: '' } })
-    },
-    [setState, submitComment, submitFormData]
-  )
-
-  const {
-    newComment: { name, text },
-  } = state
+  const handleSubmit = e => {
+    e.preventDefault()
+    submitComment({ variables: { name, text, slug } })
+  }
 
   return (
-    <SectionStyles className="comments">
-      <FormHeadingStyles>
-        {error && (
-          <h2 className="error">Ooops! {JSON.stringify(error, null, 2)}</h2>
-        )}
-        {data && (
-          <h2>
-            Thanks {data.insert_comments.returning[0].name} for Submitting Your
-            Comment!
-          </h2>
-        )}
-        {!called || loading ? (
-          <h2>{count === 0 ? 'Be the First to ' : ''}Leave a Comment</h2>
-        ) : (
-          ''
-        )}
-      </FormHeadingStyles>
+    <Fragment>
+      <Heading>
+        {error && `Ooops! ${JSON.stringify(error, null, 2)}`}
+        {data && `Thank you ${data.insert_comments.returning[0].name}!`}
+        {(!called || loading) && `${count === 0 && 'Be the First to '}Leave a Comment`}
+      </Heading>
+      {/* eslint-disable react/jsx-no-bind */}
       <FormStyles
         data-netlify="true"
         data-netlify-honeypot="bot-field"
@@ -118,11 +101,12 @@ const Form = ({
           required
           value={text}
         />
+        {/* eslint-enable react/jsx-no-bind */}
         <button disabled={!name || !text || loading} type="submit">
-          Submit{loading ? 'ting' : ''}
+          Submit{loading && 'ting'}
         </button>
       </FormStyles>
-    </SectionStyles>
+    </Fragment>
   )
 }
 

@@ -1,6 +1,6 @@
-import Credits from 'components/credits'
+import Credits from 'components/Credits'
 import Layout from 'components/Layout'
-import PageHeader from 'components/page-header'
+import PageHeader from 'components/Layout/PageHeader'
 import React from 'react'
 import SEO from 'components/Seo'
 import {

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const LargeList = styled.ul`
+const LargeListStyles = styled.ul`
   max-width: 80rem;
   width: 100%;
   justify-self: center;
@@ -57,4 +57,4 @@ const LargeList = styled.ul`
   }
 `
 
-export default LargeList
+export default LargeListStyles
