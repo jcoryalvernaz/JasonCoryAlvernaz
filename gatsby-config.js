@@ -163,7 +163,7 @@ module.exports = {
         background_color: '#000013',
         theme_color: '#4c2a85',
         display: 'minimal-ui',
-        icon: 'src/assets/images/JasonCoryCircle.png', // This path is relative to the root of the site.
+        icon: 'src/assets/images/JasonCoryAlvernaz.jpg', // This path is relative to the root of the site.
       },
     },
     {
